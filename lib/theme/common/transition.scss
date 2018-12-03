@@ -1,0 +1,7 @@
+.c-alert-fade-leave-active {
+	transition: all 2s linear; 
+}
+.c-alert-fade-leave-to,
+.c-alert-fade-enter {
+	opacity: .5;
+}

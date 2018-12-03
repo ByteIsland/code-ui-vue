@@ -69,5 +69,6 @@ export default [
   "code-icon-start",
   "code-icon-start-on",
   "code-icon-clock",
-  "code-icon-clock-on"
+  "code-icon-clock-on",
+  "code-icon-info"
 ];

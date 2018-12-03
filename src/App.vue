@@ -10,7 +10,7 @@
         <c-button type="success">成功按钮</c-button>
         <c-button type="info">信息按钮</c-button>
         <c-button type="warning">警告按钮</c-button>
-        <c-button type="danger">危险按钮</c-button>
+        <c-button type="danger" icon="code-icon-delete">危险按钮</c-button>
       </div>
       <div class="round line-main">
         <h2 class="sub-tit">胶囊按钮</h2>
@@ -38,6 +38,41 @@
         <c-button type="info" circle icon="code-icon-like-on"></c-button>
         <c-button type="warning" circle icon="code-icon-start-on"></c-button>
         <c-button type="danger" circle icon="code-icon-delete"></c-button>
+      </div>
+    </div>
+    <h1 class="head-tit">警告框</h1>
+    <!-- 警告框 -->
+    <div class="alert">
+      <div class="is-icon">
+        <h2 class="sub-tit">基础样式</h2>
+        <c-alert type="success" title="这是一个成功警告框" />
+        <c-alert type="warning" title="这是一个警告框" />
+        <c-alert type="error" title="这是一个危险警告框" />
+        <c-alert title="这是一个默认框" />
+      </div>
+      <div class="none-icon">
+        <h2 class="sub-tit">可关闭icon图标</h2>
+        <c-alert type="success" :showIcon="false" title="这是一个成功警告框" />
+        <c-alert type="warning" :showIcon="false" title="这是一个警告框" />
+        <c-alert type="error" :showIcon="false" title="这是一个危险警告框" />
+        <c-alert :showIcon="false" title="这是一个默认框" />
+      </div>
+      <div class="closebtn">
+        <h2 class="sub-tit">可修改的关闭按钮</h2>
+        <c-alert type="success" :showIcon="false" closeText="知道了" />
+        <c-alert type="warning" :showIcon="false" :closable="false" />
+        <c-alert type="error" :showIcon="false" closeText="点击关闭" />
+      </div>
+      <div class="closebtn">
+        <h2 class="sub-tit">带二级文本</h2>
+        <c-alert type="success" msg="这是一个测试文本" />
+        <c-alert type="warning" msg="这是一个测试文本" />
+        <c-alert type="error" msg="这是一个测试文本" />
+        <c-alert msg="这是一个测试文本" />
+      </div>
+      <div class="none-icon">
+        <h2 class="sub-tit">文本居中</h2>
+        <c-alert type="success" center title="这是一个成功警告框" />
       </div>
     </div>
     <h1 class="head-tit">字体图标</h1>
@@ -80,12 +115,14 @@ export default {
   text-align: center;
   padding-bottom: 20px;
   border-bottom: 1px solid #ddd;
+  margin-top: 20px;
 }
 .sub-tit {
   margin: 20px;
 }
 .button,
-.iconfont {
+.iconfont,
+.alert {
   margin-top: 20px;
 }
 .iconfont ul {
@@ -115,5 +152,8 @@ export default {
       margin: 0 auto 10px;
     }
   }
+}
+.alert .c-alert {
+  margin-top: 20px;
 }
 </style>

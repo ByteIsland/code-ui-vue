@@ -1,6 +1,7 @@
 import CButton from "./button/index.js";
+import CAlert from "./alert/index.js";
 
-const components = [CButton];
+const components = [CButton, CAlert];
 
 const install = function(Vue) {
   if (install.installed) return;
@@ -13,5 +14,6 @@ if (typeof window !== "undefined" && window.Vue) {
 
 export default {
   install,
-  CButton
+  CButton,
+  CAlert
 };
