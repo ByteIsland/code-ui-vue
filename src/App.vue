@@ -98,7 +98,13 @@ export default {
   },
   methods: {
     testclick() {
-      console.log("点击事件");
+      this.$notice({
+        title: "测试标题",
+        content: "这是一段描述",
+        btnText: "关闭",
+        autoClose: 0,
+        type: "info"
+      });
     }
   }
 };
