@@ -6,11 +6,11 @@
       <div class="primary line-main">
         <h2 class="sub-tit">基础按钮</h2>
         <c-button @click="testclick">默认按钮</c-button>
-        <c-button type="primary">主要按钮</c-button>
-        <c-button type="success">成功按钮</c-button>
-        <c-button type="info">信息按钮</c-button>
-        <c-button type="warning">警告按钮</c-button>
-        <c-button type="danger" icon="code-icon-delete">危险按钮</c-button>
+        <c-button @click="messageClick" type="primary">主要按钮</c-button>
+        <c-button @click="messageSuccessClick" type="success">成功按钮</c-button>
+        <c-button @click="messageInfoClick" type="info">信息按钮</c-button>
+        <c-button @click="messageWarningClick" type="warning">警告按钮</c-button>
+        <c-button @click="messageDangerClick" type="danger" icon="code-icon-delete">危险按钮</c-button>
       </div>
       <div class="round line-main">
         <h2 class="sub-tit">胶囊按钮</h2>
@@ -102,9 +102,25 @@ export default {
         title: "测试标题",
         content: "这是一段描述",
         btnText: "关闭",
-        autoClose: 0,
         type: "info"
       });
+    },
+    messageClick() {
+      this.$message({
+        title: "这是提示信息"
+      });
+    },
+    messageDangerClick() {
+      this.$message.error("这是错误信息");
+    },
+    messageWarningClick() {
+      this.$message.warning("这是警告信息");
+    },
+    messageSuccessClick() {
+      this.$message.success("这是正确信息");
+    },
+    messageInfoClick() {
+      this.$message.info("这是消息信息");
     }
   }
 };

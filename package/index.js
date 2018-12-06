@@ -3,6 +3,7 @@ import CButton from "./button/index.js";
 import CAlert from "./alert/index.js";
 /* 全局组件 */
 import CNotification from "./notification/index.js";
+import CMessage from "./message/index.js";
 
 const components = [CButton, CAlert];
 
@@ -11,6 +12,7 @@ const install = function(Vue) {
   components.map(component => Vue.component(component.name, component));
   /* 注册全局组件 */
   Vue.prototype.$notice = CNotification; // 提示框
+  Vue.prototype.$message = CMessage; // 消息框
 };
 
 if (typeof window !== "undefined" && window.Vue) {
@@ -21,5 +23,6 @@ export default {
   install,
   CButton,
   CAlert,
-  CNotification
+  CNotification,
+  CMessage
 };

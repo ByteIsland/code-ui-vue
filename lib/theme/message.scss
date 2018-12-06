@@ -1,0 +1,55 @@
+@import './common/variable.scss';
+
+.c-message {
+	position: fixed;
+	top: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	text-align: center;
+	&.c-message-slide-enter-active {
+		transition: transform .35s;
+	} 
+	&.c-message-slide-leave-active {
+		transition: transform .45s, opacity .3s;
+	}
+	&.c-message-slide-enter, 
+	&.c-message-slide-leave-to {
+		transform: translate3d(0, -120%, 0);
+		opacity: 0;
+	}
+	.c-message--main {
+		display: inline-block;
+		color: $color-default;
+		background: #fff;
+		padding: 8px 16px;
+		border-radius: 4px;
+		box-shadow: 0 1px 6px rgba(0,0,0,.2);
+		&.success {
+			color: $color-success			
+		}
+		&.error {
+			color: $color-danger		
+		}
+		&.warning {
+			color: $color-warning		
+		}
+		&.info {
+			color: $color-info		
+		}
+		.c-message--icon {
+			font-size: $font-size-medium;
+		}
+		.c-message--title {
+			font-size: $font-size-medium;
+			font-weight: 400;
+			margin: 0 10px;
+			&.is-padding {
+				padding-right: 26px;
+			}
+		}
+		.c-message--closeBtn {
+			font-size: $font-size-small
+		}
+	}
+}
