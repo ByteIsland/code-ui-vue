@@ -75,6 +75,27 @@
         <c-alert type="success" center title="这是一个成功警告框" />
       </div>
     </div>
+    <h1 class="head-tit">栅格布局</h1>
+    <div class="grid">
+      <Row>
+        <Col :span="24">24：100%</Col>
+      </Row>
+      <Row>
+        <Col :span="12">12：50%</Col>
+        <Col :span="12">12：50%</Col>
+      </Row>
+      <Row>
+        <Col :span="8">8：33.3333%</Col>
+        <Col :span="8">8：33.3333%</Col>
+        <Col :span="8">8：33.3333%</Col>
+      </Row>
+      <Row>
+        <Col :span="6">6：25%</Col>
+        <Col :span="6">6：25%</Col>
+        <Col :span="6">6：25%</Col>
+        <Col :span="6">6：25%</Col>
+      </Row>
+    </div>
     <h1 class="head-tit">字体图标</h1>
     <!-- 字体图标 -->
     <div class="iconfont">
@@ -177,5 +198,73 @@ export default {
 }
 .alert .c-alert {
   margin-top: 20px;
+}
+.grid {
+  margin: 10px 0;
+  .c-row {
+    margin-bottom: 5px;
+    background-image: linear-gradient(
+      90deg,
+      #f5f5f5 4.16666667%,
+      transparent 0,
+      transparent 8.33333333%,
+      #f5f5f5 0,
+      #f5f5f5 12.5%,
+      transparent 0,
+      transparent 16.66666667%,
+      #f5f5f5 0,
+      #f5f5f5 20.83333333%,
+      transparent 0,
+      transparent 25%,
+      #f5f5f5 0,
+      #f5f5f5 29.16666667%,
+      transparent 0,
+      transparent 33.33333333%,
+      #f5f5f5 0,
+      #f5f5f5 37.5%,
+      transparent 0,
+      transparent 41.66666667%,
+      #f5f5f5 0,
+      #f5f5f5 45.83333333%,
+      transparent 0,
+      transparent 50%,
+      #f5f5f5 0,
+      #f5f5f5 54.16666667%,
+      transparent 0,
+      transparent 58.33333333%,
+      #f5f5f5 0,
+      #f5f5f5 62.5%,
+      transparent 0,
+      transparent 66.66666667%,
+      #f5f5f5 0,
+      #f5f5f5 70.83333333%,
+      transparent 0,
+      transparent 75%,
+      #f5f5f5 0,
+      #f5f5f5 79.16666667%,
+      transparent 0,
+      transparent 83.33333333%,
+      #f5f5f5 0,
+      #f5f5f5 87.5%,
+      transparent 0,
+      transparent 91.66666667%,
+      #f5f5f5 0,
+      #f5f5f5 95.83333333%,
+      transparent 0
+    );
+    .c-col {
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+      &:nth-child(2n + 1) {
+        background: rgba(0, 153, 229, 0.5);
+      }
+      &:nth-child(2n) {
+        background: rgba(0, 153, 229, 0.3);
+      }
+    }
+  }
 }
 </style>
