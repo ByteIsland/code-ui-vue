@@ -32,12 +32,12 @@
       </div>
       <div class="circle line-main">
         <h2 class="sub-tit">图标按钮</h2>
-        <c-button circle icon="code-icon-search"></c-button>
+        <c-button circle icon="code-icon-search" @click="startLoading()"></c-button>
         <c-button type="primary" circle icon="code-icon-database"></c-button>
-        <c-button type="success" circle icon="code-icon-setting"></c-button>
+        <c-button type="success" circle icon="code-icon-setting" @click="finishLoading()"></c-button>
         <c-button type="info" circle icon="code-icon-like-on"></c-button>
         <c-button type="warning" circle icon="code-icon-start-on"></c-button>
-        <c-button type="danger" circle icon="code-icon-delete"></c-button>
+        <c-button type="danger" circle icon="code-icon-delete" @click="errorLoading()"></c-button>
       </div>
     </div>
     <h1 class="head-tit">警告框</h1>
@@ -142,6 +142,18 @@ export default {
     },
     messageInfoClick() {
       this.$message.info("这是消息信息");
+    },
+    startLoading() {
+      this.$loading.start();
+    },
+    finishLoading() {
+      this.$loading.finish();
+    },
+    errorLoading() {
+      this.$loading.error();
+      setTimeout(() => {
+        this.$loading.destroy();
+      }, 2000);
     }
   }
 };

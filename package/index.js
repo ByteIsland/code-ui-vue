@@ -7,6 +7,8 @@ import CAlert from "./alert/index.js";
 /* 全局组件 */
 import CNotification from "./notification/index.js";
 import CMessage from "./message/index.js";
+import CMessageBox from "./message-box/index.js";
+import CLoadingBar from "./loading-bar/index.js";
 
 const components = [CButton, CAlert, Row, Col];
 
@@ -16,6 +18,8 @@ const install = function(Vue) {
   /* 注册全局组件 */
   Vue.prototype.$notice = CNotification; // 提示框
   Vue.prototype.$message = CMessage; // 消息框
+  Vue.prototype.$loading = CLoadingBar; // 加载
+  Vue.prototype.$alert = CMessageBox; // 普通消息框
 };
 
 if (typeof window !== "undefined" && window.Vue) {

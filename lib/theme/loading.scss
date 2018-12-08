@@ -1,0 +1,27 @@
+@import './common/variable.scss';
+
+.c-loading-bar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 2000;
+	&.c-loading-fade-leave-active,
+	&.c-loading-fade-enter-active {
+		transition: opacity .45s;
+	}
+	&.c-loading-fade-enter, 
+	&.c-loading-fade-leave-to {
+		opacity: 0;
+	}
+	.c-loading-bar-inner {
+		background: $color-default;
+		transition: width .2s linear;
+		&.c-loading-bar-inner-error {
+			background: $color-danger;			
+		}
+		&.c-loading-bar-inner-success {
+			background: $color-success;			
+		}
+	}
+}
