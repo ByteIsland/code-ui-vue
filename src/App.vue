@@ -117,6 +117,9 @@ export default {
       icon_name: IconName
     };
   },
+  mounted() {
+    this.$alert();
+  },
   methods: {
     testclick() {
       this.$notice({

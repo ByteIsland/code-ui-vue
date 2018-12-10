@@ -76,6 +76,18 @@
 			border-color: $color-danger-hover;
 		}
 	}
+	&.c-button--medium {
+		font-size: $font-size-small;
+		padding: 10px 15px;
+	}
+	&.c-button--small {
+		font-size: $font-size-small;
+		padding: 9px 15px;
+	}
+	&.c-button--mini {
+		font-size: $font-size-small;
+		padding: 7px 15px;
+	}
 	&.is_round {
 		border-radius: 20px;
 	}

@@ -1,0 +1,58 @@
+@import './common/variable.scss';
+
+.c-message-box--wrapper{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	.c-message-box {
+		display: inline-block;
+		font-size: 18px;
+		text-align: left;
+		width: 460px;
+		padding-bottom: 10px;
+		vertical-align: middle;
+		background-color: #fff;
+		border-radius: 5px;
+		border: 1px solid #ebeef5;
+		box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+		overflow: hidden;
+		backface-visibility: hidden;
+		z-index: 2000;
+		.c-message--header {
+			position: relative;
+			padding: 15px 15px 10px;
+			.c-message-box--title {
+				font-size: $font-size-large;
+				color: $text-primary;
+				line-height: 1;
+			}
+			.c-message-box--closeBtn {
+				position: absolute;
+				right: 15px;
+				top: 15px;
+				font-size: $font-size-medium;
+				cursor: pointer;
+			}
+		}
+		.c-message-box--body {
+			font-size: $font-size-medium;
+			color: $text-secondary;
+			position: relative;
+			padding: 10px 15px;
+		}
+		.c-message-box--btns {
+			padding: 5px 15px 0;
+			text-align: right;
+		}
+	}
+	&::after{
+		content: "";
+		display: inline-block;
+		height: 100%;
+		width: 0;
+		vertical-align: middle;
+	}
+}
