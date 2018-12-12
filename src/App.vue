@@ -33,7 +33,7 @@
       <div class="circle line-main">
         <h2 class="sub-tit">图标按钮</h2>
         <c-button circle icon="code-icon-search" @click="startLoading()"></c-button>
-        <c-button type="primary" circle icon="code-icon-database"></c-button>
+        <c-button type="primary" circle icon="code-icon-database" @click="openMessageBox()"></c-button>
         <c-button type="success" circle icon="code-icon-setting" @click="finishLoading()"></c-button>
         <c-button type="info" circle icon="code-icon-like-on"></c-button>
         <c-button type="warning" circle icon="code-icon-start-on"></c-button>
@@ -117,9 +117,6 @@ export default {
       icon_name: IconName
     };
   },
-  mounted() {
-    this.$alert();
-  },
   methods: {
     testclick() {
       this.$notice({
@@ -157,6 +154,15 @@ export default {
       setTimeout(() => {
         this.$loading.destroy();
       }, 2000);
+    },
+    openMessageBox() {
+      this.$alert({
+        title: "这是一个提示标题",
+        message: "这是一个提示描述",
+        callback: action => {
+          console.log("这个是callback函数", action);
+        }
+      });
     }
   }
 };

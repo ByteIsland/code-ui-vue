@@ -7,6 +7,16 @@
 	left: 0;
 	right: 0;
 	text-align: center;
+	z-index: 2005;
+	&.c-message-box-fade-enter-active,
+	&.c-message-box-fade-leave-active {
+		transition: transform .45s, opacity .3s;
+	} 
+	&.c-message-box-fade-enter, 
+	&.c-message-box-fade-leave-to {
+		transform: translate3d(0, -5%, 0);
+		opacity: 0;
+	}
 	.c-message-box {
 		display: inline-block;
 		font-size: 18px;
@@ -25,7 +35,7 @@
 			position: relative;
 			padding: 15px 15px 10px;
 			.c-message-box--title {
-				font-size: $font-size-large;
+				font-size: $font-size-medium-x;
 				color: $text-primary;
 				line-height: 1;
 			}

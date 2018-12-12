@@ -1,13 +1,19 @@
 <template>
-	<transition name="fade">
-		<div class="c-message-box--wrapper">
+	<transition name="c-message-box-fade">
+		<div 
+			class="c-message-box--wrapper"
+			v-show="visible"
+		>
 			<div class="c-message-box">
 				<!-- 标题头 -->
 				<div class="c-message--header">
 					<div class="c-message-box--title">
-						<p>提示</p>
+						<p>{{title}}</p>
 					</div>
-					<i class="c-message-box--closeBtn code-icon-close"></i>
+					<i 
+						class="c-message-box--closeBtn code-icon-close"
+						@click="handleAction('close')"
+					></i>
 				</div>
 				<div class="c-message-box--body">
 					<div class="c-message-box--content" v-show="message !== ''">
@@ -16,7 +22,16 @@
 					<div class="c-message-box--input"></div>
 				</div>
 				<div class="c-message-box--btns">
-					<c-button type="primary" size="small">提交</c-button>
+					<c-button 
+						type="primary" 
+						@click.native="handleAction('confrim')" 
+						size="small"
+					>提交</c-button>
+					<c-button 
+						type="" 
+						@click.native="handleAction('cancel')" 
+						size="small"
+					>取消</c-button>
 				</div>
 			</div>
 		</div>
@@ -25,11 +40,42 @@
 
 <script>
 import CButton from "../../button";
+// let typeMap = {
+//   success: "success",
+//   info: "info",
+//   warning: "warning",
+//   error: "error"
+// };
 export default {
   data() {
     return {
-      message: "这是一段消息文本"
+      visible: false,
+      action: "",
+      type: "",
+      title: "",
+      message: "",
+      callback: ""
     };
+  },
+  methods: {
+    // 点击事件
+    handleAction(action) {
+      this.action = action;
+      this.doClose();
+    },
+    doClose() {
+      if (!this.visible) return;
+      this.visible = false;
+      setTimeout(() => {
+        if (this.action) this.callback(this.action); // 返回操作
+        this.$emit("closed");
+      }, 100);
+    }
+  },
+  watch: {
+    visible: val => {
+      return val;
+    }
   },
   components: {
     CButton
