@@ -159,6 +159,8 @@ export default {
       this.$alert({
         title: "这是一个提示标题",
         message: "这是一个提示描述",
+        iconName: "success",
+        center: true,
         callback: action => {
           console.log("这个是callback函数", action);
         }

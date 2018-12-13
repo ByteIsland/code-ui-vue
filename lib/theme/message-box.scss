@@ -1,48 +1,98 @@
 @import './common/variable.scss';
 
-.c-message-box--wrapper{
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	text-align: center;
-	z-index: 2005;
-	&.c-message-box-fade-enter-active,
-	&.c-message-box-fade-leave-active {
-		transition: transform .45s, opacity .3s;
-	} 
+.c-message-box--transition {
+
+}
+
+/* 动效 */
+.c-message-box-fade-enter-active,
+.c-message-box-fade-leave-active {
+	transition: opacity .3s ease-in-out;
 	&.c-message-box-fade-enter, 
 	&.c-message-box-fade-leave-to {
-		transform: translate3d(0, -5%, 0);
 		opacity: 0;
 	}
+} 
+
+.c-message-box-slide-enter-active,
+.c-message-box-slide-leave-active {
+	transition: opacity .3s ease-in-out, transform .3s linear;
+	&.c-message-box-slide-enter, 
+	&.c-message-box-slide-leave-to {
+		opacity: 0;
+		transform: translateY(-5%)
+	}
+} 
+
+// 遮罩层
+.c-message-box--mask {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	background: rgba(0,0,0,.5);
+	z-index: 2005;
+}
+
+/* 框架 */
+.c-message-box--wrapper{
+	position: fixed;
+	top: 100px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: auto;
+	z-index: 2005;
+	// 垂直居中
+	&.vertical-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		top: 0;
+	}
 	.c-message-box {
-		display: inline-block;
 		font-size: 18px;
 		text-align: left;
 		width: 460px;
-		padding-bottom: 10px;
-		vertical-align: middle;
 		background-color: #fff;
-		border-radius: 5px;
+		border-radius: 8px;
 		border: 1px solid #ebeef5;
 		box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 		overflow: hidden;
-		backface-visibility: hidden;
-		z-index: 2000;
+		margin: auto;
 		.c-message--header {
+			display: flex;
+			align-items: center;
 			position: relative;
-			padding: 15px 15px 10px;
+			padding: 14px 16px;
+			.c-message-box--icon {
+				font-size: 28px;
+				margin-right: 10px;
+				&.code-icon-success {
+					color: $color-success
+				}
+				&.code-icon-error {
+					color: $color-danger
+				}
+				&.code-icon-warning {
+					color: $color-warning
+				}
+				&.code-icon-info {
+					color: $color-info
+				}
+			}
 			.c-message-box--title {
 				font-size: $font-size-medium-x;
+				font-weight: bold;
 				color: $text-primary;
 				line-height: 1;
 			}
 			.c-message-box--closeBtn {
 				position: absolute;
-				right: 15px;
-				top: 15px;
+				right: 22px;
+				top: 22px;
 				font-size: $font-size-medium;
 				cursor: pointer;
 			}
@@ -51,18 +101,11 @@
 			font-size: $font-size-medium;
 			color: $text-secondary;
 			position: relative;
-			padding: 10px 15px;
+			padding: 14px 18px;
 		}
 		.c-message-box--btns {
-			padding: 5px 15px 0;
+			padding: 12px 16px;
 			text-align: right;
 		}
-	}
-	&::after{
-		content: "";
-		display: inline-block;
-		height: 100%;
-		width: 0;
-		vertical-align: middle;
 	}
 }

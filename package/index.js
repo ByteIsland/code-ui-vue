@@ -21,7 +21,7 @@ const install = function(Vue) {
   Vue.prototype.$loading = CLoadingBar; // 加载
   Vue.prototype.$alert = CMessageBox.alert; // 警告框
   Vue.prototype.$confirm = CMessageBox.confirm; // 确认框
-  Vue.prototype.$prompt = CMessageBox.prompt; // 输入框
+  // Vue.prototype.$prompt = CMessageBox.prompt; // 输入框
 };
 
 if (typeof window !== "undefined" && window.Vue) {
