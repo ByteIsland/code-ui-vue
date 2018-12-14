@@ -3,6 +3,8 @@ import Row from "./row/index.js";
 import Col from "./col/index.js";
 import CButton from "./button/index.js";
 import CAlert from "./alert/index.js";
+/* 表单组件 */
+import CInput from "./input/index.js";
 
 /* 全局组件 */
 import CNotification from "./notification/index.js";
@@ -10,7 +12,7 @@ import CMessage from "./message/index.js";
 import CMessageBox from "./message-box/index.js";
 import CLoadingBar from "./loading-bar/index.js";
 
-const components = [CButton, CAlert, Row, Col];
+const components = [CButton, CAlert, Row, Col, CInput];
 
 const install = function(Vue) {
   if (install.installed) return;
@@ -36,5 +38,6 @@ export default {
   CMessage,
   CMessageBox,
   Col,
-  Row
+  Row,
+  CInput
 };

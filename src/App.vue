@@ -96,6 +96,21 @@
         <Col :span="6">6：25%</Col>
       </Row>
     </div>
+    <h1 class="head-tit">输入框</h1>
+    <div class="inputs">
+      <c-input style="width: 320px"  @onBlur="console.log(this)" @onFocus="console.log(this)"  />
+      <h2 class="sub-tit">可改变大小</h2>
+      <c-input style="width: 320px" size="large" />
+      <c-input style="width: 320px" size="small" />
+      <h2 class="sub-tit">可清空数据</h2>
+      <c-input style="width: 320px" clearable  />
+      <h2 class="sub-tit">支持左右图标展示(直接传入图标名)</h2>
+      <c-input style="width: 320px" suffix="code-icon-search"  />
+      <c-input style="width: 320px" prefix="code-icon-user"  />
+      <h2 class="sub-tit">开启搜索按钮</h2>
+      <c-input style="width: 320px" search  />
+      <c-input style="width: 320px" search enter-button  />
+    </div>
     <h1 class="head-tit">字体图标</h1>
     <!-- 字体图标 -->
     <div class="iconfont">
@@ -288,6 +303,12 @@ export default {
         background: rgba(0, 153, 229, 0.3);
       }
     }
+  }
+}
+.inputs {
+  margin-top: 20px;
+  .c-input--warpper {
+    margin-bottom: 20px;
   }
 }
 </style>

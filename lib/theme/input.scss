@@ -1,0 +1,113 @@
+.c-input--warpper {
+	display: flex;
+	width: 100%;
+	position: relative;
+	vertical-align: middle;
+	line-height: normal;
+	&.c-input-group {
+		display: table;
+		.c-input--defalut {
+			width: 100%;
+		}
+	}
+	&:hover {
+		.c-input-icon {
+			display: block;
+		}
+	}
+	.c-input-icon {
+		display: inline-block;
+		font-size: $font-size-medium-x;
+		color: $text-placeholder;
+		text-align: center;
+		width: 32px;
+		height: 32px;
+		line-height: 32px;
+		position: absolute;
+		right: 0;
+		&.c-input-icon--clear{
+			cursor: pointer;
+		}
+	}
+	.c-input--defalut {
+		flex: 1;
+		font-size: $font-size-small;
+    color: $text-regular;
+		height: 32px;
+		padding: 4px 8px;
+		border: 1px solid $border-primary;
+		border-radius: 5px;
+		transition: border-color .3s ease-in-out, box-shadow .3s ease-in-out;
+		&:focus {
+			outline: 0;
+			box-shadow: 0 0 0 2px rgba(45,140,240,.2);
+		}
+		&:hover, &:focus {
+			border-color: $color-default;
+		}
+		// size
+		&.c-input-large{
+			font-size: $font-size-medium;
+			height: 36px;
+			padding: 6px 8px;
+		}
+		&.c-input-small{
+			height: 26px;
+			padding: 2px 8px;
+		}
+		// 左右侧Icon
+		&.c-input--suffix {
+			padding-right: 32px;
+		}
+		&.c-input--prefix {
+			padding-left: 32px;
+		}
+	}
+	// 左右icon布局
+	.c-input--with-prefix i, 
+	.c-input--with-suffix i {
+		font-size: $font-size-medium-x;
+		line-height: 32px;
+		color: $text-placeholder;
+	}
+	.c-input--with-prefix{
+		width: 32px;
+		height: 100%;
+		text-align: center;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.c-input--with-suffix {
+		width: 32px;
+		height: 100%;
+		text-align: center;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	// 右侧按钮
+	.c-input--gruop-append {
+		display: table-cell;
+		padding: 4px 7px;
+    font-size: inherit;
+    font-weight: 400;
+    color: #515a6e;
+    text-align: center;
+    background-color: #f8f8f9;
+    border: 1px solid #dcdee2;
+		border-radius: 4px;
+		vertical-align: middle;
+			// search按钮
+		&.c-input-search {
+			padding: 0 10px;
+			color: #fff;
+			border-left: 0px;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			background: $color-default;
+			border-color: $color-default;
+			position: relative;
+		}
+	}
+}
