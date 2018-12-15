@@ -1,19 +1,40 @@
 <template>
 	<div :class="wrapClasses">
 		<template v-if="type !== 'textarea'">
-      <!-- disabled -->
+      <!-- clear -->
 			<i 
-				class="c-input-icon c-input-icon--clear code-icon-error"
-				:class="[`c-input-icon-${this.size}`]"
+				:class="[
+          `${prefixCls}-icon`,
+          `${prefixCls}-icon-${this.size}`,
+          `${prefixCls}-icon--clear `,
+          'code-icon-error'
+        ]"
 				v-if="clearable && currentValue"
 				@click="handleClear"
 			></i>
+      <!-- search -->
+      <i 
+        :class="[
+          `${prefixCls}-icon`, 
+          `${prefixCls}-ios-search`,
+          'code-icon-search'
+        ]"
+        v-else-if="search && enterButton === false"
+        @click="handleSearch"
+      ></i>
       <!-- 左Icon -->
-      <span class="c-input--with-prefix" v-if="showPrefix" >
+      <span :class="[`${prefixCls}--with-prefix`]" v-else-if="showPrefix" >
         <slot name="prefix">
           <i class="c-icon" :class="prefix"></i>
         </slot>
       </span>
+      <!-- 左边标签 -->
+      <div 
+        :class="[`${prefixCls}--group-prepend`]"
+        v-if="prepend"
+      >
+        <slot name="prepend"></slot>
+      </div>
 			<input
 				:class="inputClasses"
 				ref="input"
@@ -29,18 +50,23 @@
 				@change="handleChange"
 			/>
       <!-- 右Icon -->
-      <span class="c-input--with-suffix" v-if="showSuffix" >
+      <span :class="[`${prefixCls}--with-suffix`]" v-if="showSuffix" >
         <slot name="suffix">
           <i class="c-icon" :class="suffix"></i>
         </slot>
       </span>
-      <!-- search -->
+      <!-- 右边标签 -->
+      <div :class="[`${prefixCls}--group-append`]" v-if="append" >
+        <slot name="append"></slot>
+      </div>
+      <!-- search按钮 -->
       <div 
-        :class="[`${prefixCls}--gruop-append`, `${prefixCls}-search`]"
+        :class="[`${prefixCls}--group-append`, `${prefixCls}-search`]"
         v-if="search && enterButton"
         @click="handleSearch"
       >
-        <i class="c-icon code-icon-search" v-if="enterButton"></i>
+        <i class="c-icon code-icon-search" v-if="enterButton === true"></i>
+        <template v-else>{{ enterButton }}</template>
       </div>
 		</template>
 	</div>
@@ -54,10 +80,7 @@ export default {
     name: {
       type: String
     },
-    size: {
-      type: String,
-      default: ""
-    },
+    size: String,
     type: {
       type: String,
       default: "text"
@@ -91,22 +114,33 @@ export default {
     return {
       prefixCls: prefixCls,
       currentValue: this.value,
+      prepend: true,
+      append: true,
       showSuffix: false,
       showPrefix: false
     };
   },
   computed: {
     wrapClasses() {
+      console.log((this.prepend || this.append) && !!this.size);
       return [
-        `${prefixCls}--warpper`,
+        `${prefixCls}-warpper`,
         {
-          [`${prefixCls}-group`]: this.search && this.enterButton
+          [`${prefixCls}-group`]:
+            this.prepend || this.append || (this.search && this.enterButton),
+          [`${prefixCls}-group-${this.size}`]: !!this.size,
+          [`${prefixCls}-group--with-append`]:
+            this.append || (this.search && this.enterButton),
+          [`${prefixCls}-group--with-prepend`]: this.prepend,
+          [`${prefixCls}-group--with-${this.size}`]:
+            !!this.size &&
+            (this.append || this.prepend || (this.search && this.enterButton))
         }
       ];
     },
     inputClasses() {
       return [
-        `${prefixCls}--defalut`,
+        `${prefixCls}`,
         {
           [`${prefixCls}-${this.size}`]: !!this.size, // 判断非空
           [`${prefixCls}--disabled`]: this.disabled,
@@ -134,13 +168,20 @@ export default {
       this.setCurrentValue("");
       this.$emit("on-change", event);
     },
+    // 监听选中
     handleFocus(event) {
       this.$emit("on-focus", event);
     },
+    // 监听移除
     handleBlur(event) {
       this.$emit("on-blur", event);
     },
-    handleSearch() {},
+    // 点击搜索
+    handleSearch() {
+      if (this.disabled) return;
+      this.$refs.input.focus();
+      this.$emit("on-search", this.currentValue);
+    },
     // 设置值
     setCurrentValue(value) {
       if (value === this.currentValue) return;
@@ -161,6 +202,8 @@ export default {
   mounted() {
     this.showSuffix = this.suffix !== "" || this.$slots.suffix !== undefined;
     this.showPrefix = this.prefix !== "" || this.$slots.prefix !== undefined;
+    this.prepend = this.$slots.prepend !== undefined;
+    this.append = this.$slots.append !== undefined;
   }
 };
 </script>

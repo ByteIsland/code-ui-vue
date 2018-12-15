@@ -29,14 +29,20 @@ $font-size-medium-x: 16px;
 $font-size-large:  18px;
 $font-size-large-x: 22px;
 
-/* 文字色彩 */
+/* 基础文字色彩 */
 $text-primary: #333;
 $text-regular: #666;
 $text-secondary: #999;
 $text-placeholder: #ccc;
 
+/* 中性色彩 */
+$text-title: #17243f;
+$text-content: #596379;
+$text-icon: #888e9e;
+$text-disabled: #d5d8df;
+
 /* 边框色彩 */
-$border-primary: #DCDFE6;
+$border-primary: #DCDEE2;
 $border-regular: #E4E7ED;
 $border-secondary: #EBEEF5;
 $border-placeholder: #F2F6FC;

@@ -103,13 +103,29 @@
       <c-input style="width: 320px" size="large" />
       <c-input style="width: 320px" size="small" />
       <h2 class="sub-tit">可清空数据</h2>
-      <c-input style="width: 320px" clearable  />
+      <c-input style="width: 320px" clearable value="可以移除的数据" />
       <h2 class="sub-tit">支持左右图标展示(直接传入图标名)</h2>
       <c-input style="width: 320px" suffix="code-icon-search"  />
       <c-input style="width: 320px" prefix="code-icon-user"  />
       <h2 class="sub-tit">开启搜索按钮</h2>
       <c-input style="width: 320px" search  />
       <c-input style="width: 320px" search enter-button  />
+      <c-input style="width: 320px" search enter-button="Search"  />
+      <h2 class="sub-tit">开启左右标签</h2>
+      <c-input style="width: 320px">
+        <span slot="prepend">https</span>
+        <span slot="append">.com</span>
+      </c-input>
+      <c-input style="width: 320px" size="large">
+        <span slot="prepend">https</span>
+        <span slot="append">.com</span>
+      </c-input>
+      <c-input style="width: 320px" size="small">
+        <span slot="prepend">https</span>
+        <span slot="append">.com</span>
+      </c-input>
+      <h2 class="sub-tit">禁用标签</h2>
+      <c-input type="text" disabled></c-input>
     </div>
     <h1 class="head-tit">字体图标</h1>
     <!-- 字体图标 -->
@@ -307,8 +323,9 @@ export default {
 }
 .inputs {
   margin-top: 20px;
-  .c-input--warpper {
+  .c-input-warpper {
     margin-bottom: 20px;
+    margin-right: 20px;
   }
 }
 </style>
