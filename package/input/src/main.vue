@@ -122,7 +122,6 @@ export default {
   },
   computed: {
     wrapClasses() {
-      console.log((this.prepend || this.append) && !!this.size);
       return [
         `${prefixCls}-warpper`,
         {

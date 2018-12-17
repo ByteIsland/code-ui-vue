@@ -1,0 +1,19 @@
+.c-layout-wrapper {
+	display: flex;
+	flex-direction: column;
+	flex: auto;
+	.c-layout-header,
+	.c-layout-main,
+	.c-layout-footer {
+		flex: 0 0 auto;
+	}
+	/* is-sider */
+	&.is-sider {
+		flex-direction: row;
+		.c-layout-header,
+		.c-layout-main,
+		.c-layout-footer {
+			flex: 1;
+		}
+	}
+}

@@ -96,6 +96,34 @@
         <Col :span="6">6：25%</Col>
       </Row>
     </div>
+    <h1 class="head-tit">Layout布局</h1>
+    <div class="layouts">
+      <h2 class="sub-tit">基础常规布局</h2>
+      <c-layout>
+        <c-header>Header</c-header>
+        <c-main>Content</c-main>
+        <c-footer>Footer</c-footer>
+      </c-layout>
+      <h2 class="sub-tit">在Contnet的侧边栏</h2>
+      <c-layout>
+        <c-header>Header</c-header>
+        <c-layout>
+          <c-sider style="width: 200px">Sider</c-sider>
+          <c-main>Content</c-main>
+        </c-layout>
+        <c-footer>Footer</c-footer>
+      </c-layout>
+      <h2 class="sub-tit">在外部的侧边栏</h2>
+      <c-layout>
+        <c-sider style="width: 200px">Sider</c-sider>
+        <c-layout>
+          <c-header>Header</c-header>          
+          <c-main>Content</c-main>
+          <c-footer>Footer</c-footer>
+        </c-layout>
+      </c-layout>
+    </div>
+    <!-- 输入框 -->
     <h1 class="head-tit">输入框</h1>
     <div class="inputs">
       <c-input style="width: 320px"  @onBlur="console.log(this)" @onFocus="console.log(this)"  />
@@ -126,6 +154,22 @@
       </c-input>
       <h2 class="sub-tit">禁用标签</h2>
       <c-input type="text" disabled></c-input>
+    <h1 class="head-tit">开关</h1>
+    <div class="switchs">
+      <c-switch />
+      <h2 class="sub-tit">可支持输入文字，超过2个字需要用large</h2>
+      <c-switch>
+        <span slot="trueValue">开</span>
+        <i slot="falseValue" class="code-icon-close"></i>
+      </c-switch>
+      <c-switch size="large">
+        <span slot="trueValue">打开</span>
+        <span slot="falseValue">关闭</span>
+      </c-switch>
+      <c-switch size="small" />
+      <h2 class="sub-tit">禁用开关</h2>
+      <c-switch disabled />
+    </div>
     </div>
     <h1 class="head-tit">字体图标</h1>
     <!-- 字体图标 -->
@@ -326,6 +370,33 @@ export default {
   .c-input-warpper {
     margin-bottom: 20px;
     margin-right: 20px;
+  }
+}
+.switchs {
+  margin-top: 20px;
+  .c-switch-wrapper {
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+}
+.layouts {
+  margin-top: 20px;
+  .c-layout-wrapper {
+    text-align: center;
+    color: #fff;
+    // margin-bottom: 20px;
+    .c-layout-header,
+    .c-layout-footer {
+      background: #4cb4e7;
+    }
+    .c-layout-sider {
+      line-height: 120px;
+      background: #3a9fe8;
+    }
+    .c-layout-main {
+      background: #0f8de9;
+      line-height: 120px;
+    }
   }
 }
 </style>

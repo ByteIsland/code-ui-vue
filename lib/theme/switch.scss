@@ -1,0 +1,101 @@
+@import './common/variable.scss';
+
+.c-switch-wrapper {
+	display: inline-block;
+	width: 45px;
+	height: 24px;
+	line-height: 22px;
+	background: $border-primary;
+	border: 1px solid $border-primary;
+	border-radius: 15px;
+	position: relative;
+	cursor: pointer;
+	vertical-align: middle;
+	user-select: none;
+	transition: all .35s ease-in-out;
+	/* 圆点 */
+	&::after {
+		content: '';
+		width: 20px;
+		height: 20px;
+		background: #fff;
+		border-radius: 15px;
+		position: absolute;
+		left: 2px;
+		top: 1px;
+		transition: left .25s ease-in-out, width .25s ease-in-out;
+	}
+	// 长时间选中效果
+	&:active::after{
+		width: 26px;
+	}
+	.c-switch-inner {
+		font-size: $font-size-small;
+		color: #fff;
+		position: absolute;
+		left: 25px;
+		i {
+			font-size: 12px;
+			width: 12px;
+			height: 12px;
+		}
+	}
+
+	/* small */ 
+	&.c-switch-small {
+		width: 28px;
+		height: 16px;
+		line-height: 14px;
+		&::after{
+			width: 12px;
+			height: 12px;
+		}
+		&:active::after {
+			width: 14px;
+		}
+	}
+	/* small checked */ 
+	&.c-switch-small.c-switch-checked::after {
+		left: 12px;
+	}
+	&.c-switch-small.c-switch-checked:active::after {
+		left: 9px;
+	}
+
+	/* lagre */
+	&.c-switch-large {
+		width: 58px;
+		&:active::after{
+			width: 30px
+		}
+	}
+	/* lagre checked */
+	&.c-switch-large.c-switch-checked::after {
+		left: 34px;
+	}
+	&.c-switch-large.c-switch-checked:active::after {
+		left: 24px;
+	}
+
+	/* checked */ 
+	&.c-switch-checked {
+		background: $color-default;
+		border-color: $color-default;
+		&::after {
+			left: 21px;
+		}
+		&:active:after {
+			left: 15px;
+		}
+		.c-switch-inner {
+			left: 7px;
+		}
+	}
+
+	/* disabled */
+	&.c-switch-disabled {
+		cursor: not-allowed;
+    opacity: .5;
+	}
+}
+

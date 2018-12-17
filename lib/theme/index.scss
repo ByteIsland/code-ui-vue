@@ -1,12 +1,18 @@
+/* 基础 */
 @import './common/reset.scss';
 @import './common/common.scss';
 @import './fonts/fonts.scss';
-@import './buttons.scss';
+/* 全局 */
 @import './alert.scss';
 @import './notice.scss';
 @import './message.scss';
 @import './message-box.scss';
+@import './loading.scss';
+/* 布局 */
 @import './row.scss';
 @import './col.scss';
-@import './loading.scss';
+@import './layout.scss';
+/* 表单 */ 
 @import './input.scss';
+@import './switch.scss';
+@import './buttons.scss';

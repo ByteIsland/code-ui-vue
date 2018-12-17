@@ -1,18 +1,36 @@
-/* 注册组件 */
-import Row from "./row/index.js";
-import Col from "./col/index.js";
+/* 基础组件 */
 import CButton from "./button/index.js";
 import CAlert from "./alert/index.js";
+/* 布局组件 */
+import CLayout from "./layout/index.js";
+import CMain from "./main/index.js";
+import CHeader from "./header/index.js";
+import CFooter from "./footer/index.js";
+import CSider from "./sider/index.js";
+import Row from "./row/index.js";
+import Col from "./col/index.js";
 /* 表单组件 */
 import CInput from "./input/index.js";
-
+import CSwitch from "./switch/index.js";
 /* 全局组件 */
 import CNotification from "./notification/index.js";
 import CMessage from "./message/index.js";
 import CMessageBox from "./message-box/index.js";
 import CLoadingBar from "./loading-bar/index.js";
 
-const components = [CButton, CAlert, Row, Col, CInput];
+const components = [
+  CButton,
+  CAlert,
+  CLayout,
+  CHeader,
+  CMain,
+  CFooter,
+  CSider,
+  Row,
+  Col,
+  CInput,
+  CSwitch
+];
 
 const install = function(Vue) {
   if (install.installed) return;
@@ -32,6 +50,11 @@ if (typeof window !== "undefined" && window.Vue) {
 
 export default {
   install,
+  CLayout,
+  CHeader,
+  CMain,
+  CFooter,
+  CSider,
   CButton,
   CAlert,
   CNotification,
@@ -39,5 +62,6 @@ export default {
   CMessageBox,
   Col,
   Row,
-  CInput
+  CInput,
+  CSwitch
 };
