@@ -1,0 +1,62 @@
+@import './common/variable.scss';
+
+.c-anchor-warpper{
+	position: fixed;
+  right: 40px;
+  top: 10px;
+	overflow: auto;
+	padding-left: 4px;
+	margin-left: -4px;
+	.c-anchor {
+		position: relative;
+		padding-left: 2px;
+		.c-anchor-ink {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			&::before {
+				content: " ";
+				position: relative;
+				width: 2px;
+				height: 100%;
+				display: block;
+				background: #e8eaec;
+				margin: 0 auto;
+			}
+			.c-anchor-ink-ball {
+				display: block;
+				position: absolute;
+				width: 8px;
+				height: 8px;
+				background: #fff;
+				border: 2px solid $color-default;
+				border-radius: 50%;
+				left: 50%;
+				transition: top .2s ease-in-out;
+				transform: translate(-50%, 2px);
+			}
+		}
+		.c-anchor-link {
+			padding: 8px 0 8px 16px;
+			line-height: 1;
+			.c-anchor-link-title{
+				display: block;
+				font-size: 12px;
+				position: relative;
+				transition: color .3s;
+				color: #515a6e;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				margin-bottom: 8px;
+				&:hover{
+					color: $color-default
+				}
+			}
+			&.c-anchor-link-active .c-anchor-link-title{
+				color: $color-default
+			}
+		}
+	}
+}

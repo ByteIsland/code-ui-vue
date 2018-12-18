@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1 class="head-tit">Button组件</h1>
+    <h1 class="head-tit" id="Button">Button组件</h1>
     <!-- 按钮控件 -->
     <div class="button">
       <div class="primary line-main">
@@ -40,7 +40,7 @@
         <c-button type="danger" circle icon="code-icon-delete" @click="errorLoading()"></c-button>
       </div>
     </div>
-    <h1 class="head-tit">警告框</h1>
+    <h1 class="head-tit" id="Alert">警告框</h1>
     <!-- 警告框 -->
     <div class="alert">
       <div class="is-icon">
@@ -75,7 +75,7 @@
         <c-alert type="success" center title="这是一个成功警告框" />
       </div>
     </div>
-    <h1 class="head-tit">栅格布局</h1>
+    <h1 class="head-tit" id="Grid">栅格布局</h1>
     <div class="grid">
       <Row>
         <Col :span="24">24：100%</Col>
@@ -96,7 +96,7 @@
         <Col :span="6">6：25%</Col>
       </Row>
     </div>
-    <h1 class="head-tit">Layout布局</h1>
+    <h1 class="head-tit" id="Layout">Layout布局</h1>
     <div class="layouts">
       <h2 class="sub-tit">基础常规布局</h2>
       <c-layout>
@@ -124,7 +124,7 @@
       </c-layout>
     </div>
     <!-- 输入框 -->
-    <h1 class="head-tit">输入框</h1>
+    <h1 class="head-tit" id="Input">输入框</h1>
     <div class="inputs">
       <c-input style="width: 320px"  @onBlur="console.log(this)" @onFocus="console.log(this)"  />
       <h2 class="sub-tit">可改变大小</h2>
@@ -154,7 +154,7 @@
       </c-input>
       <h2 class="sub-tit">禁用标签</h2>
       <c-input type="text" disabled></c-input>
-    <h1 class="head-tit">开关</h1>
+    <h1 class="head-tit" id="Switch">开关</h1>
     <div class="switchs">
       <c-switch />
       <h2 class="sub-tit">可支持输入文字，超过2个字需要用large</h2>
@@ -171,7 +171,7 @@
       <c-switch disabled />
     </div>
     </div>
-    <h1 class="head-tit">字体图标</h1>
+    <h1 class="head-tit" id="Icon">字体图标</h1>
     <!-- 字体图标 -->
     <div class="iconfont">
       <ul>
@@ -181,6 +181,14 @@
         </li>
       </ul>
     </div>
+    <h1 class="head-tit" id="" style="height: 200px">测试锚点属性</h1>
+    <c-anchor>
+      <c-anchor-link href="#Button" title="按钮" ></c-anchor-link>
+      <c-anchor-link href="#Alert" title="警告框" />
+      <c-anchor-link href="#Grid" title="栅格" />
+      <c-anchor-link href="#Layout" title="布局" />
+      <c-anchor-link href="#Input" title="输入框" />
+    </c-anchor>
   </div>
 </template>
 

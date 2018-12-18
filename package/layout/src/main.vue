@@ -12,7 +12,6 @@ export default {
       return this.$slots && this.$slots.default
         ? this.$slots.default.some(Vnode => {
             const tag = Vnode.componentOptions && Vnode.componentOptions.tag;
-            console.log(tag === "c-sider");
             return tag === "c-sider";
           })
         : false;

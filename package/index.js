@@ -9,6 +9,9 @@ import CFooter from "./footer/index.js";
 import CSider from "./sider/index.js";
 import Row from "./row/index.js";
 import Col from "./col/index.js";
+/* 导航组件 */
+import CAnchor from "./anchor/index.js";
+import CAnchorLink from "./anchor-link/index.js";
 /* 表单组件 */
 import CInput from "./input/index.js";
 import CSwitch from "./switch/index.js";
@@ -28,6 +31,8 @@ const components = [
   CSider,
   Row,
   Col,
+  CAnchor,
+  CAnchorLink,
   CInput,
   CSwitch
 ];
@@ -62,6 +67,8 @@ export default {
   CMessageBox,
   Col,
   Row,
+  CAnchor,
+  CAnchorLink,
   CInput,
   CSwitch
 };
