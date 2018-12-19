@@ -10,6 +10,7 @@ import CSider from "./sider/index.js";
 import Row from "./row/index.js";
 import Col from "./col/index.js";
 /* 导航组件 */
+import CAffix from "./affix/index.js";
 import CAnchor from "./anchor/index.js";
 import CAnchorLink from "./anchor-link/index.js";
 /* 表单组件 */
@@ -33,6 +34,7 @@ const components = [
   Col,
   CAnchor,
   CAnchorLink,
+  CAffix,
   CInput,
   CSwitch
 ];
@@ -69,6 +71,7 @@ export default {
   Row,
   CAnchor,
   CAnchorLink,
+  CAffix,
   CInput,
   CSwitch
 };

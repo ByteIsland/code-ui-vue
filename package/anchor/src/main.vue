@@ -39,14 +39,11 @@ export default {
       type: Number,
       default: 0
     },
+    offsetBottom: Number,
     // 锚点临界点
     bounds: {
       type: Number,
       default: 5
-    },
-    offsetBottom: {
-      type: Number,
-      default: 0
     },
     // 滚动偏移量
     scrollOffset: {
@@ -58,6 +55,7 @@ export default {
   data() {
     return {
       prefixClass,
+      isAffixed: false,
       inkTop: 0, // 标签高度
       animating: false, // 动画开关
       wrapperTop: 0, // 组件为顶部的位置
@@ -71,7 +69,7 @@ export default {
   },
   computed: {
     wrapperComponent() {
-      return this.affix ? "div" : "div";
+      return this.affix ? "CAffix" : "div";
     },
     // 容器是否为window
     containerIsWindow() {
@@ -84,16 +82,10 @@ export default {
     }
   },
   methods: {
-    // 移除所有的监听事件
-    removeListener() {
-      ListenOff(this.scrollContainer, "scroll", this.handleScroll);
-      ListenOff(window, "hashchange", this.handleHashChange); // 监听地址的变化
-    },
     // 获取到href以及id
     handleHashChange() {
       let url = window.location.href;
       const sharpLinkMatch = sharpMatcherRegx.exec(url);
-      console.log(sharpLinkMatch);
       if (!sharpLinkMatch) return;
       this.currentLink = sharpLinkMatch[0]; // 配置link
       this.currentId = sharpLinkMatch[1]; // 配置ID
@@ -104,22 +96,22 @@ export default {
       const currentLinkElement = document.querySelector(
         `a[data-href="${this.currentLink}"]`
       );
-      if (!anchor) return;
       let offset = this.scrollOffset;
       if (currentLinkElement) {
         offset = parseFloat(
           currentLinkElement.getAttribute("data-scroll-offset")
         );
       }
+      if (!anchor) return;
       // 计算滚动的高度
       const offsetTop = anchor.offsetTop - this.wrapperTop - offset;
       this.animating = true; // 开启动画开关
-      // console.log(offsetTop);
       // 调用滚动动画
       scrollTop(
         this.scrollContainer,
-        this.scrollElement.offsetTop,
+        this.scrollElement.scrollTop,
         offsetTop,
+        600,
         () => {
           this.animating = false;
         }
@@ -171,19 +163,6 @@ export default {
       });
       this.titlesOffsetArr = offsetArr;
     },
-    // 获取&设置容器主体以及滚动元素
-    getContainer() {
-      // 设置滚动的容器
-      this.scrollContainer = this.container
-        ? typeof this.container === "string"
-          ? document.querySelector(this.container)
-          : this.container
-        : window;
-      // 设置滚动元素绑定
-      this.scrollElement = this.container
-        ? this.scrollContainer
-        : document.documentElement || document.body;
-    },
     // 获取滚动到指定位置的Title ID
     getCurrentScrollAtTitleId(scrollTop) {
       let i = -1;
@@ -202,10 +181,30 @@ export default {
           scrollTop < ((nextEle && nextEle.offset) || Infinity)
         ) {
           titleItem = this.titlesOffsetArr[i];
+          break;
         }
       }
       this.currentLink = titleItem.link;
+      // 设置滑点位置
       this.handleSetInkTop();
+    },
+    // 获取&设置容器主体以及滚动元素
+    getContainer() {
+      // 设置滚动的容器
+      this.scrollContainer = this.container
+        ? typeof this.container === "string"
+          ? document.querySelector(this.container)
+          : this.container
+        : window;
+      // 设置滚动元素绑定
+      this.scrollElement = this.container
+        ? this.scrollContainer
+        : document.documentElement || document.body;
+    },
+    // 移除所有的监听事件
+    removeListener() {
+      ListenOff(this.scrollContainer, "scroll", this.handleScroll);
+      ListenOff(window, "hashchange", this.handleHashChange); // 监听地址的变化
     },
     // 初始化
     init() {
@@ -216,12 +215,12 @@ export default {
         this.getContainer();
         this.wrapperTop = this.containerIsWindow
           ? 0
-          : this.scrollContainer.offsetTop; // 计算高度
+          : this.scrollElement.offsetTop; // 计算高度
         this.handleScrollTo(); // 设置滚动位置
         this.handleSetInkTop(); // 设置滚动到的位置
         this.updateTitleOffset(); // 设置标题文字
         this.upperFirstTitle =
-          this.scrollElement.offsetTop < this.titlesOffsetArr[0].offset;
+          this.scrollElement.scrollTop < this.titlesOffsetArr[0].offset;
         // 开启监听模式
         ListenOn(this.scrollContainer, "scroll", this.handleScroll); // 监听滚动变化
         ListenOn(window, "hashchange", this.handleHashChange); // 监听地址的变化
@@ -234,6 +233,9 @@ export default {
       this.$nextTick(() => {
         this.handleScrollTo();
       });
+    },
+    container() {
+      this.init();
     }
   },
   mounted() {

@@ -1,9 +1,6 @@
 @import './common/variable.scss';
 
 .c-anchor-warpper{
-	position: fixed;
-  right: 40px;
-  top: 10px;
 	overflow: auto;
 	padding-left: 4px;
 	margin-left: -4px;
@@ -59,4 +56,10 @@
 			}
 		}
 	}
+}
+
+// affix
+.c-affix {
+	position: fixed;
+	z-index: 10;
 }

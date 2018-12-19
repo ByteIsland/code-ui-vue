@@ -8,6 +8,7 @@
 			:data-scroll-offset="scrollOffset"
 			@click.prevent="goAnchor"
 		>
+    <!-- prevent会阻止全部的点击事件 -->
 		{{title}}
 		</a>
 		<slot></slot>
@@ -49,6 +50,12 @@ export default {
       this.currentLink = this.href;
       this.CanchorCom.handleHashChange();
       this.CanchorCom.handleScrollTo();
+      const isRoute = this.$router; // 监听当前是否为router
+      if (!isRoute) {
+        window.location.href = this.href;
+      } else {
+        this.$router.push(this.href);
+      }
     }
   },
   mounted() {

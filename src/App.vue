@@ -1,5 +1,14 @@
 <template>
   <div id="app">
+    <c-anchor :offsetTop="20">
+      <c-anchor-link href="#Button" title="按钮" ></c-anchor-link>
+      <c-anchor-link href="#Alert" title="警告框" />
+      <c-anchor-link href="#Grid" title="栅格" />
+      <c-anchor-link href="#Layout" title="布局" />
+      <c-anchor-link href="#Input" title="输入框" />
+      <c-anchor-link href="#Switch" title="开关" />
+      <c-anchor-link href="#Icon" title="字体图标" />
+    </c-anchor>
     <h1 class="head-tit" id="Button">Button组件</h1>
     <!-- 按钮控件 -->
     <div class="button">
@@ -181,14 +190,6 @@
         </li>
       </ul>
     </div>
-    <h1 class="head-tit" id="" style="height: 200px">测试锚点属性</h1>
-    <c-anchor>
-      <c-anchor-link href="#Button" title="按钮" ></c-anchor-link>
-      <c-anchor-link href="#Alert" title="警告框" />
-      <c-anchor-link href="#Grid" title="栅格" />
-      <c-anchor-link href="#Layout" title="布局" />
-      <c-anchor-link href="#Input" title="输入框" />
-    </c-anchor>
   </div>
 </template>
 
