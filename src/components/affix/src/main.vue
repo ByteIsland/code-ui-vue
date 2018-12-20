@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { ListenOn, ListenOff } from "../../../lib/utils/dom.js";
+import { ListenOn, ListenOff } from "@/utils/dom.js";
 const prefixClasses = "c-affix";
 export default {
   name: "CAffix",

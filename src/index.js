@@ -1,26 +1,26 @@
 /* 基础组件 */
-import CButton from "./button/index.js";
-import CAlert from "./alert/index.js";
+import CButton from "./components/button/index.js";
+import CAlert from "./components/alert/index.js";
 /* 布局组件 */
-import CLayout from "./layout/index.js";
-import CMain from "./main/index.js";
-import CHeader from "./header/index.js";
-import CFooter from "./footer/index.js";
-import CSider from "./sider/index.js";
-import Row from "./row/index.js";
-import Col from "./col/index.js";
+import CLayout from "./components/layout/index.js";
+import CMain from "./components/main/index.js";
+import CHeader from "./components/header/index.js";
+import CFooter from "./components/footer/index.js";
+import CSider from "./components/sider/index.js";
+import Row from "./components/row/index.js";
+import Col from "./components/col/index.js";
 /* 导航组件 */
-import CAffix from "./affix/index.js";
-import CAnchor from "./anchor/index.js";
-import CAnchorLink from "./anchor-link/index.js";
+import CAffix from "./components/affix/index.js";
+import CAnchor from "./components/anchor/index.js";
+import CAnchorLink from "./components/anchor-link/index.js";
 /* 表单组件 */
-import CInput from "./input/index.js";
-import CSwitch from "./switch/index.js";
+import CInput from "./components/input/index.js";
+import CSwitch from "./components/switch/index.js";
 /* 全局组件 */
-import CNotification from "./notification/index.js";
-import CMessage from "./message/index.js";
-import CMessageBox from "./message-box/index.js";
-import CLoadingBar from "./loading-bar/index.js";
+import CNotification from "./components/notification/index.js";
+import CMessage from "./components/message/index.js";
+import CMessageBox from "./components/message-box/index.js";
+import CLoadingBar from "./components/loading-bar/index.js";
 
 const components = [
   CButton,

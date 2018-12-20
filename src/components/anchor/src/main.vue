@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import { ListenOn, ListenOff } from "../../../lib/utils/dom.js";
+import { ListenOn, ListenOff } from "@/utils/dom.js";
 import {
   scrollTop,
   findComponentsDownward,
   sharpMatcherRegx
-} from "../../../lib/utils/assets.js";
+} from "@/utils/assets.js";
 const prefixClass = "c-anchor";
 export default {
   name: "CAnchor",

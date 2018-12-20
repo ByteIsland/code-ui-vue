@@ -18,6 +18,10 @@ ul, li {
 	list-style: none;
 }
 
+a {
+	text-decoration: none;
+}
+
 /* 字体图标 */
 [class*=" code-icon-"], [class^=code-icon-] {
 	font-family: "codefont"!important;
