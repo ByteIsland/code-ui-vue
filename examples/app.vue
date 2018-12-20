@@ -21,76 +21,80 @@
 
 <script>
 export default {
-	methods: {
-	}
-}
+  methods: {}
+};
 </script>
 
 <style lang="scss">
-	@import "../src/theme/index.scss";
-	.container {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		left: 0;
-		top: 0;
-		background-image: linear-gradient(0deg, #72E0CC 0%, #30AFED 51%, #2B87F6 100%);
-		.vertical-middle {
-			position:absolute;
-			left: 0;
-			top: 50%;
-			transform: translateY(-50%);
-			text-align: center;
-			width: 100%;
-			img.bg {
-				position: absolute;
-				z-index: -1;
-				left: 0;
-				top: 5px;
-				width: 100%;
-			}
-			.product-name{
-				display: inline-block;
-				position: relative;
-				.logo {
-					width: 80px;
-					height: 80px;
-					vertical-align: middle;
-				}
-				h2 {
-					display: inline-block;
-					font-family: Avenir-Heavy;
-					font-size: 46px;
-					color: #fff;
-					text-align: center;
-					word-break: break-word;
-					margin: 0;
-					vertical-align: middle;
-					// margin-left: -13px;
-				}
-				img.incubating {
-					position: absolute;
-					right: -97px;
-					top: -30px;
-					width: 99px;
-				}
-			}
-			.product-desc {
-				opacity: 0.6;
-				font-family: Avenir-Medium;
-				font-size: 24px;
-				color: #FFF;
-				text-align: center;
-				margin: 40px auto 0;
-				max-width: 730px;
-				p {
-					margin: 10px 0;
-				}
-			}
-			.product-btns {
-				text-align: center;
-    		margin-top: 40px;
-			}
-		}
-	}
+@import "../src/theme/index.scss";
+.container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(
+    0deg,
+    #72e0cc 0%,
+    #30afed 51%,
+    #2b87f6 100%
+  );
+  .vertical-middle {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    img.bg {
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      top: 5px;
+      width: 100%;
+    }
+    .product-name {
+      display: inline-block;
+      position: relative;
+      .logo {
+        width: 80px;
+        height: 80px;
+        vertical-align: middle;
+      }
+      h2 {
+        display: inline-block;
+        font-family: Avenir-Heavy;
+        font-size: 46px;
+        color: #fff;
+        text-align: center;
+        word-break: break-word;
+        margin: 0;
+        vertical-align: middle;
+        // margin-left: -13px;
+      }
+      img.incubating {
+        position: absolute;
+        right: -97px;
+        top: -30px;
+        width: 99px;
+      }
+    }
+    .product-desc {
+      opacity: 0.6;
+      font-family: Avenir-Medium;
+      font-size: 24px;
+      color: #fff;
+      text-align: center;
+      margin: 40px auto 0;
+      max-width: 730px;
+      p {
+        margin: 10px 0;
+      }
+    }
+    .product-btns {
+      text-align: center;
+      margin-top: 40px;
+    }
+  }
+}
 </style>

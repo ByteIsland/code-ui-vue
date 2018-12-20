@@ -2,79 +2,71 @@
  * 本地模式
  */
 
-const path = require('path');
-const webapck = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // html模板指向
-const merge = require('webpack-merge'); // 合并webpack
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin'); // webpack错误信息增强器
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; // bundle后每个包的信息
-const VueLoaderPlugin = require('vue-loader/lib/plugin') // Vue-loader15.x后必须携带
-const webpackBaseConfig = require('./webpack.config.base.js')
+const path = require("path");
+// const webapck = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin"); // html模板指向
+const merge = require("webpack-merge"); // 合并webpack
+const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin"); // webpack错误信息增强器
+const VueLoaderPlugin = require("vue-loader/lib/plugin"); // Vue-loader15.x后必须携带
+const webpackBaseConfig = require("./webpack.config.base.js");
 
+const HOST = process.env.HOST;
+const PORT = process.env.PORT && Number(process.env.PORT);
 
 const modules = merge(webpackBaseConfig, {
-	mode:	"development", // 开发模式
-	devtool: "eval-source-map", 
-	// 入口
-	entry: {
-		main: './examples/app',
-		vendors: ['vue', 'vue-router']
-	},
+  mode: "development", // 开发模式
+  devtool: "eval-source-map",
+  // 入口
+  entry: {
+    main: "./examples/app",
+    vendors: ["vue", "vue-router"]
+  },
 
-	// 出口
-	output: {
-		path: path.join(__dirname, '../examples/dist'),
-		publicPath: '',
-		filename: '[name].js',
-		chunkFilename: '[name].chunk.js'
-	},
+  // 出口
+  output: {
+    path: path.join(__dirname, "../examples/dist"),
+    publicPath: "",
+    filename: "[name].js",
+    chunkFilename: "[name].chunk.js"
+  },
 
-	resolve: {
-		alias: {
-			codeui: '../../src/index',
-			vue: 'vue/dist/vue.esm.js'
-		}
-	},
+  // webpack-server 配置
+  // devServer: {
+  //   inline: true,
+  //   clientLogLevel: "error", // 客户端控制台输出
+  //   historyApiFallback: true, // h5 中转器
+  //   hot: true, // 热更新
+  //   contentBase: path.resolve(__dirname, "../examples/dist"), // 告诉服务器从哪里提供内容
+  //   compress: true, // 开启GZIP压缩
+  //   host: HOST || "localhost", // 域名
+  //   port: PORT || "8080", // 端口号
+  //   open: true, // 是否自动打开浏览器
+  //   overlay: { warnings: false, errors: true }, // 开启错误提醒
+  //   publicPath: "/", // 打包文件可在浏览器中访问
+  //   quiet: true, // 开启后控制台不在输出打包信息
+  //   watchOptions: {
+  //     // 与监视文件相关的控制选项
+  //     poll: true
+  //   }
+  // },
 
-	// splitChunks: {
-	// 	chunks: "async",
-	// 	minSize: 30000,
-	// 	minChunks: 1,
-	// 	maxAsyncRequests: 5,
-	// 	maxInitialRequests: 3,
-	// 	automaticNameDelimiter: '~',
-	// 	name: true,
-	// 	splitChunks: {
-	// 		chunk: 'all'
-	// 	},
-	// 	runtimeChunk: {
-	// 		name: 'runtime'
-	// 	},
-	// 	cacheGroups: {
-	// 		vendors: {
-	// 				test: /[\\/]node_modules[\\/]/,
-	// 				priority: -10
-	// 		},
-	// 		default: {
-	// 				minChunks: 2,
-	// 				priority: -20,
-	// 				reuseExistingChunk: true
-	// 		}
-	// 	}
-	// },
+  resolve: {
+    alias: {
+      codeui: "../../src/index",
+      vue: "vue/dist/vue.esm.js"
+    }
+  },
+  // 插件
+  plugins: [
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      inject: true,
+      filename: path.join(__dirname, "../examples/dist/index.html"),
+      template: path.join(__dirname, "../examples/index.html"),
+      favicon: path.join(__dirname, "../assets/favicon@32.ico")
+    }),
+    new FriendlyErrorsPlugin()
+  ]
+});
 
-	// 插件
-	plugins: [
-		new VueLoaderPlugin(),
-		// new BundleAnalyzerPlugin(),
-		new HtmlWebpackPlugin({
-			inject: true,
-			filename: path.join(__dirname, '../examples/dist/index.html'),
-			template: path.join(__dirname, '../examples/index.html'),
-			favicon: path.join(__dirname, '../assets/favicon@32.ico')
-		}),
-		new FriendlyErrorsPlugin()
-	]
-})
-
-module.exports = modules
+module.exports = modules;
