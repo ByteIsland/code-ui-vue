@@ -1,5 +1,5 @@
 export default {
-  name: "Col",
+  name: "CCol",
   props: {
     span: {
       type: Number,

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "Row",
+  name: "CRow",
   props: {
     gutter: Number, // 分栏
     flex: Boolean,

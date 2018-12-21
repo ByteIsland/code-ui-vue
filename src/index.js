@@ -7,8 +7,8 @@ import CMain from "./components/main/index.js";
 import CHeader from "./components/header/index.js";
 import CFooter from "./components/footer/index.js";
 import CSider from "./components/sider/index.js";
-import Row from "./components/row/index.js";
-import Col from "./components/col/index.js";
+import CRow from "./components/row/index.js";
+import CCol from "./components/col/index.js";
 /* 导航组件 */
 import CAffix from "./components/affix/index.js";
 import CAnchor from "./components/anchor/index.js";
@@ -30,8 +30,8 @@ const components = [
   CMain,
   CFooter,
   CSider,
-  Row,
-  Col,
+  CRow,
+  CCol,
   CAnchor,
   CAnchorLink,
   CAffix,
@@ -67,8 +67,8 @@ export default {
   CNotification,
   CMessage,
   CMessageBox,
-  Col,
-  Row,
+  CCol,
+  CRow,
   CAnchor,
   CAnchorLink,
   CAffix,

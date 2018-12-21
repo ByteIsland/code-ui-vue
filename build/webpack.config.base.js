@@ -112,7 +112,7 @@ const modules = {
   resolve: {
     extensions: [".js", ".vue"],
     alias: {
-      lib: resolve("lib"),
+      assets: resolve("assets"),
       "@": resolve("src")
     }
   },
