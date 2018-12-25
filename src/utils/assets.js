@@ -39,6 +39,39 @@ export const scrollTop = (el, from = 0, to, duration = 500, endCallBack) => {
   scroll(from, to, step);
 };
 
+/* 查询父节点 单个 */
+export const findComponentUpward = (
+  VueContext,
+  componentName,
+  componentNames
+) => {
+  if (typeof componentName === "string") {
+    componentNames = [componentName];
+  } else {
+    componentNames = componentName;
+  }
+
+  let parent = VueContext.$parent;
+  let name = parent.$options.name;
+  while (parent && (!name || componentNames.indexOf(name) < 0)) {
+    parent = parent.$parent;
+    if (parent) name = parent.$options.name;
+  }
+  return parent;
+};
+
+/* 查询父节点 多个 */
+export const findComponentsUpward = (VueContext, componentName) => {
+  let parents = [];
+  const parent = VueContext.$parent;
+  if (parent) {
+    if (parent.$options.name === componentName) parents.push(parent);
+    return parents.concat(findComponentsUpward(parent, componentName));
+  } else {
+    return [];
+  }
+};
+
 /* 查询当前节点下同名的子节点 单个 */
 export const findComponentDownward = (VueContext, componentName) => {
   const childrens = VueContext.$children;
@@ -68,6 +101,23 @@ export const findComponentsDownward = (VueContext, componentName) => {
     const foundChilds = findComponentsDownward(child, componentName);
     return components.concat(foundChilds);
   }, []);
+};
+
+/* 过滤检查props */
+export const CheckProps = (value, check = []) => {
+  if (check.length <= 0) {
+    return false;
+  }
+
+  const checkTrue = check.findIndex(index => {
+    return index === value;
+  });
+
+  if (checkTrue > -1) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 export const sharpMatcherRegx = /#([^#]+)$/; // #号拦截器

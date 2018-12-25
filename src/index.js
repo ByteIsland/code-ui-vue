@@ -1,6 +1,10 @@
 /* 基础组件 */
 import CButton from "./components/button/index.js";
 import CAlert from "./components/alert/index.js";
+import CMenu from "./components/menu/index.js";
+import CMenuGroup from "./components/menu-group/index.js";
+import CMenuItem from "./components/menu-item/index.js";
+import CMenuSub from "./components/menu-sub/index.js";
 /* 布局组件 */
 import CLayout from "./components/layout/index.js";
 import CMain from "./components/main/index.js";
@@ -25,6 +29,10 @@ import CLoadingBar from "./components/loading-bar/index.js";
 const components = [
   CButton,
   CAlert,
+  CMenu,
+  CMenuGroup,
+  CMenuSub,
+  CMenuItem,
   CLayout,
   CHeader,
   CMain,
@@ -57,21 +65,5 @@ if (typeof window !== "undefined" && window.Vue) {
 
 export default {
   install,
-  CLayout,
-  CHeader,
-  CMain,
-  CFooter,
-  CSider,
-  CButton,
-  CAlert,
-  CNotification,
-  CMessage,
-  CMessageBox,
-  CCol,
-  CRow,
-  CAnchor,
-  CAnchorLink,
-  CAffix,
-  CInput,
-  CSwitch
+  ...components
 };

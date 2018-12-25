@@ -3,6 +3,7 @@ $span_width: 100% / $span_length; // 单个最少宽度
 
 [class*=c-col-] {
 	float: left;
+	flex: 0 0 auto;
 	box-sizing: border-box;
 }
 
