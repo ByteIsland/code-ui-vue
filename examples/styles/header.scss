@@ -1,0 +1,33 @@
+.wrapper-header {
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 100%;
+	background: #fff;
+	z-index: 1000;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+	.wrapper-header-nav {
+		width: 95%;
+		height: 65px;
+		margin: 0 auto;
+		// logo
+		.wrapper-header-nav-logo {
+			float: left;
+			height: 50px;
+			margin-top: 10px;
+			img {
+				height: 100%;
+			}
+		}
+		.wrapper-header-nav-list {
+			float: right;
+			height: inherit;
+			height: 65px;
+			line-height: 65px;
+			&::after {
+				content: "";
+				display: none;
+			}
+		}
+	}
+}

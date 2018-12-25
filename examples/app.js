@@ -2,17 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import CodeUI from "../src/index.js";
 import App from "./app.vue";
-import hljs from "highlight.js";
 import "highlight.js/styles/googlecode.css"; //样式文件
-// 全局配置highlight
-Vue.directive("highlight", function(el) {
-  let blocks = el.querySelectorAll("pre code");
-  setTimeout(() => {
-    blocks.forEach(block => {
-      hljs.highlightBlock(block);
-    });
-  }, 200);
-});
+
 // 全局注册
 Vue.use(VueRouter);
 Vue.use(CodeUI);
@@ -38,6 +29,11 @@ const router = new VueRouter({
           component: resolve => require(["./components/button.vue"], resolve)
         }
       ]
+    },
+    {
+      path: "/guide",
+      name: "guide",
+      component: resolve => require(["./pages/guide.vue"], resolve)
     }
   ]
 });

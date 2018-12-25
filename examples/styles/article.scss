@@ -1,0 +1,25 @@
+.wrapper-container {
+	background: #fff;
+	margin: 80px auto 15px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+	.c-article {
+		padding: 20px 30px;
+		h1.title {
+			font-size: 26px;
+			color: #515a6e;
+			font-weight: 400;
+			margin: 10px 0;
+		}
+		h2.test {
+			font-size: 20px;
+			color: #515a6e;
+			font-weight: 200;
+			margin: 25px 0 12px;
+		}
+		p.author {
+			font-size: 14px;
+			margin: 5px;
+		}
+	}
+	
+}
