@@ -6,8 +6,7 @@
 const webpack = require("webpack");
 const pkg = require("../package.json");
 const { resolve } = require("./config.js"); // 公用文件
-
-// const isDev = process.env.NODE_ENV === "development";
+const hljs = require("highlight.js");
 
 /* 基础配置 */
 const modules = {
@@ -105,6 +104,32 @@ const modules = {
       {
         test: /\.(html|tpl)$/,
         loader: "html-loader"
+      },
+      /* md文件转义 */
+      {
+        test: /\.md$/,
+        exclude: /node_modules/,
+        use: [
+          "vue-loader",
+          {
+            loader: "markdown-to-vue-loader",
+            options: {
+              languages: [], // 语言种类
+              preClass: "hljs", // 代码高亮所需必须的类名
+              markdownItOptions: {
+                highlight(str, lang) {
+                  if (lang && hljs.getLanguage(lang)) {
+                    try {
+                      return hljs.highlight(lang, str).value;
+                    } catch (__) {}
+                  }
+
+                  return "";
+                }
+              }
+            }
+          }
+        ]
       }
     ]
   },
