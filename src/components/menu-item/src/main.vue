@@ -1,10 +1,14 @@
 <template>
+  <!-- exact => 精确点击, ctrl => 监听win按ctrl键, meta => macos command键 -->
 	<a 
 		v-if="to"
 		:href="linkUrl"
 		:target="target"
     :class="classes"
     :style="ItemStyle"
+    @click.exact="handleClickItem($event, false)"
+    @click.ctrl="handleClickItem($event, true)"
+    @click.meta="handleClickItem($event, true)"
 	>
 		<slot></slot>
 	</a>
