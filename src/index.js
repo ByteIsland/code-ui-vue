@@ -1,5 +1,6 @@
 /* 基础组件 */
 import CButton from "./components/button/index.js";
+import CButtonGroup from "./components/button-group/index.js";
 import CAlert from "./components/alert/index.js";
 import CMenu from "./components/menu/index.js";
 import CMenuGroup from "./components/menu-group/index.js";
@@ -28,6 +29,7 @@ import CLoadingBar from "./components/loading-bar/index.js";
 
 const components = [
   CButton,
+  CButtonGroup,
   CAlert,
   CMenu,
   CMenuGroup,

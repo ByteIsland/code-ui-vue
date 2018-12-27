@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import CodeUI from "../src/index.js";
 import App from "./app.vue";
+import Routers from "./routers/index.js";
 import "highlight.js/styles/googlecode.css"; //样式文件
 
 // 全局注册
@@ -13,29 +14,7 @@ Vue.config.debug = true;
 
 const router = new VueRouter({
   mode: "history",
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: resolve => require(["./pages/index.vue"], resolve)
-    },
-    {
-      path: "/components",
-      name: "components",
-      component: resolve => require(["./pages/components.vue"], resolve),
-      children: [
-        {
-          path: "button",
-          component: resolve => require(["./components/button.vue"], resolve)
-        }
-      ]
-    },
-    {
-      path: "/guide",
-      name: "guide",
-      component: resolve => require(["./pages/guide.vue"], resolve)
-    }
-  ]
+  routes: Routers
 });
 
 // 全局拦截

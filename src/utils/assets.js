@@ -104,20 +104,13 @@ export const findComponentsDownward = (VueContext, componentName) => {
 };
 
 /* 过滤检查props */
-export const CheckProps = (value, check = []) => {
-  if (check.length <= 0) {
-    return false;
+export const CheckProps = (value, checkList = []) => {
+  for (let i = 0; i < checkList.length; i++) {
+    if (value === checkList[i]) {
+      return true;
+    }
   }
-
-  const checkTrue = check.findIndex(index => {
-    return index === value;
-  });
-
-  if (checkTrue > -1) {
-    return true;
-  } else {
-    return false;
-  }
+  return false;
 };
 
 export const sharpMatcherRegx = /#([^#]+)$/; // #号拦截器

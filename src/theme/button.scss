@@ -2,15 +2,15 @@
 
 .c-button {
 	display: inline-block;
-	font-size: $font-size-medium;
-	font-weight: 500;
+	font-size: $font-size-small;
+	font-weight: 400;
 	color: $text-primary;
 	background: #fff;
-	line-height: 1;	
+	line-height: 1.5;	
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	margin: 0;
-	padding: 12px 20px;
+	padding: 6px 15px;
 	white-space: nowrap;
 	cursor: pointer;
 	outline: none;
@@ -19,7 +19,7 @@
 	& + .c-button {
 		margin-left: 10px;
 	}
-	&.c-button--deafult {
+	&.c-button-deafult {
 		&:hover {
 			color: $color-default;
 			background: $color-default-hover;
@@ -31,7 +31,7 @@
 			border-color: none;
 		}
 	}
-	&.c-button--primary {
+	&.c-button-primary {
 		color: #fff;
 		background: $color-primary;
 		border-color: $color-primary;
@@ -40,7 +40,7 @@
 			border-color: $color-primary-hover;
 		}
 	}
-	&.c-button--success {
+	&.c-button-success {
 		color: #fff;
 		background: $color-success;
 		border-color: $color-success;
@@ -49,7 +49,7 @@
 			border-color: $color-success-hover;
 		}
 	}
-	&.c-button--info {
+	&.c-button-info {
 		color: #fff;
 		background: $color-info;
 		border-color: $color-info;
@@ -58,7 +58,7 @@
 			border-color: $color-info-hover;
 		}
 	}
-	&.c-button--warning {
+	&.c-button-warning {
 		color: #fff;
 		background: $color-warning;
 		border-color: $color-warning;
@@ -67,7 +67,7 @@
 			border-color: $color-warning-hover;
 		}
 	}
-	&.c-button--danger {
+	&.c-button-error {
 		color: #fff;
 		background: $color-danger;
 		border-color: $color-danger;
@@ -76,27 +76,27 @@
 			border-color: $color-danger-hover;
 		}
 	}
-	&.c-button--medium {
-		font-size: $font-size-small;
-		padding: 10px 15px;
+	&.c-button-large {
+		font-size: $font-size-medium;
+		padding: 8px 20px;
 	}
-	&.c-button--small {
+	&.c-button-small {
 		font-size: $font-size-small;
-		padding: 9px 15px;
+		padding: 3px 10px;
 	}
-	&.c-button--mini {
-		font-size: $font-size-small;
-		padding: 7px 15px;
-	}
-	&.is_round {
+	&.is-round {
 		border-radius: 20px;
 	}
-	&.is_disabled {
-		background: #fff;
+	&.is-disabled {
+		color: $text-placeholder;
+		background: #f7f7f7;
 		cursor: not-allowed;
+		border: 1px dashed;
 	}
-	&.is_circle {
-		padding: 12px;
+	&.is-circle {
+		width: 33px;
+		height: 33px;
+		padding: 1px;
 		border-radius: 50%;
 	}
 }

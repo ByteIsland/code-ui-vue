@@ -1,9 +1,9 @@
 <template>
 	<div class="wrapper-header">
 		<div class="wrapper-header-nav">
-			<a class="wrapper-header-nav-logo">
+			<router-link to="/" class="wrapper-header-nav-logo" >
 				<img :src="require('assets/logo-small.png')" alt="">
-			</a>
+			</router-link>
 			<!-- 菜单 -->
 			<c-menu class="wrapper-header-nav-list" mode="horizontal" active-name="component">
 				<c-menu-item name="guide" to="/guide/introduce">介绍</c-menu-item>

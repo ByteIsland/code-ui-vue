@@ -7,7 +7,7 @@
   "main": "dist/codeui.min.js",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --config build/webpack.config.dev.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development  --progress --config build/webpack.config.dev.js",
     "build:style": "gulp --gulpfile build/gulp-style.js",
     "build:prod": "webpack --config build/webpack.config.prod.js",
     "build": "npm run build:style && npm run build:prod"

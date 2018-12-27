@@ -1,4 +1,5 @@
 .example {
+	color: #515a6e;
 	border: 1px solid #eee;
 	border-radius: 6px;
 	margin-bottom: 20px;
@@ -37,13 +38,51 @@
 			p {
 				font-size: 12px;
 				margin: 5px;
+				line-height: 1.5;
+			}
+			code {
+				display: inline-block;
+				color: #666;
+				background: #f8f8f8;
+				margin: 0 3px;
+				padding: 1px 5px;
+				border-radius: 3px;
+				border: 1px solid #eee;
 			}
 		}
 	}
 	.example-split {
-
+		float: left;
+		width: 100%;
+		border: 1px dashed #eee;
 	}
 	.example-code {
-
+		padding: 0 10px;
+		position: relative;
+		transition: height .3s linear;
+		overflow: hidden;
+	}
+	.example-code-more {
+		font-size: 14px;
+		padding: 4px 0;
+		text-align: center;
+		position: absolute;
+		left: 5px;
+		right: 5px;
+		bottom: 0;
+		cursor: pointer;
+		i {
+			position: relative;
+		}
+		i.code-icon-asc {
+			top: 4px;
+		}
+		i.code-icon-desc {
+			bottom: 2px;			
+		}
+		span {
+			display: inline-block;
+			padding: 2px 0 5px;
+		}
 	}
 }
