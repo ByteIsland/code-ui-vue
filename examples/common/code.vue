@@ -52,6 +52,7 @@ export default {
     color: #525252;
     padding: 15px;
     line-height: 1.5;
+    background: transparent;
     .hljs-tag,
     .hljs-name {
       color: #409eff;

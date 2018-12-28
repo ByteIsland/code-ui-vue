@@ -64,7 +64,7 @@
 				<p>通过<code>ButtonGroup</code>组件对<code>button</code>组件进行包裹, 可实现按钮组合的效果</p>
 				<p>通过设置<code>ButtonGroup</code>的<code>circle</code>可设置按钮组样式为圆角</p>
 			</div>
-			<code-demo lang="html" slot="code">{{ ButtonDoc.circle }}</code-demo>
+			<code-demo lang="html" slot="code">{{ ButtonDoc.group }}</code-demo>
 		</Demo>
 		<Demo id="SIZE">
 			<div slot="case">
@@ -79,8 +79,10 @@
 			<code-demo lang="html" slot="code">{{ ButtonDoc.size }}</code-demo>
 		</Demo>
 		<!-- api -->
-		<api-table title="API" sub-title="Button props" :doc="ButtonDoc.doc"></api-table>
-		<api-table sub-title="ButtonGroup props" :doc="ButtonDoc.groupDoc"></api-table>
+		<div id="API">
+			<api-table title="API" sub-title="Button props" :doc="ButtonDoc.doc"></api-table>
+			<api-table sub-title="ButtonGroup props" :doc="ButtonDoc.groupDoc"></api-table>
+		</div>
 	</article>
 </template>
 <script>

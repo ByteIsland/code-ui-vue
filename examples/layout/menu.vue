@@ -1,6 +1,6 @@
 <template>
 	<div class="menu-list" >
-		<c-menu active-name="button" style="width: auto">
+		<c-menu :active-name="activeName" style="width: auto">
 			<c-menu-group title="基础" >
 				<c-menu-item name="button" to="/components/button">Button 按钮</c-menu-item>
 				<c-menu-item name="icon" to="/components/icon">Icon 图标</c-menu-item>
@@ -8,13 +8,24 @@
 			<c-menu-group title="布局" >
 				<c-menu-item name="menu" to="/components/menu">Menu 菜单</c-menu-item>
 				<c-menu-item name="layout" to="/components/layout">Layout 布局</c-menu-item>
-			</c-menu-group>			
+			</c-menu-group>	
+			<c-menu-group title="表单" >
+				<c-menu-item name="input" to="/components/input">Input 输入框</c-menu-item>
+				<c-menu-item name="switch" to="/components/switch">Switch 开关</c-menu-item>
+			</c-menu-group>				
 		</c-menu>
 	</div>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    activeName() {
+      const router = this.$router;
+      return router.currentRoute.name ? router.currentRoute.name : "button";
+    }
+  }
+};
 </script>
 
 <style scoped>

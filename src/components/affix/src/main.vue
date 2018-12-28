@@ -35,7 +35,6 @@ export default {
       if (this.offsetBottom >= 0) {
         type = "bottom";
       }
-      console.log(this.offsetTop, this.offsetBottom);
       return type;
     }
   },
@@ -46,7 +45,7 @@ export default {
       const elOffset = this.getOffset(this.$el);
       const windowHeight = window.innerHeight; // 窗口高度
       const elHeight = this.$el.getElementsByTagName("div")[0].offsetHeight; // 获取元素标签高度
-      console.log(elOffset.top);
+
       // 定位到顶部
       if (
         elOffset.top - this.offsetTop < scrollTop &&

@@ -46,6 +46,27 @@ code.size = `
 </script>
 `;
 
+code.group = `
+<template>
+  <c-button-group>
+    <c-button type="primary">Left</c-button>
+    <c-button type="primary">Middle</c-button>
+    <c-button type="primary">Right</c-button>
+  </c-button-group>
+  <br>
+  <c-button-group circle>
+    <c-button >Left</c-button>
+    <c-button >Middle</c-button>
+    <c-button >Right</c-button>
+  </c-button-group>
+</template>
+<script>
+    export default {
+            
+    }
+</script>
+`;
+
 code.doc = [
   {
     type: "type",
@@ -125,6 +146,25 @@ code.groupDoc = [
     desc: "按钮组合排序, 设置后按钮会垂直布局",
     typeof: "Boolean",
     default: "false"
+  }
+];
+
+code.anchor = [
+  {
+    title: "代码示例",
+    path: "#BASE"
+  },
+  {
+    title: "图标按钮",
+    path: "#CIRCLE"
+  },
+  {
+    title: "组合式按钮",
+    path: "#GROUP"
+  },
+  {
+    title: "图标大小",
+    path: "#SIZE"
   }
 ];
 

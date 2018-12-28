@@ -228,11 +228,15 @@ export default {
     }
   },
   watch: {
-    $route() {
-      this.handleHashChange();
-      this.$nextTick(() => {
-        this.handleScrollTo();
-      });
+    $route(to, form) {
+      if (to.name !== to.form) {
+        this.init();
+      } else {
+        this.handleHashChange();
+        this.$nextTick(() => {
+          this.handleScrollTo();
+        });
+      }
     },
     container() {
       this.init();

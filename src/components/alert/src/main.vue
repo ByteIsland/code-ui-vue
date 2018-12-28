@@ -39,7 +39,7 @@ export default {
     },
     title: {
       type: String,
-      default: "这是一条默认的"
+      default: ""
     },
     msg: {
       type: String,
