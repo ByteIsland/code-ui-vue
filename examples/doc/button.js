@@ -149,23 +149,4 @@ code.groupDoc = [
   }
 ];
 
-code.anchor = [
-  {
-    title: "代码示例",
-    path: "#BASE"
-  },
-  {
-    title: "图标按钮",
-    path: "#CIRCLE"
-  },
-  {
-    title: "组合式按钮",
-    path: "#GROUP"
-  },
-  {
-    title: "图标大小",
-    path: "#SIZE"
-  }
-];
-
 export default code;

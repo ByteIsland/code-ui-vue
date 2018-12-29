@@ -27,13 +27,13 @@
 			font-weight: 400;
 			margin: 12px 0;
 		}
-		h2.test {
+		h2.show {
 			font-size: 20px;
 			color: #515a6e;
 			font-weight: 200;
 			margin: 25px 0 12px;
 		}
-		p.author {
+		p.description {
 			font-size: 14px;
 			margin: 5px;
 			a {
@@ -43,6 +43,14 @@
 		}
 		.c-alert {
 			margin: 15px 0;
+		}
+		.anchor {
+			h2 {
+				font-size: 20px;
+				color: #515a6e;
+				font-weight: 400;
+				margin: 12px 0;
+			}
 		}
 	}
 }

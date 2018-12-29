@@ -1,7 +1,7 @@
 <template>
 	<div class="api">
 		<h1 class="title" v-if="title !== ''">{{title}} </h1>
-		<h2 class="test">{{SubTitle}}</h2>
+		<h2 class="sub-tit">{{SubTitle}}</h2>
 		<table>
 			<thead>
 				<tr>
