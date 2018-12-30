@@ -1,3 +1,8 @@
+<template>
+  <i :class="classes" :style="styles" @click="handleClick"></i>
+</template>
+
+<script>
 const prefixClass = "c-icon";
 export default {
   name: "CIcon",
@@ -42,10 +47,10 @@ export default {
       return style;
     }
   },
-  render: h => {
-    return h("i", {
-      class: [this.classes],
-      style: [this.styles]
-    });
+  methods: {
+    handleClick(event) {
+      this.$emit("click", event);
+    }
   }
 };
+</script>

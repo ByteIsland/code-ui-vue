@@ -2,6 +2,7 @@
 import CButton from "./components/button/index.js";
 import CIcon from "./components/icon/index.js";
 import CButtonGroup from "./components/button-group/index.js";
+import CCard from "./components/card/index.js";
 import CAlert from "./components/alert/index.js";
 import CMenu from "./components/menu/index.js";
 import CMenuGroup from "./components/menu-group/index.js";
@@ -19,6 +20,8 @@ import CCol from "./components/col/index.js";
 import CAffix from "./components/affix/index.js";
 import CAnchor from "./components/anchor/index.js";
 import CAnchorLink from "./components/anchor-link/index.js";
+import CBreadcrumb from "./components/breadcrumb/index.js";
+import CBreadcrumbItem from "./components/breadcrumb-item/index.js";
 /* 表单组件 */
 import CInput from "./components/input/index.js";
 import CSwitch from "./components/switch/index.js";
@@ -32,6 +35,7 @@ const components = [
   CButton,
   CIcon,
   CButtonGroup,
+  CCard,
   CAlert,
   CMenu,
   CMenuGroup,
@@ -46,6 +50,8 @@ const components = [
   CCol,
   CAnchor,
   CAnchorLink,
+  CBreadcrumb,
+  CBreadcrumbItem,
   CAffix,
   CInput,
   CSwitch

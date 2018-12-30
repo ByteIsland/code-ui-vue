@@ -1,9 +1,9 @@
 <template>
 	<c-article>
 		<article>
-			<h1 class="title">Button 按钮</h1>
-			<p class="author">基础组件, 触发业务逻辑可使用</p>
-			<h2 class="show">代码示例</h2>
+			<Anchor h1 title="Button 按钮"></Anchor>
+			<p class="description">基础组件, 触发业务逻辑可使用</p>
+			<Anchor h2 title="代码示例"></Anchor>
 			<Demo id="BASE">
 				<div slot="case">
 					<c-button>Defalut</c-button>
@@ -93,6 +93,7 @@ import Demo from "../../common/demo.vue";
 import CArticle from "../../common/article.vue";
 import ApiTable from "../../common/table.vue";
 import CodeDemo from "../../common/code.vue";
+import Anchor from "../../common/anchor.vue";
 export default {
   data() {
     return {
@@ -103,7 +104,8 @@ export default {
     Demo,
     CodeDemo,
     ApiTable,
-    CArticle
+    CArticle,
+    Anchor
   }
 };
 </script>

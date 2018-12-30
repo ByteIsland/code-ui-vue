@@ -20,6 +20,7 @@ export default [
   "code-icon-mobile",
   "code-icon-remind",
   "code-icon-arrow",
+  "code-icon-arrow-down",
   "code-icon-question",
   "code-icon-desc",
   "code-icon-warning",

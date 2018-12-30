@@ -1,31 +1,26 @@
 @import './common/variable.scss';
-.c-menu {
+
+$Menu: 'c-menu';
+$MenuGroup: 'c-menu-group';
+$MenuSub: 'c-menu-sub';
+$MenuItem: "c-menu-item";
+
+.#{$Menu} {
 	display: block;
 	font-size: $font-size-medium;
 	position: relative;
 	z-index: 900;
-	// 白色主题
-	&.c-menu-light {
-		background: #fff;
-	}
-	// 黑色主题
-	&.c-menu-dark {
-		background: #515a6e;
-	}
-	// 主体色主体
-	&.c-menu-primary {
-		background: $color-default;
-	}
 	// 主标题
-	.c-menu-group-item-title {
+	.#{$MenuGroup}-item-title {
 		font-size: 14px;
 		color: #999;
     padding-left: 28px;
 		height: 50px;
 		line-height: 50px;
 	}
-	// 子菜单
-	.c-menu-item {
+	// 子菜单 & 折叠菜单标题
+	.#{$MenuItem},
+	&.#{$Menu}-vertical .#{$MenuSub}-title {
 		display: block;
 		color: inherit;
 		padding: 14px 24px;
@@ -33,53 +28,24 @@
 		cursor: pointer;
 		z-index: 1;
 		transition: all .2s ease-in-out;
-		// 选中效果
-		&.c-menu-item--active,
-		&.c-menu-item--selected{
-			color: $color-default;
-			z-index: 2;
-		}
-		&:hover {
-			color: $color-default;
-		}
 	}
 	// :horizontal 水平布局
-	&.c-menu-horizontal {
+	&.#{$Menu}-horizontal {
 		height: 60px;
 		line-height: 60px;
-		.c-menu-item {
+		.#{$MenuItem} {
 			float: left;
 			padding: 0 20px;
-			&.c-menu-item--active:not(.c-menu-submenu)::after {
-				content: " ";
-				display: block;
-				width: 100%;
-				height: 2px;
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				background: #2d8cf0;
-			}
-		}
-		&::after{
-			content: "";
-			display: block;
-			width: 100%;
-			height: 1px;
-			background: #dcdee2;
-			position: absolute;
-			left: 0;
-			bottom: 0;
 		}
 	}
 	// :vertical 垂直布局
-	&.c-menu-vertical {
-		.c-menu-item {
+	&.#{$Menu}-vertical {
+		.#{$MenuItem} {
 			&.c-menu-item--active,
 			&.c-menu-item--selected{
 				background: #f0faff;
 			}
-			&.c-menu-item--active:not(.c-menu-submenu)::after {
+			&.#{$MenuItem}--active:not(.c-menu-submenu)::after {
 				content: " ";
 				display: block;
 				width: 2px;
@@ -89,6 +55,17 @@
 				right: 0;
 				background: #2d8cf0;
 			}
+		}
+		// icon
+		.#{$MenuSub}-title > i,
+		.#{$MenuSub}-title-icon {
+			margin-right: 8px;
+		}
+		.#{$MenuSub}-title-icon {
+			font-size: 14px;
+			float: right;
+			position: relative;
+			top: 4px;
 		}
 		&::after{
 			content: "";
@@ -102,5 +79,58 @@
 			right: 0;
 			z-index: 1;
 		}
+	}
+	/* 白色主题 */ 
+	&.#{$Menu}-light {
+		background: #fff;
+		// 选中效果
+		.#{$MenuItem}--active,
+		.#{$MenuItem}--selected,
+		.#{$MenuItem}:hover{
+			color: $color-default;
+			z-index: 2;
+		}
+		/* 白色主题下的水平布局 */
+		&.#{$Menu}-horizontal {
+			&.#{$MenuItem}--active:not(.c-menu-submenu)::after {
+				content: " ";
+				display: block;
+				width: 100%;
+				height: 2px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				background: #2d8cf0;
+			}
+			/* 水平布局开启下划线 */
+			&::after{
+				content: "";
+				display: block;
+				width: 100%;
+				height: 1px;
+				background: #dcdee2;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+		}
+
+	}
+	// 黑色主题
+	&.#{$Menu}-dark {
+		background: #515a6e;
+		/* 黑色主题下无需开启下划线 */
+		.#{$MenuItem} {
+			color:$text-placeholder;
+			&.#{$MenuItem}--active,
+			&.#{$MenuItem}--selected,
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
+	/* 主题色 */ 
+	&.#{$Menu}-primary {
+		background: $color-default;
 	}
 }

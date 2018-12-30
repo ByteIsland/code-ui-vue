@@ -53,14 +53,16 @@ export default {
         const anchor = this.$slots.default[0].elm.querySelectorAll(".anchor");
         if (anchor.length) {
           for (let i = 0; i < anchor.length; i++) {
-            const anchorH2 = anchor[i].querySelector("h2");
-            const path = `#${anchorH2.id}`;
-            const title = anchorH2.innerText;
-            console.log(path, title);
-            this.anchorList.push({
-              path,
-              title
-            });
+            const anchorH2 = anchor[i].querySelectorAll("h2");
+            // 判断长度
+            if (anchorH2.length > 0) {
+              const path = `#${anchorH2[0].id}`;
+              const title = anchorH2[0].innerText;
+              this.anchorList.push({
+                path,
+                title
+              });
+            }
           }
         }
       }

@@ -1,4 +1,4 @@
-import CIcon from "./src/main.js";
+import CIcon from "./src/main.vue";
 
 CIcon.install = Vue => {
   Vue.component(CIcon.name, CIcon);

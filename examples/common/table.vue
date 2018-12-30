@@ -1,7 +1,7 @@
 <template>
 	<div class="api">
-		<h1 class="title" v-if="title !== ''">{{title}} </h1>
-		<h2 class="sub-tit">{{SubTitle}}</h2>
+    <Anchor h1 :title="title" v-if="title !== ''"></Anchor>
+    <Anchor h3 :title="SubTitle" v-if="SubTitle !== ''"></Anchor>
 		<table>
 			<thead>
 				<tr>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import Anchor from "./anchor.vue";
 export default {
   props: {
     title: {
@@ -40,7 +41,8 @@ export default {
         return [];
       }
     }
-  }
+  },
+  components: { Anchor }
 };
 </script>
 

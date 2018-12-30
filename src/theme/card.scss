@@ -1,0 +1,19 @@
+@import './common/variable.scss';
+.c-card {
+	font-size: 14px;
+	background: #fff;
+	border-radius: 5px;
+	position: relative;
+	transition: all .2s ease-in-out;
+	&.c-card-bordered {
+    border: 1px solid $border-primary;
+	}
+	/* 标题去 */ 
+	.c-card-head {
+		padding: 10px;
+	}
+	/* 内容区 */ 
+	.c-card-body {
+		padding: 10px;
+	}
+}

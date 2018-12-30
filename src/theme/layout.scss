@@ -1,3 +1,4 @@
+@import './common/variable.scss';
 .c-layout-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -15,5 +16,20 @@
 		.c-layout-footer {
 			flex: 1;
 		}
+	}
+	/* 头部样式 */
+	.c-layout-header {
+		background: $color-layout-header;
+		padding: 0 50px;
+		height: 65px;
+		line-height: 65px;
+	}
+	/* 底部样式 */ 
+	.c-layout-footer {
+		font-size: 14px;		
+		color: $text-content;
+		text-align: center;
+		background: $color-layout-footer;
+		padding: 24px 50px;
 	}
 }

@@ -1,16 +1,16 @@
 <template>
   <c-article>
     <article>
-      <h1 class="title">Icon 图标</h1>
+      <Anchor h1 title="Icon 图标"></Anchor>
       <p class="description">目前codeUI的字体图标来自<a href="https://www.iconfont.cn" target="_blank">iconfont</a>,如需要新增,请在issues提交补充</p>
-      <c-anchor title="使用方法" h2 id="USER"></c-anchor>
+      <Anchor title="使用方法" h2 id="USER"></Anchor>
       <p class="description">使用<code>&lt;c-icon /&gt;</code>组件, 往<code>name</code>中传入指定图标的名称</p>
       <c-alert type="warning" title="注意, 使用Icon组件时不需要添加`code-icon`的前缀" :closable="false"></c-alert>
       <code-demo :bg="true" lang="html" >{{IconDoc.Icon}}</code-demo>
       <p class="description">渲染后</p>
       <code-demo :bg="true" lang="html">{{IconDoc.IconRender}}</code-demo>
       <api-table title="API" sub-title="Icon props" :doc="IconDoc.doc" id="API"></api-table>
-      <c-anchor title="所有图标" h2 id="ALLICON"></c-anchor>
+      <Anchor title="所有图标" h2 id="ALLICON"></Anchor>
       <div class="icons">
         <div class="icons-item" v-for="(item, index) in IconList" :key="index">
           <i class="c-icon" :class="item"></i>
@@ -23,7 +23,7 @@
 
 <script>
 import CArticle from "../../common/article.vue";
-import CAnchor from "../../common/anchor.vue";
+import Anchor from "../../common/anchor.vue";
 import ApiTable from "../../common/table.vue";
 import CodeDemo from "../../common/code.vue";
 import IconDoc from "../../doc/icon.js";
@@ -39,7 +39,7 @@ export default {
     CodeDemo,
     ApiTable,
     CArticle,
-    CAnchor
+    Anchor
   }
 };
 </script>

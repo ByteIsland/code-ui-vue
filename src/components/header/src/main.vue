@@ -8,20 +8,18 @@
 export default {
   name: "CHeader",
   props: {
-    height: {
-      type: [String, Number],
-      default: 64
-    },
+    // 左右边距
     gutter: {
       type: [String, Number],
-      default: 30
+      default: 0
     }
   },
   computed: {
     style() {
       let gut = {};
-      gut.height = `${parseInt(this.height)}px`;
-      gut.lineHeight = `${parseInt(this.height)}px`;
+      if (!this.gutter) {
+        return "";
+      }
       gut.paddingLeft = `${parseInt(this.gutter) / 2}px`;
       gut.paddingRight = gut.paddingLeft;
       return gut;

@@ -28,6 +28,31 @@ export default {
 };
 </script>
 
-<style lang="sass">
-
+<style lang="scss">
+.anchor {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    display: inline-block;
+  }
+  h1 {
+    font-size: 26px;
+    font-weight: 400;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  h1,
+  h2 {
+    margin: 12px 0;
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 8px 0;
+  }
+}
 </style>

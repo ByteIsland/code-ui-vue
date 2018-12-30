@@ -22,6 +22,12 @@ $color-danger-bg: #fef0f0;
 $color-warning-bg: #fdf6ec;
 $color-info-bg: #f4f4f5;
 
+/* layout主题色 */
+$color-layout: #f5f7f9;
+$color-layout-header: #515a6e;
+$color-layout-footer: #f5f7f9;
+
+
 /* 字体规范 */
 $font-size-small: 12px;
 $font-size-medium: 14px;
@@ -30,7 +36,7 @@ $font-size-large:  18px;
 $font-size-large-x: 22px;
 
 /* 基础文字色彩 */
-$text-primary: #333;
+$text-primary: #515a6e;
 $text-regular: #666;
 $text-secondary: #999;
 $text-placeholder: #ccc;

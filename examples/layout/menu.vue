@@ -8,6 +8,10 @@
 			<c-menu-group title="布局" >
 				<c-menu-item name="menu" to="/components/menu">Menu 菜单</c-menu-item>
 				<c-menu-item name="layout" to="/components/layout">Layout 布局</c-menu-item>
+				<c-menu-item name="card" to="/components/card">Card 卡片</c-menu-item>
+			</c-menu-group>
+			<c-menu-group title="导航">
+				<c-menu-item name="breadcrumb" to="/components/breadcrumb">Breadcrumb 面包屑</c-menu-item>				
 			</c-menu-group>	
 			<c-menu-group title="表单" >
 				<c-menu-item name="input" to="/components/input">Input 输入框</c-menu-item>

@@ -50,7 +50,7 @@ export default {
   data() {
     return {
       currentActiveName: this.activeName,
-      openedNames: [] // 选中
+      openedNames: [] // 选中的MenuSub组
     };
   },
   computed: {
@@ -70,6 +70,22 @@ export default {
     }
   },
   methods: {
+    // 更新MenuSub所打开的组
+    updateOpenKeys(name) {
+      let names = [...this.openedNames];
+      let index = names.indexOf(name);
+
+      // 手风琴模式则全部关闭
+      if (this.accordion) {
+        findComponentsDownward(this, "CMenuSub").forEach(item => {
+          item.opened = false;
+        });
+      }
+
+      if (index >= 0) {
+      } else {
+      }
+    },
     // 更新选中光标位置
     updateActiveName() {
       if (this.currentActiveName === undefined) {
@@ -83,12 +99,12 @@ export default {
         this.currentActiveName
       );
     },
-    /* 更新SubMenu的打开状态 */
+    /* 更新MenuSub的打开状态 */
     updateOpened() {
       const items = findComponentsDownward(this, "CMenuSub");
 
       if (items.length) {
-        items.foeEach(item => {
+        items.forEach(item => {
           if (this.openedNames.indexOf(item.name) > -1) {
             item.opened = true;
           } else {

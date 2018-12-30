@@ -1,37 +1,20 @@
 .wrapper-container {
+  color: #515a6e;
 	background: #fff;
 	margin: 80px auto 15px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
 	.c-article {
 		padding: 20px 30px;
-		& > code,
-		p > code {
+		code:not(.hljs) {
 			display: inline-block;
-			background: #f7f7f7;
 			font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+			font-size: 12px;
+			background: #f7f7f7;
 			margin: 0 3px;
 			padding: 1px 5px;
 			border-radius: 3px;
 			color: #666;
 			border: 1px solid #eee;
-		}
-		h1.title {
-			font-size: 26px;
-			color: #515a6e;
-			font-weight: 400;
-			margin: 10px 0;
-		}
-		h2.sub-tit {
-			font-size: 20px;
-			color: #515a6e;
-			font-weight: 400;
-			margin: 12px 0;
-		}
-		h2.show {
-			font-size: 20px;
-			color: #515a6e;
-			font-weight: 200;
-			margin: 25px 0 12px;
 		}
 		p.description {
 			font-size: 14px;
@@ -44,12 +27,14 @@
 		.c-alert {
 			margin: 15px 0;
 		}
-		.anchor {
-			h2 {
-				font-size: 20px;
-				color: #515a6e;
-				font-weight: 400;
-				margin: 12px 0;
+		// 列表样式
+		.c-article-ul {
+			padding-left: 25px;
+			list-style: outside upper-roman;
+			li {
+				font-size: 14px;
+				margin-bottom: 10px;
+				list-style: outside upper-roman;
 			}
 		}
 	}
