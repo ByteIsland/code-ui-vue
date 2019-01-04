@@ -1,5 +1,42 @@
+const SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g; // 样式表过滤器
+function camelCase(name) {
+  return name.replace(SPECIAL_CHARS_REGEXP, function(
+    _,
+    separator,
+    letter,
+    offset
+  ) {
+    // toUpperCase 强制转换大写
+    return offset ? letter.toUpperCase() : letter;
+  });
+}
+
 /**
- * scrollTop animation
+ * 获取指定元素的样式
+ * @param el 目标元素
+ * @param styleName 样式表名
+ */
+export const getStyle = (el, styleName) => {
+  if (!el || !styleName) return;
+  styleName = camelCase(styleName);
+  if (styleName === "float") {
+    styleName = "cssFloat";
+  }
+  try {
+    const computed = document.defaultView.getComputedStyle(el, "");
+    return el.style[styleName] || computed ? computed[name] : null;
+  } catch (e) {
+    return el.style[styleName];
+  }
+};
+
+/**
+ * scrollTop animation 滚动动画
+ * @param el 目标元素
+ * @param from 开始位置
+ * @param to 结束位置
+ * @param duration 调用时间
+ * @param endCallBack
  */
 export const scrollTop = (el, from = 0, to, duration = 500, endCallBack) => {
   // requestAnimationFrame => 补丁

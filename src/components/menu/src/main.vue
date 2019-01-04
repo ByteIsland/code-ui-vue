@@ -1,12 +1,16 @@
 <template>
-	<ul :class="classes" :style="styles">
-		<slot></slot>
-	</ul>
+  <ul :class="classes" :style="styles">
+    <slot></slot>
+  </ul>
 </template>
 
 <script>
 import broadcast from "@/mixins/broadcast.js"; // 广播mixin
-import { CheckProps, findComponentsDownward } from "@/utils/assets.js";
+import {
+  CheckProps,
+  findComponentsDownward,
+  findComponentsUpward
+} from "@/utils/assets.js";
 const prefixClass = "c-menu";
 export default {
   name: "CMenu",
@@ -57,6 +61,7 @@ export default {
     classes() {
       let theme = this.theme;
       if (this.theme === "primary" && this.mode === "vertical") theme = "light";
+      console.log(theme)
       return [
         `${prefixClass}`,
         `${prefixClass}-${theme}`,
@@ -81,10 +86,45 @@ export default {
           item.opened = false;
         });
       }
-
+      // 尚未开启手风琴，只需要打开指定栏目即可
       if (index >= 0) {
+        let currentMenuSub = null;
+        // 查询当前Menu下指定的CMenuSub对应name值开启
+        findComponentsDownward(this, "CMenuSub").forEach(item => {
+          if (item.name === name) {
+            currentMenuSub = item;
+            item.opened = false;
+          }
+        });
+        findComponentsUpward(currentMenuSub, "CMenuSub").forEach(item => {
+          item.opened = true;
+        });
+        findComponentsDownward(currentMenuSub, "CMenuSub").forEach(item => {
+          item.opened = false;
+        });
       } else {
+        if (this.accordion) {
+          let currentMenuSub = null;
+          findComponentsDownward(this, "CMenuSub").forEach(item => {
+            if (item.name === name) {
+              currentMenuSub = item;
+              item.opened = true;
+            }
+          });
+          findComponentsUpward(currentMenuSub, "CMenuSub").forEach(item => {
+            item.opened = true;
+          });
+        } else {
+          findComponentsDownward(this, "CMenuSub").forEach(item => {
+            if (item.name === name) item.opened = true;
+          });
+        }
       }
+      let openedNames = findComponentsDownward(this, "CMenuSub")
+        .filter(item => item.opened)
+        .map(item => item.name);
+      this.openedNames = [...openedNames];
+      this.$emit("on-open-change", openedNames);
     },
     // 更新选中光标位置
     updateActiveName() {
@@ -102,19 +142,14 @@ export default {
     /* 更新MenuSub的打开状态 */
     updateOpened() {
       const items = findComponentsDownward(this, "CMenuSub");
-
       if (items.length) {
         items.forEach(item => {
-          if (this.openedNames.indexOf(item.name) > -1) {
-            item.opened = true;
-          } else {
-            item.opened = false;
-          }
+          item.opened = this.openedNames.indexOf(item.name) > -1;
         });
       }
     },
     /* 监听MenuItem点击状态 */
-    ListenMenuIitemSelect() {
+    ListenMenuItemSelect() {
       this.$on("on-menu-item-select", name => {
         this.currentActiveName = name;
         this.$emit("on-select", name);
@@ -128,7 +163,7 @@ export default {
     this.updateActiveName();
     this.openedNames = [...this.openNames];
     this.updateOpened();
-    this.ListenMenuIitemSelect();
+    this.ListenMenuItemSelect();
   },
   watch: {
     openNames(names) {

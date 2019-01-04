@@ -12,11 +12,16 @@ $MenuItem: "c-menu-item";
 	z-index: 900;
 	// 主标题
 	.#{$MenuGroup}-item-title {
-		font-size: 14px;
+		font-size: 12px;
 		color: #999;
-    padding-left: 28px;
+    	padding-left: 28px;
 		height: 50px;
 		line-height: 50px;
+	}
+	// 子菜单标题icon
+	.#{$MenuSub}-title-icon {
+		font-size: 12px;
+		transition: transform .2s linear;
 	}
 	// 子菜单 & 折叠菜单标题
 	.#{$MenuItem},
@@ -58,14 +63,18 @@ $MenuItem: "c-menu-item";
 		}
 		// icon
 		.#{$MenuSub}-title > i,
-		.#{$MenuSub}-title-icon {
+		.#{$MenuSub}-title-icon,
+    .#{$MenuItem} > i {
 			margin-right: 8px;
 		}
 		.#{$MenuSub}-title-icon {
-			font-size: 14px;
 			float: right;
 			position: relative;
 			top: 4px;
+		}
+		// 目标选中下拉框 icon旋转
+		.#{$Menu}-opened .#{$MenuSub}-title-icon {
+			transform: rotate(180deg);
 		}
 		&::after{
 			content: "";
@@ -86,7 +95,8 @@ $MenuItem: "c-menu-item";
 		// 选中效果
 		.#{$MenuItem}--active,
 		.#{$MenuItem}--selected,
-		.#{$MenuItem}:hover{
+		.#{$MenuItem}:hover,
+		.#{$MenuSub}-title:hover{
 			color: $color-default;
 			z-index: 2;
 		}
@@ -125,9 +135,22 @@ $MenuItem: "c-menu-item";
 			&.#{$MenuItem}--active,
 			&.#{$MenuItem}--selected,
 			&:hover {
-				color: #fff;
+				color: $color-default;
 			}
 		}
+    /* 垂直布局关闭侧边线， 添加背景色 */
+    &.#{$Menu}-vertical {
+      .#{$MenuItem}--active,
+      .#{$MenuItem}--selected {
+        background: #363e4f;
+      }
+      &::after {
+        display: none;
+      }
+      .#{$MenuItem}--active:not(.c-menu-submenu)::after {
+        display: none !important;
+      }
+    }
 	}
 	/* 主题色 */ 
 	&.#{$Menu}-primary {

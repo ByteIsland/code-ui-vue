@@ -1,6 +1,6 @@
 {
   "name": "codeui",
-  "version": "0.1.1-beta",
+  "version": "0.1.2-beta",
   "author": "Saber",
   "title": "Code-UI",
   "description": "A fun for VueJS UI Library",
@@ -80,6 +80,7 @@
     "markdown-to-vue-loader": "^1.0.1",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
+    "prettier": "^1.15.3",
     "sass-loader": "^7.1.0",
     "striptags": "^3.1.1",
     "style-loader": "^0.23.1",

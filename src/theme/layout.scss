@@ -32,4 +32,11 @@
 		background: $color-layout-footer;
 		padding: 24px 50px;
 	}
+	/* 侧边栏样式 */
+	.c-layout-sider {
+		position: relative;
+		background: $color-layout-header;
+		min-width: 0;
+		transition: all .3s linear;
+	}
 }

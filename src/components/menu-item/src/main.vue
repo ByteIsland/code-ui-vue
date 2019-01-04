@@ -1,35 +1,31 @@
 <template>
   <!-- exact => 精确点击, ctrl => 监听win按ctrl键, meta => macos command键 -->
-	<a 
-		v-if="to"
-		:href="linkUrl"
-		:target="target"
+  <a
+    v-if="to"
+    :href="linkUrl"
+    :target="target"
     :class="classes"
     :style="ItemStyle"
     @click.exact="handleClickItem($event, false)"
     @click.ctrl="handleClickItem($event, true)"
     @click.meta="handleClickItem($event, true)"
-	>
-		<slot></slot>
-	</a>
-	<li
-		v-else
-		:class="classes"
-		:style="ItemStyle"
-		@click.stop="handleClickItem"
-	>
-		<slot></slot>
-	</li>
+  >
+    <slot></slot>
+  </a>
+  <li v-else :class="classes" :style="ItemStyle" @click.stop="handleClickItem">
+    <slot></slot>
+  </li>
 </template>
 
 <script>
 import mixinLink from "@/mixins/link.js";
+import MenuMixin from "@/mixins/menu-mixin.js";
 import broadcast from "@/mixins/broadcast.js"; // 广播mixin
 import { findComponentUpward } from "@/utils/assets.js";
 const prefixClass = "c-menu-item";
 export default {
   name: "CMenuItem",
-  mixins: [mixinLink, broadcast],
+  mixins: [mixinLink, broadcast, MenuMixin],
   props: {
     name: {
       type: [String, Number],
@@ -57,7 +53,11 @@ export default {
       ];
     },
     ItemStyle() {
-      return " ";
+      return this.hasParentMenuSub && this.mode !== "horizontal"
+        ? {
+            paddingLeft: 43 + (this.parentMenuSubNum - 1) * 24 + "px"
+          }
+        : {};
     }
   },
   methods: {
@@ -68,7 +68,6 @@ export default {
         this.handleClick(event, newWindow);
         // 查询单个父节点
         let parentMenu = findComponentUpward(this, "CMenu");
-        console.log(parentMenu);
         if (parentMenu) parentMenu.handleEmitSelectEvent(this.name);
       } else {
         let parent = findComponentUpward(this, "CMenuSub");

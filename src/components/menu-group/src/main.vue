@@ -1,10 +1,10 @@
 <template>
-	<li :class="[`${prefixClass}-item-group`]">
-		<div :class="[`${prefixClass}-item-title`]">{{title}}</div>
-		<ul>
-			<slot></slot>
-		</ul>
-	</li>
+  <li :class="[`${prefixClass}-item-group`]">
+    <div :class="[`${prefixClass}-item-title`]">{{ title }}</div>
+    <ul>
+      <slot></slot>
+    </ul>
+  </li>
 </template>
 
 <script>

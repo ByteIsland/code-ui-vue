@@ -32,9 +32,11 @@ export default {
     }
   },
   mounted() {
-    this.code = this.$refs.code.innerHTML.replace(/\n/, "");
-    this.$refs.code.innerHTML = this.code;
-    hljs.highlightBlock(this.$refs.code);
+    this.$nextTick(() => {
+      this.code = this.$refs.code.innerHTML.replace(/\n/, "");
+      this.$refs.code.innerHTML = this.code;
+      hljs.highlightBlock(this.$refs.code);
+    });
   },
   methods: {}
 };
@@ -63,6 +65,15 @@ export default {
     }
     .hljs-string {
       color: #70ce41;
+    }
+    .hljs-attribute {
+      color: #af7dff;
+    }
+    .hljs-value {
+      color: #42b983;
+    }
+    .hljs-number {
+      color: #fc1e70;
     }
   }
 }
