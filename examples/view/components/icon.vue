@@ -2,19 +2,33 @@
   <c-article>
     <article>
       <Anchor h1 title="Icon 图标"></Anchor>
-      <p class="description">目前codeUI的字体图标来自<a href="https://www.iconfont.cn" target="_blank">iconfont</a>,如需要新增,请在issues提交补充</p>
+      <p class="description">
+        CodeUI的字体图标从<a href="http://www.iconfont.cn/" target="_blank">iconfont</a>挑选的
+      </p>
       <Anchor title="使用方法" h2 id="USER"></Anchor>
-      <p class="description">使用<code>&lt;c-icon /&gt;</code>组件, 往<code>name</code>中传入指定图标的名称</p>
-      <c-alert type="warning" title="注意, 使用Icon组件时不需要添加`code-icon`的前缀" :closable="false"></c-alert>
-      <code-demo :bg="true" lang="html" >{{IconDoc.Icon}}</code-demo>
+      <p class="description">
+        使用<code>&lt;c-icon /&gt;</code>组件,
+        往<code>name</code>中传入指定图标的名称
+      </p>
+      <c-alert
+        type="warning"
+        title="注意, 使用Icon组件时不需要添加`code-icon`的前缀"
+        :closable="false"
+      ></c-alert>
+      <code-demo :bg="true" lang="html">{{ IconDoc.Icon }}</code-demo>
       <p class="description">渲染后</p>
-      <code-demo :bg="true" lang="html">{{IconDoc.IconRender}}</code-demo>
-      <api-table title="API" sub-title="Icon props" :doc="IconDoc.doc" id="API"></api-table>
+      <code-demo :bg="true" lang="html">{{ IconDoc.IconRender }}</code-demo>
+      <api-table
+        title="API"
+        sub-title="Icon props"
+        :doc="IconDoc.doc"
+        id="API"
+      ></api-table>
       <Anchor title="所有图标" h2 id="ALLICON"></Anchor>
       <div class="icons">
-        <div class="icons-item" v-for="(item, index) in IconList" :key="index">
-          <i class="c-icon" :class="item"></i>
-          <p>{{item}}</p>
+        <div class="icons-item" v-for="(item, index) in webIcon" :key="index">
+          <c-icon :name="item.tag" />
+          <p>{{ item.name }}</p>
         </div>
       </div>
     </article>
@@ -27,12 +41,12 @@ import Anchor from "../../common/anchor.vue";
 import ApiTable from "../../common/table.vue";
 import CodeDemo from "../../common/code.vue";
 import IconDoc from "../../doc/icon.js";
-import IconList from "../utils/iconName.js";
+import { webIcon } from "../utils/iconName.js";
 export default {
   data() {
     return {
       IconDoc,
-      IconList
+      webIcon
     };
   },
   components: {

@@ -46,6 +46,11 @@ export default {
       type: Boolean,
       default: false
     },
+    // 最小菜单
+    collapsedMenu: {
+      type: Boolean,
+      default: false
+    },
     width: {
       type: String,
       default: "240px"
@@ -61,12 +66,12 @@ export default {
     classes() {
       let theme = this.theme;
       if (this.theme === "primary" && this.mode === "vertical") theme = "light";
-      console.log(theme)
       return [
         `${prefixClass}`,
         `${prefixClass}-${theme}`,
         {
-          [`${prefixClass}-${this.mode}`]: this.mode
+          [`${prefixClass}-${this.mode}`]: this.mode,
+          "collapsed-menu": this.collapsedMenu
         }
       ];
     },

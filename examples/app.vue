@@ -9,8 +9,3 @@ export default {
   methods: {}
 };
 </script>
-
-
-<style lang="scss">
-@import "~@/theme/index.scss";
-</style>

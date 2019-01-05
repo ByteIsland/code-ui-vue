@@ -1,7 +1,7 @@
 let code = {};
 
 code.Icon = `<c-icon name="search" />`;
-code.IconRender = `<i class="c-icon code-icon-search"></i>`;
+code.IconRender = `<i class="c-icon c-icon-search"></i>`;
 
 code.doc = [
   {

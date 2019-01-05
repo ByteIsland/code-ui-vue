@@ -34,6 +34,15 @@ $MenuItem: "c-menu-item";
 		z-index: 1;
 		transition: all .2s ease-in-out;
 	}
+  .#{$MenuItem} span {
+    display: inline-block;
+    width: 69px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+    transition: width .2s ease-in-out;
+  }
 	// :horizontal 水平布局
 	&.#{$Menu}-horizontal {
 		height: 60px;
@@ -156,4 +165,15 @@ $MenuItem: "c-menu-item";
 	&.#{$Menu}-primary {
 		background: $color-default;
 	}
+  /* 最小菜单模式 */
+  &.collapsed-menu {
+    .#{$MenuItem} i {
+      transition: font-size .2s ease .2s, transform .2s ease .2s;  // last param 为延时
+      transform: translateY(10px);
+      font-size: 22px;
+    }
+    .#{$MenuItem} > span {
+      width: 0;
+    }
+  }
 }

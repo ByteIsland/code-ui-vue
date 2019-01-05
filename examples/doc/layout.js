@@ -194,17 +194,63 @@ code.DBCBBJ = `
 `;
 
 code.CBLKG = `
- <template>
- 
+<template>
+ <c-layout class="layout">
+  <c-sider collapsible :collapsed-width="70" v-model="isCollapsed">
+    <c-menu active-name="1" width="auto" theme="dark" :collapsed-menu="isCollapsed">
+      <c-menu-item name="1">
+        <c-icon name="search" />
+        <span>Options 1</span>
+      </c-menu-item>
+      <c-menu-item name="2">
+        <c-icon name="setting" />
+        <span>Options 2</span>
+      </c-menu-item>
+      <c-menu-item name="3">
+        <c-icon name="charts" />
+        <span>Options 3</span>
+      </c-menu-item>
+    </c-menu>
+  </c-sider>
+  <c-layout>
+    <c-header style="background: #fff;"></c-header>
+    <c-main style="padding: 0 25px 25px;">
+      <c-breadcrumb style="margin: 20px 0;">
+        <c-breadcrumb-item>Home</c-breadcrumb-item>
+        <c-breadcrumb-item>Components</c-breadcrumb-item>
+        <c-breadcrumb-item>Layout</c-breadcrumb-item>
+      </c-breadcrumb>
+      <c-card> 
+       <div style="min-height: 300px;">Content</div>
+      </c-card>
+    </c-main>
+  </c-layout>
+</c-layout>
 </template>
-<script >
+
+<script>
 export default {
-  
+  data () {
+    return {
+      isCollapsed: false
+    };
+  },
 }
 </script>
-<style scoped>
 
+<style scoped lang="css">
+.layout {
+  border: 1px solid #d7dde4;
+  background: #f5f7f9;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
 </style>
+`
+
+code.CBBJZDY = `
+
 `
 
 export default code;

@@ -76,29 +76,28 @@ const modules = {
         test: /\.scss$/,
         loaders: [
           {
-            loader: "style-loader",
-            options: {
-              sourceMap: true
-            }
+            loader: "style-loader"
           },
           {
-            loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
+            loader: "fast-css-loader"
           },
           {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true
-            }
+            loader: "postcss-loader"
+          },
+          {
+            loader: "fast-sass-loader"
           }
         ]
       },
-      /* 字体图标 & 图片 */
+      /* 字体图标 */
       {
-        test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: "url-loader?limit=8192"
+      },
+      /* 图片 */
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: "url-loader"
       },
       /* html模板优化 */
       {

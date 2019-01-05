@@ -1,42 +1,71 @@
 @import './common/variable.scss';
-.c-layout-wrapper {
+
+$LayoutWrapper : ".c-layout-wrapper";
+$LayoutHeader  : ".c-layout-header";
+$LayoutMain    : ".c-layout-main";
+$LayoutSider   : ".c-layout-sider";
+$LayoutFooter  : ".c-layout-footer";
+
+#{$LayoutWrapper} {
 	display: flex;
 	flex-direction: column;
 	flex: auto;
-	.c-layout-header,
-	.c-layout-main,
-	.c-layout-footer {
+  #{$LayoutHeader},
+  #{$LayoutMain},
+  #{$LayoutFooter}{
 		flex: 0 0 auto;
 	}
-	/* is-sider */
+	/* is-sider 侧边栏开启 */
 	&.is-sider {
 		flex-direction: row;
-		.c-layout-header,
-		.c-layout-main,
-		.c-layout-footer {
+    #{$LayoutHeader},
+    #{$LayoutMain},
+    #{$LayoutFooter}{
 			flex: 1;
 		}
 	}
 	/* 头部样式 */
-	.c-layout-header {
+  #{$LayoutHeader} {
 		background: $color-layout-header;
 		padding: 0 50px;
 		height: 65px;
 		line-height: 65px;
 	}
-	/* 底部样式 */ 
-	.c-layout-footer {
-		font-size: 14px;		
+	/* 底部样式 */
+	#{$LayoutFooter} {
+		font-size: 14px;
 		color: $text-content;
 		text-align: center;
 		background: $color-layout-footer;
 		padding: 24px 50px;
 	}
 	/* 侧边栏样式 */
-	.c-layout-sider {
+  #{$LayoutSider} {
 		position: relative;
 		background: $color-layout-header;
 		min-width: 0;
 		transition: all .3s linear;
+    #{$LayoutSider}-trigger {
+      color: #fff;
+      background: #515a6e;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
+      position: absolute;
+      bottom: 0;
+      cursor: pointer;
+      transition: all .2s cubic-bezier(0.65, 0.05, 0.36, 1);
+      &#{$LayoutSider}-trigger > * {
+        transition: all .2s;
+      }
+      #{$LayoutSider}-trigger-icon {
+        font-size: 16px;
+      }
+      &#{$LayoutSider}-trigger-collapsed {
+        #{$LayoutSider}-trigger-icon {
+          transform: rotateZ(-180deg);
+        }
+      }
+    }
 	}
 }

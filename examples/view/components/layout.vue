@@ -144,7 +144,7 @@
               </div>
             </c-header>
             <c-layout>
-              <c-sider style="width: 200px">
+              <c-sider style="background: white;">
                 <c-menu
                   active-name="1-2"
                   theme="light"
@@ -191,20 +191,28 @@
         </div>
         <code-demo lang="html" slot="code">{{ LayoutDoc.DBCBBJ }}</code-demo>
       </Demo>
-      <!--侧边栏开关-->
+      <!--侧边布局带开关-->
       <Demo id="CBLKG">
         <div slot="case">
           <c-layout class="layout">
-            <c-sider style="width: 200px;" hide-trigger collapsible :collapsed-width="78">
-              <c-menu active-name="1" width="200px" theme="dark">
+            <c-sider collapsible :collapsed-width="70" v-model="isCollapsed">
+              <c-menu
+                active-name="1"
+                width="auto"
+                theme="dark"
+                :collapsed-menu="isCollapsed"
+              >
                 <c-menu-item name="1">
-                  <c-icon name="search" /> Options 1
+                  <c-icon name="search" />
+                  <span>Options 1</span>
                 </c-menu-item>
                 <c-menu-item name="2">
-                  <c-icon name="setting" /> Options 2
+                  <c-icon name="setting" />
+                  <span>Options 2</span>
                 </c-menu-item>
                 <c-menu-item name="3">
-                  <c-icon name="charts" /> Options 3
+                  <c-icon name="charts" />
+                  <span>Options 3</span>
                 </c-menu-item>
               </c-menu>
             </c-sider>
@@ -221,14 +229,58 @@
             </c-layout>
           </c-layout>
         </div>
-        <span class="title" slot="title">侧边栏布局（带开关模式）</span>
+        <span class="title" slot="title">侧边布局（带开关模式）</span>
         <div slot="desc">
           <p>侧边两列式布局。页面横向空间有限时，侧边导航可收起。</p>
+        </div>
+        <code-demo lang="html" slot="code">{{ LayoutDoc.CBLKG }}</code-demo>
+      </Demo>
+      <Demo id="CBBJZDY">
+        <div slot="case">
+          <c-layout class="layout">
+            <c-sider hide-trigger collapsible :collapsed-width="70" v-model="isCollapsed">
+              <c-menu
+                active-name="1"
+                width="auto"
+                theme="dark"
+                :collapsed-menu="isCollapsed"
+              >
+                <c-menu-item name="1">
+                  <c-icon name="search" />
+                  <span>Options 1</span>
+                </c-menu-item>
+                <c-menu-item name="2">
+                  <c-icon name="setting" />
+                  <span>Options 2</span>
+                </c-menu-item>
+                <c-menu-item name="3">
+                  <c-icon name="charts" />
+                  <span>Options 3</span>
+                </c-menu-item>
+              </c-menu>
+            </c-sider>
+            <c-layout>
+              <c-header style="background: #fff;">
+                <c-icon ></c-icon>
+              </c-header>
+              <c-main style="padding: 0 25px 25px;">
+                <c-breadcrumb style="margin: 20px 0;">
+                  <c-breadcrumb-item>Home</c-breadcrumb-item>
+                  <c-breadcrumb-item>Components</c-breadcrumb-item>
+                  <c-breadcrumb-item>Layout</c-breadcrumb-item>
+                </c-breadcrumb>
+                <c-card> <div style="min-height: 300px;">Content</div> </c-card>
+              </c-main>
+            </c-layout>
+          </c-layout>
+        </div>
+        <span class="title" slot="title">侧边布局（自定义开关）</span>
+        <div slot="desc">
           <p>
             要使用自定义触发器，可以设置<code>hide-trigger</code>属性来隐藏默认触发器，也可以通过slot替换默认触发器
           </p>
         </div>
-        <code-demo lang="html" slot="code">{{ LayoutDoc.CBLKG }}</code-demo>
+        <code-demo lang="html" slot="code">{{ LayoutDoc.CBBJZDY }}</code-demo>
       </Demo>
       <api-table title="API" sub-title="Layout props"></api-table>
     </article>
@@ -245,7 +297,8 @@ import LayoutDoc from "../../doc/layout.js";
 export default {
   data() {
     return {
-      LayoutDoc
+      LayoutDoc,
+      isCollapsed: false
     };
   },
   components: {

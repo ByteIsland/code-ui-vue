@@ -27,8 +27,8 @@ function styles() {
 // 字体库迁移
 function fonts() {
   return gulp
-    .src("../src/theme/fonts/*.*")
-    .pipe(gulp.dest("../dist/styles/fonts"));
+    .src("../src/theme/iconfont/*.*")
+    .pipe(gulp.dest("../dist/styles/iconfont"));
 }
 
 const build = gulp.series(cleanDist, gulp.parallel(styles, fonts));

@@ -29,7 +29,7 @@ a {
 }
 
 /* 字体图标 */
-[class*=" code-icon-"], [class^=code-icon-] {
+[class*=" c-icon-"], [class^=c-icon-] {
 	font-family: "codefont"!important;
 	display: inline-block;
 	font-style: normal;
@@ -44,11 +44,11 @@ a {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-[class^=code-icon-] + span {
+[class^=c-icon-] + span {
 	margin-left: 5px;
 }
 
-.code-icon-loading {
+.c-icon-loading {
 	animation: rotating 2s linear infinite;
 }
 

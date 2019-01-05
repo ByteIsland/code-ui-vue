@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import CodeUI from "../src/index.js";
 import App from "./app.vue";
 import Routers from "./router.js";
+import "@/theme/index.scss";
 import "highlight.js/styles/googlecode.css"; //样式文件
 
 // 全局注册

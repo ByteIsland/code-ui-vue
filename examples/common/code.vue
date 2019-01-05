@@ -69,7 +69,8 @@ export default {
     .hljs-attribute {
       color: #af7dff;
     }
-    .hljs-value {
+    .hljs-value,
+    .hljs-literal{
       color: #42b983;
     }
     .hljs-number {
