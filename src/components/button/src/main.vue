@@ -1,16 +1,14 @@
 <template>
-    <component
-      :is="tagName"
-      @click="handleClick"
-      :disabled="disabled"
-      :class="classes"
-      v-bind="tagProps"
-    >
-      <i v-if="icon !== ''" :class="iconName"></i>
-      <span v-if="$slots.default">
-        <slot></slot>
-      </span>
-    </component>
+  <component
+    :is="tagName"
+    @click="handleClick"
+    :disabled="disabled"
+    :class="classes"
+    v-bind="tagProps"
+  >
+    <i v-if="icon !== ''" :class="iconName"></i>
+    <span v-if="$slots.default"> <slot></slot> </span>
+  </component>
 </template>
 
 <script>
@@ -73,7 +71,7 @@ export default {
     },
     /* icon name */
     iconName() {
-      return `code-icon-${this.icon}`;
+      return `c-icon c-icon-${this.icon}`;
     },
     isTo() {
       return !!this.to;

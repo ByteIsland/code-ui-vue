@@ -23,7 +23,7 @@ code.circle = `
     <c-button type="primary" icon="search">Search</c-button>
     <c-button type="primary" round>Round</c-button>
     <c-button type="primary" circle>
-        <i class="code-icon-search"></i>
+      <c-icon name="search"></c-icon>
     </c-button>
 </template>
 <script>

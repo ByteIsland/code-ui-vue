@@ -1,27 +1,29 @@
 <template>
-	<c-row class="example" :class="{'example-vertical': isVertical}">
-		<c-col class="example-demo" :span="isVertical ? 24 : 12">
-			<div class="example-case">
-				<slot name="case"></slot>
-			</div>
-			<div class="example-title">
-				<slot name="title"></slot>
-			</div>
-			<div class="example-desc">
-				<slot name="desc"></slot>
-			</div>
-		</c-col>
-		<div class="example-split"></div>
-		<c-col class="example-code" :span="isVertical ? 24 : 12" :style="codeHeight">
-			<div :style="styles" ref="example_code"><slot name="code"></slot></div>
-			<div class="example-code-more" ref="example_btn_more"  @click="showCode = !showCode">
-				<i class="code-icon-desc" v-show="!showCode"></i>
-				<i class="code-icon-asc"  v-show="showCode"></i>
-				<span v-show="!showCode">show code</span>
-				<span v-show="showCode">close code</span>
-			</div>
-		</c-col>
-	</c-row>
+  <c-row class="example" :class="{ 'example-vertical': isVertical }">
+    <c-col class="example-demo" :span="isVertical ? 24 : 12">
+      <div class="example-case"><slot name="case"></slot></div>
+      <div class="example-title"><slot name="title"></slot></div>
+      <div class="example-desc"><slot name="desc"></slot></div>
+    </c-col>
+    <div class="example-split"></div>
+    <c-col
+      class="example-code"
+      :span="isVertical ? 24 : 12"
+      :style="codeHeight"
+    >
+      <div :style="styles" ref="example_code"><slot name="code"></slot></div>
+      <div
+        class="example-code-more"
+        ref="example_btn_more"
+        @click="showCode = !showCode"
+      >
+        <i class="c-icon c-icon-desc" v-show="!showCode"></i>
+        <i class="c-icon c-icon-asc" v-show="showCode"></i>
+        <span v-show="!showCode">show code</span>
+        <span v-show="showCode">close code</span>
+      </div>
+    </c-col>
+  </c-row>
 </template>
 
 <script>

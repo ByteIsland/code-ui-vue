@@ -2,21 +2,26 @@
   <div class="wrapper">
     <wrap-header />
     <div class="wrapper-container">
-      <c-row >
-        <c-col :span="4">
-          <MenuList />
-        </c-col>
-        <c-col :span="17" class="c-article">
-          <slot></slot>
-        </c-col>
+      <c-row>
+        <c-col :span="4"> <MenuList /> </c-col>
+        <c-col :span="17" class="c-article"> <slot></slot> </c-col>
         <c-col :span="3">
           <c-anchor :offsetTop="70" v-if="anchorList.length > 0" ref="Canchor">
-            <c-anchor-link :href="item.path" :title="item.title" v-for="(item, index) in anchorList"  :key="index"></c-anchor-link>
-            <c-anchor-link href="#API" title="API" v-if="need_api"></c-anchor-link>
+            <c-anchor-link
+              :href="item.path"
+              :title="item.title"
+              v-for="(item, index) in anchorList"
+              :key="index"
+            ></c-anchor-link>
+            <c-anchor-link
+              href="#API"
+              title="API"
+              v-if="need_api"
+            ></c-anchor-link>
           </c-anchor>
         </c-col>
       </c-row>
-    </div> 
+    </div>
     <wrap-footer />
   </div>
 </template>

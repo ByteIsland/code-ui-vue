@@ -30,31 +30,24 @@ export default {
       type: String,
       default: ""
     },
-    // 对齐模式
-    fixed: {
-      type: Boolean,
-      default: false
-    },
     // 旋转
     rotate: {
       validate(value) {
         return CheckProps(value, [90, 180, 270]);
       },
-      default: ""
+      default: 0
     },
     // 翻转
-    Flipped: {
+    flipped: {
       validate(value) {
         return CheckProps(value, ["horizontal", "vertical"]);
       },
       default: ""
     },
     // 动画
-    Animated: {
-      validate(value) {
-        return CheckProps(value, ["pulse", "spin"]);
-      },
-      default: ""
+    animated: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -69,10 +62,9 @@ export default {
         {
           [`${prefixClass}-${this.name}`]: !!this.name,
           [`${prefixClass}-${this.size}`]: this.size,
-          [`${prefixClass}-fw`]: this.fixed,
           [`${prefixClass}-rotate-${this.rotate}`]: !!this.rotate,
-          [`${prefixClass}-${this.Flipped}`]: !!this.Flipped,
-          [`${prefixClass}-${this.Animated}`]: !!this.Animated
+          [`${prefixClass}-${this.flipped}`]: !!this.flipped,
+          "c-rotate-appear": !!this.animated
         }
       ];
     },

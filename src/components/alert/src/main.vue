@@ -1,34 +1,46 @@
 <template>
-	<transition name="c-alert-fade">
-		<div 
-			class="c-alert" 
-			:class="[typeClass, center ? 'is-center' : '']"
-			v-show="visible"
-		>
-			<i class="c-alert--icon" :class="[typeIcon, isBigIcon]" v-if="showIcon"></i>
-			<div class="c-alert--content">
-				<span class="c-alert--title" :class="[isBoldTitle]" v-if="title || $slots.title">
-					<slot name="title">{{title}}</slot>
-				</span>
-				<slot>
-					<p class="c-alert-msg" v-if="msg">{{msg}}</p>
-				</slot>
-				<i 
-					class="c-alert-closebtn"
-					:class="{'is-customed': closeText !== '', 'code-icon-close': closeText === ''}" 
-					v-if="closable"
-					@click="close()"
-				>{{closeText}}</i>
-			</div>
-		</div>
-	</transition>
+  <transition name="c-alert-fade">
+    <div
+      class="c-alert"
+      :class="[typeClass, center ? 'is-center' : '']"
+      v-show="visible"
+    >
+      <i
+        class="c-alert--icon c-icon"
+        :class="[typeIcon, isBigIcon]"
+        v-if="showIcon"
+      ></i>
+      <div class="c-alert--content">
+        <span
+          class="c-alert--title"
+          :class="[isBoldTitle]"
+          v-if="title || $slots.title"
+        >
+          <slot name="title">{{ title }}</slot>
+        </span>
+        <slot>
+          <p class="c-alert-msg" v-if="msg">{{ msg }}</p>
+        </slot>
+        <i
+          class="c-alert-closebtn"
+          :class="{
+            'is-customed': closeText !== '',
+            'code-icon-close': closeText === ''
+          }"
+          v-if="closable"
+          @click="close()"
+          >{{ closeText }}</i
+        >
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script>
 const TYPE_CLASS_MAP = {
-  success: "code-icon-success",
-  error: "code-icon-error",
-  warning: "code-icon-warning"
+  success: "c-icon-success",
+  error: "c-icon-error",
+  warning: "c-icon-warning"
 };
 export default {
   name: "CAlert",
@@ -87,5 +99,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

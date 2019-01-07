@@ -238,7 +238,13 @@
       <Demo id="CBBJZDY">
         <div slot="case">
           <c-layout class="layout">
-            <c-sider hide-trigger collapsible :collapsed-width="70" v-model="isCollapsed">
+            <c-sider
+              hide-trigger
+              collapsible
+              :collapsed-width="70"
+              v-model="isCollapsed"
+              ref="csider"
+            >
               <c-menu
                 active-name="1"
                 width="auto"
@@ -260,8 +266,8 @@
               </c-menu>
             </c-sider>
             <c-layout>
-              <c-header style="background: #fff;">
-                <c-icon ></c-icon>
+              <c-header style="background: #fff;" gutter="30">
+                <c-icon name="menu" :rotate="IconRotate" @click="toggierSider" />
               </c-header>
               <c-main style="padding: 0 25px 25px;">
                 <c-breadcrumb style="margin: 20px 0;">
@@ -282,7 +288,9 @@
         </div>
         <code-demo lang="html" slot="code">{{ LayoutDoc.CBBJZDY }}</code-demo>
       </Demo>
-      <api-table title="API" sub-title="Layout props"></api-table>
+      <api-table title="API" sub-title="Sider props" :doc="LayoutDoc.siderDoc "></api-table>
+      <api-table sub-title="Sider events" :doc="LayoutDoc.siderEventsDoc "></api-table>
+      <api-table sub-title="Header & Footer props" :doc="LayoutDoc.hfDoc"></api-table>
     </article>
   </c-article>
 </template>
@@ -300,6 +308,16 @@ export default {
       LayoutDoc,
       isCollapsed: false
     };
+  },
+  computed: {
+    IconRotate() {
+      return this.isCollapsed ? 90 : "";
+    }
+  },
+  methods: {
+    toggierSider () {
+      this.$refs.csider.toggleCollapse()
+    }
   },
   components: {
     CArticle,

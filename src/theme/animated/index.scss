@@ -1,0 +1,35 @@
+$animation-time: 2s; // 动画时间
+
+/**
+ animation 公用样式
+ */
+@mixin motion-common ($time:2s) {
+  animation-duration: $time;
+  animation-fill-mode: both;  //  可控制animation状态结束的最后状态， both为向前和向后填充模式都被应用。
+};
+/*
+  动画执行方法
+*/
+@mixin makeMotion($className, $keyframeName) {
+  /* 动画开始 */
+  .#{$className}-enter-active, .#{$className}-appear {
+    @include motion-common();
+    animation-play-state: paused;
+  }
+  .#{$className}-enter-active, .#{$className}-appear {
+    animation-name: #{$keyframeName}In;
+    animation-play-state: running;
+  }
+  /* 动画结束 */
+  .#{$className}-leave-active {
+    @include motion-common();
+    animation-play-state: paused;
+  }
+  .#{$className}-leave-active, .#{$className}-appear {
+    animation-name: #{$keyframeName}Out;
+    animation-play-state: running;
+  }
+}
+
+@import "rotate.scss";
+@import "fade";

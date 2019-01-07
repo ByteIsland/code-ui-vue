@@ -247,10 +247,124 @@ export default {
   overflow: hidden;
 }
 </style>
-`
+`;
 
 code.CBBJZDY = `
+<template>
+  <c-layout class="layout">
+    <c-sider
+      hide-trigger
+      collapsible
+      :collapsed-width="70"
+      v-model="isCollapsed"
+      ref="csider"
+    >
+      <c-menu
+        active-name="1"
+        width="auto"
+        theme="dark"
+        :collapsed-menu="isCollapsed"
+      >
+        <c-menu-item name="1">
+          <c-icon name="search" />
+          <span>Options 1</span>
+        </c-menu-item>
+        <c-menu-item name="2">
+          <c-icon name="setting" />
+          <span>Options 2</span>
+        </c-menu-item>
+        <c-menu-item name="3">
+          <c-icon name="charts" />
+          <span>Options 3</span>
+        </c-menu-item>
+      </c-menu>
+    </c-sider>
+    <c-layout>
+      <c-header style="background: #fff;" gutter="30">
+        <c-icon name="menu" :rotate="IconRotate" @click="toggierSider"></c-icon>
+      </c-header>
+      <c-main style="padding: 0 25px 25px;">
+        <c-breadcrumb style="margin: 20px 0;">
+          <c-breadcrumb-item>Home</c-breadcrumb-item>
+          <c-breadcrumb-item>Components</c-breadcrumb-item>
+          <c-breadcrumb-item>Layout</c-breadcrumb-item>
+        </c-breadcrumb>
+        <c-card> <div style="min-height: 300px;">Content</div> </c-card>
+      </c-main>
+    </c-layout>
+  </c-layout>
+</template>
 
-`
+<script>
+export default {
+  data () {
+    return {
+      isCollapsed: false
+    };
+  },
+  computed: {
+    IconRotate() {
+      return this.isCollapsed ? 90 : "";
+    }
+  },
+  methods: {
+    toggierSider () {
+      this.$refs.csider.toggleCollapse()
+    }
+  },
+}
+</script>
+`;
+
+code.siderDoc = [
+  {
+    type: "value",
+    desc: "侧边栏是否收起，可使用 v-model 双向绑定数据",
+    typeof: "Boolean",
+    default: "false"
+  },
+  {
+    type: "width",
+    desc: "侧边栏宽度",
+    typeof: "Number | String",
+    default: "200"
+  },
+  {
+    type: "collapsible",
+    desc: `侧边栏是否可收起, 设置 <code>false</code> 后, 默认触发器会隐藏`,
+    typeof: "Boolean",
+    default: "false"
+  },
+  {
+    type: "collapsible-width",
+    desc: `侧边栏收缩后的宽度`,
+    typeof: "Boolean",
+    default: "false"
+  },
+  {
+    type: "hide-trigger",
+    desc: `隐藏默认触发器`,
+    typeof: "Boolean",
+    default: "false"
+  }
+];
+
+code.siderEventsDoc = [
+  {
+    type: "on-collapsible",
+    desc: `展开-收起时的回调`,
+    typeof: "Boolean",
+    default: "true / false"
+  }
+];
+
+code.hfDoc = [
+  {
+    type: "gutter",
+    desc: `可设置<code>CHeader</code>、<code>CFooter</code>的左右边距, 计算为传入值 / 2`,
+    typeof: "Number",
+    default: 100
+  }
+];
 
 export default code;

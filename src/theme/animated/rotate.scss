@@ -1,0 +1,22 @@
+/**
+  rotate旋转动画
+ */
+@mixin rotate-motion ($className, $keyframeName) {
+  .#{$className}-appear {
+    @include motion-common($animation-time);
+    animation-name: $keyframeName;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; // 无限次重复
+  }
+}
+
+@include rotate-motion('c-rotate', CRotate)
+
+@keyframes CRotate {
+  to {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(360deg);
+  }
+}

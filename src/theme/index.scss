@@ -1,7 +1,11 @@
 /* 基础 */
 @import './common/reset.scss';
 @import './common/common.scss';
+@import './common/variable.scss';
 @import 'iconfont/iconfont.css';
+@import "./icon.scss";
+@import "./animated/index.scss";
+/* 通用 */
 @import './button.scss';
 @import './button-group.scss';
 /* 全局 */
