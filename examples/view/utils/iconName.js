@@ -6,6 +6,62 @@ const webIcon = [
   //   tag: ""
   // },
   {
+    name: `${prefix}-taxi`,
+    tag: "taxi"
+  },
+  {
+    name: `${prefix}-metro`,
+    tag: "metro"
+  },
+  {
+    name: `${prefix}-vip`,
+    tag: "vip"
+  },
+  {
+    name: `${prefix}-compass`,
+    tag: "compass"
+  },{
+    name: `${prefix}-bus`,
+    tag: "bus"
+  },{
+    name: `${prefix}-switch`,
+    tag: "switch"
+  },{
+    name: `${prefix}-china`,
+    tag: "china"
+  },
+  {
+    name: `${prefix}-periphery`,
+    tag: "periphery"
+  },
+  {
+    name: `${prefix}-hotel`,
+    tag: "hotel"
+  },
+  {
+    name: `${prefix}-bubble`,
+    tag: "bubble"
+  },
+  {
+    name: `${prefix}-buffer`,
+    tag: "buffer"
+  },
+  {
+    name: `${prefix}-ticket`,
+    tag: "ticket"
+  },{
+    name: `${prefix}-scene`,
+    tag: "scene"
+  },
+  {
+    name: `${prefix}-debug`,
+    tag: "debug"
+  },
+  {
+    name: `${prefix}-home`,
+    tag: "home"
+  },
+  {
     name: `${prefix}-car`,
     tag: "car"
   },

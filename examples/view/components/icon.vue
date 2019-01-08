@@ -28,6 +28,7 @@
       <div class="icons">
         <div class="icons-item" v-for="(item, index) in webIcon" :key="index">
           <c-icon :name="item.tag" />
+          <i class="tag" v-if="index <= 19">New</i>
           <p>{{ item.name }}</p>
         </div>
       </div>
@@ -82,6 +83,17 @@ export default {
     padding-top: 10px;
     i {
       font-size: 32px;
+    }
+    i.tag {
+      font-size: 12px;
+      font-style: normal;
+      color: #fff;
+      background: #f17c67;
+      border-radius: 15px;
+      padding: 3px 5px;
+      position: absolute;
+      right: 5px;
+      top: 0;
     }
     p {
       font-size: 14px;

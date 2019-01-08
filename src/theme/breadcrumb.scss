@@ -1,13 +1,20 @@
 @import './common/variable.scss';
+$CBreadCrumb: ".c-breadcrumb";
+$CBreadCrumbItem: ".c-breadcrumb-item";
 
-.c-breadcrumb {
+#{$CBreadCrumb}{
 	font-size: $font-size-medium;
 	color: $text-secondary;
+  a {
+    color: inherit;
+  }
 	& > span:last-child{
 		font-weight: 700;
 		color: $text-primary;
 	}
-	.c-breadcrumb-item-separator {
+	#{$CBreadCrumbItem}-separator {
+    font-size: $font-size-small;
+    vertical-align: text-top;
 		margin: 0 8px;
 		color: $text-disabled;
 	}

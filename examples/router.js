@@ -25,6 +25,11 @@ export default [
     component: resolve => require(["./view/components/layout.vue"], resolve)
   },
   {
+    path: "/components/breadcrumb",
+    name: "breadcrumb",
+    component: resolve => require(["./view/components/breadcrumb.vue"], resolve)
+  },
+  {
     path: "/components/input",
     name: "input",
     component: resolve => require(["./view/components/input.vue"], resolve)
