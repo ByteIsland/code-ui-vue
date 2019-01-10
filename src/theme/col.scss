@@ -1,39 +1,33 @@
 $span_length: 24; // 栅格个数
 $span_width: 100% / $span_length; // 单个最少宽度
-
-[class*=c-col-] {
-	float: left;
-	flex: 0 0 auto;
-	box-sizing: border-box;
-}
+$Col: ".c-col";
 
 /* 栅格布局 */
-@mixin span ($span_width, $length) {
+@mixin GridFlex ($span_width, $length) {
 	@for $index from 1 to $length + 1 {
-		.c-col-#{$index}
+    #{$Col}-span-#{$index} {
+      float: left;
+      flex: 0 0 auto;
+      box-sizing: border-box;
+    };
+    #{$Col}-span-#{$index}
 		{
 			width: $span_width * ($index)
 		}
+    /* 偏移量计算 */
+    #{$Col}-offset-#{$index}
+    {
+      margin-left: $span_width * ($index)
+    }
 	}
 }
-/* 偏移量计算 */ 
-@mixin offset ($span_width, $length) {
-	@for $index from 1 to $length + 1 {
-		.c-col--offset-#{$index}
-		{
-			margin-left: $span_width * ($index)
-		}
-	}
-}
-@include span($span_width,$span_length);
-@include offset($span_width,$span_length);
-
+@include GridFlex($span_width,$span_length);
 
 /* xs样式 */
 @media only screen and (max-width: 767px) {
 	@mixin mediaXsType ($span_width, $length) {
 		@for $index from 1 to $length + 1 {
-			.c-col-xs-#{$index}
+      #{$Col}-xs-#{$index}
 			{
 				width: $span_width * ($index)
 			}
@@ -46,7 +40,7 @@ $span_width: 100% / $span_length; // 单个最少宽度
 @media only screen and (min-width: 768px) {
 	@mixin mediaSmType ($span_width, $length) {
 		@for $index from 1 to $length + 1 {
-			.c-col-sm-#{$index}
+      #{$Col}-sm-#{$index}
 			{
 				width: $span_width * ($index)
 			}
@@ -59,24 +53,11 @@ $span_width: 100% / $span_length; // 单个最少宽度
 @media only screen and (min-width: 992px) {
 	@mixin mediaMdType ($span_width, $length) {
 		@for $index from 1 to $length + 1 {
-			.c-col-md-#{$index}
+      #{$Col}-md-#{$index}
 			{
 				width: $span_width * ($index)
 			}
 		}
 	}
 	@include mediaMdType($span_width,$span_length)
-}
-
-/* lg样式 */
-@media only screen and (min-width: 1200px) {
-	@mixin mediaLgType ($span_width, $length) {
-		@for $index from 1 to $length + 1 {
-			.c-col-lg-#{$index}
-			{
-				width: $span_width * ($index)
-			}
-		}
-	}
-	@include mediaLgType($span_width,$span_length)
 }

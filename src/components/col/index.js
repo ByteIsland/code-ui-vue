@@ -1,4 +1,4 @@
-import Col from "./src/main.js";
+import Col from "./src/main.vue";
 
 Col.install = function(Vue) {
   Vue.component(Col.name, Col);

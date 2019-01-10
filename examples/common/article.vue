@@ -62,7 +62,7 @@ export default {
             // 判断长度
             if (anchorH2.length > 0) {
               const path = `#${anchorH2[0].id}`;
-              const title = anchorH2[0].innerText;
+              const title = anchorH2[0].innerHTML || "";
               this.anchorList.push({
                 path,
                 title

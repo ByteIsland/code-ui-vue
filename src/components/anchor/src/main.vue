@@ -1,18 +1,21 @@
 <template>
-	<component 
-		:is="wrapperComponent" 
-		:offset-top="offsetTop"
-		:offset-bottom="offsetBottom"
-	>
-		<div :class="`${prefixClass}-warpper`" :style="wrapperStyle">
+  <component
+    :is="wrapperComponent"
+    :offset-top="offsetTop"
+    :offset-bottom="offsetBottom"
+  >
+    <div :class="`${prefixClass}-warpper`" :style="wrapperStyle">
       <div :class="prefixClass">
         <div :class="`${prefixClass}-ink`">
-          <span :class="`${prefixClass}-ink-ball`" :style="{top: `${inkTop}px`}"></span>
+          <span
+            :class="`${prefixClass}-ink-ball`"
+            :style="{ top: `${inkTop}px` }"
+          ></span>
         </div>
         <slot></slot>
       </div>
     </div>
-	</component>
+  </component>
 </template>
 
 <script>
@@ -121,7 +124,9 @@ export default {
     // 滚动ing
     handleScroll(e) {
       this.upperFirstTitle =
-        e.target.scrollTop < this.titlesOffsetArr[0].offset;
+        e.target.scrollTop < this.titlesOffsetArr[0]
+          ? this.titlesOffsetArr[0].offset
+          : false;
       // 如果当前动画正在执行则抛出
       if (this.animating) return;
       this.updateTitleOffset();
@@ -220,7 +225,9 @@ export default {
         this.handleSetInkTop(); // 设置滚动到的位置
         this.updateTitleOffset(); // 设置标题文字
         this.upperFirstTitle =
-          this.scrollElement.scrollTop < this.titlesOffsetArr[0].offset;
+          this.scrollElement.scrollTop < this.titlesOffsetArr[0]
+            ? this.titlesOffsetArr[0].offset
+            : false;
         // 开启监听模式
         ListenOn(this.scrollContainer, "scroll", this.handleScroll); // 监听滚动变化
         ListenOn(window, "hashchange", this.handleHashChange); // 监听地址的变化

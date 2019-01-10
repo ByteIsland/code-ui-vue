@@ -109,6 +109,25 @@ export const findComponentsUpward = (VueContext, componentName) => {
   }
 };
 
+/**
+ * 查询兄弟节点
+ */
+export const findBrothersComponents = (
+  VueContext,
+  componentName,
+  exceptThis = true
+) => {
+  let res = VueContext.$parent.$children.filter(item => {
+    return item.$options.name === componentName;
+  });
+  // 需剔除自身
+  if (exceptThis) {
+    const index = res.findIndex(item => item._uid === VueContext._uid);
+    res.splice(index, 1);
+  }
+  return res;
+};
+
 /* 查询当前节点下同名的子节点 单个 */
 export const findComponentDownward = (VueContext, componentName) => {
   const childrens = VueContext.$children;

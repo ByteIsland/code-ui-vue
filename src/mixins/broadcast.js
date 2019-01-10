@@ -1,7 +1,6 @@
 /*
  * 全局通知
  */
-
 function _broadcast(componentName, eventName, params) {
   this.$children.forEach(child => {
     const name = child.$options.name;
