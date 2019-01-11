@@ -1,0 +1,164 @@
+$span_length: 24; // 栅格个数
+$span_width: 100% / $span_length; // 单个最少宽度
+$Col: ".c-col";
+$Row: ".c-row";
+
+#{$Row} {
+  &::before, &::after {
+    content: "";
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+  &#{$Row}-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &::before, &::after {
+      content: "";
+      display: none;
+    }
+    &::after {
+      clear: none;
+    }
+    /* flex布局 */
+    &#{$Row}-flex-start {
+      justify-content: flex-start;
+    }
+    &#{$Row}-flex-end {
+      justify-content: flex-end;
+    }
+    &#{$Row}-flex-center {
+      justify-content: center;
+    }
+    &#{$Row}-flex-center {
+      justify-content: center;
+    }
+    &#{$Row}-flex-space-between {
+      justify-content: space-between;
+    }
+    &#{$Row}-flex-space-around {
+      justify-content: space-around;
+    }
+    /* 对齐位置 */
+    &#{$Row}-flex-top {
+      align-items: flex-start;
+    }
+    &#{$Row}-flex-middle {
+      align-items: center;
+    }
+    &#{$Row}-flex-bottom {
+      align-items: flex-end;
+    }
+  }
+  #{$Col} {
+    position: relative;
+  }
+}
+
+/* 栅格布局 */
+@mixin GridFlex ($span_width, $length) {
+	@for $index from 1 to $length + 1 {
+    #{$Col}-span-#{$index} {
+      float: left;
+      flex: 0 0 auto;
+      box-sizing: border-box;
+    };
+    /* 区块间隔 */
+    #{$Col}-span-#{$index}
+		{
+			width: $span_width * ($index)
+		}
+    /* 偏移量计算 */
+    #{$Col}-offset-#{$index}
+    {
+      margin-left: $span_width * ($index)
+    }
+    /* flex排序 */
+    #{$Col}-order-#{$index} {
+      order: #{$index};
+    }
+    /* 左偏移 */
+    #{$Col}-push-#{$index} {
+      left: $span_width * ($index);
+    }
+    /* 右偏移 */
+    #{$Col}-pull-#{$index} {
+      right: $span_width * ($index);
+    }
+	}
+}
+@include GridFlex($span_width,$span_length);
+
+/* xs样式 */
+@media only screen and (max-width: 767px) {
+	@mixin mediaXsType ($span_width, $length) {
+		@for $index from 1 to $length + 1 {
+      #{$Col}-xs-#{$index} {
+        float: left;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+      }
+      #{$Col}-xs-#{$index}
+			{
+				width: $span_width * ($index)
+			}
+		}
+	}
+	@include mediaXsType($span_width,$span_length)
+}	
+
+/* sm样式 */
+@media only screen and (min-width: 768px) {
+	@mixin mediaSmType ($span_width, $length) {
+		@for $index from 1 to $length + 1 {
+      #{$Col}-sm-#{$index} {
+        float: left;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+      }
+      #{$Col}-sm-#{$index}
+			{
+				width: $span_width * ($index)
+			}
+		}
+	}
+	@include mediaSmType($span_width,$span_length)
+}
+
+/* md样式 */
+@media only screen and (min-width: 992px) {
+	@mixin mediaMdType ($span_width, $length) {
+		@for $index from 1 to $length + 1 {
+      #{$Col}-md-#{$index} {
+        float: left;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+      }
+      #{$Col}-md-#{$index}
+			{
+				width: $span_width * ($index)
+			}
+		}
+	}
+	@include mediaMdType($span_width,$span_length)
+}
+
+/* md样式 */
+@media only screen and (min-width: 1200px) {
+  @mixin mediaLgType ($span_width, $length) {
+    @for $index from 1 to $length + 1 {
+      #{$Col}-lg-#{$index} {
+        float: left;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+      }
+      #{$Col}-lg-#{$index}
+      {
+        width: $span_width * ($index)
+      }
+    }
+  }
+  @include mediaLgType($span_width,$span_length)
+}
