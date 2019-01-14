@@ -39,6 +39,11 @@ export default [
     component: resolve => require(["./view/components/menu.vue"], resolve)
   },
   {
+    path: "/components/dropdown",
+    name: "dropdown",
+    component: resolve => require(["./view/components/dropdown.vue"], resolve)
+  },
+  {
     path: "/components/breadcrumb",
     name: "breadcrumb",
     component: resolve => require(["./view/components/breadcrumb.vue"], resolve)

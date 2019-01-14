@@ -22,6 +22,9 @@ import CAnchor from "./components/anchor/index.js";
 import CAnchorLink from "./components/anchor-link/index.js";
 import CBreadcrumb from "./components/breadcrumb/index.js";
 import CBreadcrumbItem from "./components/breadcrumb-item/index.js";
+import CDropdown from "./components/dropdown/index.js";
+import CDropdownMenu from "./components/dropdown-menu/index.js";
+import CDropdownItem from "./components/dropdown-item/index.js";
 /* 表单组件 */
 import CInput from "./components/input/index.js";
 import CSwitch from "./components/switch/index.js";
@@ -52,6 +55,9 @@ const components = [
   CAnchorLink,
   CBreadcrumb,
   CBreadcrumbItem,
+  CDropdown,
+  CDropdownMenu,
+  CDropdownItem,
   CAffix,
   CInput,
   CSwitch

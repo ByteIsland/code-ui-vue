@@ -1,0 +1,38 @@
+$Dropdown: '.c-dropdown';
+$DropdownItem: '.c-dropdown-item';
+
+#{$Dropdown} {
+  display: inline-block;
+  .c-select-dropdown {
+    min-height: 0;
+    overflow: visible;
+  }
+  #{$Dropdown}-menu {
+    min-width: 100px;
+    #{$DropdownItem} {
+      font-size: 12px !important;
+      color: $text-primary;
+      padding: 8px 16px;
+      line-height: 1;
+      white-space: nowrap;
+      transition: background-color .2s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        background-color: $color-info-bg;
+      }
+      // 禁用
+      &#{$DropdownItem}-disabled {
+        color: $text-disabled;
+        cursor: no-drop;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+      // 带上划线
+      &#{$DropdownItem}-divided {
+        margin-top: 5px;
+        border-top: 1px solid $border-regular;
+      }
+    }
+  }
+}

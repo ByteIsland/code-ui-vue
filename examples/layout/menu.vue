@@ -9,9 +9,10 @@
         <c-menu-item name="grid" to="/components/grid">Grid 栅格</c-menu-item>
         <c-menu-item name="layout" to="/components/layout">Layout 布局</c-menu-item>
         <c-menu-item name="card" to="/components/card">Card 卡片</c-menu-item>
-        <c-menu-item name="menu" to="/components/menu">Menu 菜单</c-menu-item>
       </c-menu-group>
       <c-menu-group title="导航">
+        <c-menu-item name="menu" to="/components/menu">Menu 菜单</c-menu-item>
+        <c-menu-item name="dropdown" to="/components/dropdown">Dropdown 下拉菜单</c-menu-item>
         <c-menu-item name="breadcrumb" to="/components/breadcrumb">Breadcrumb 面包屑</c-menu-item>
         <c-menu-item name="switch" to="/components/loadingBar">LoadingBar 加载进度条</c-menu-item>
       </c-menu-group>
@@ -20,9 +21,9 @@
         <c-menu-item name="switch" to="/components/switch">Switch 开关</c-menu-item>
       </c-menu-group>
       <c-menu-group title="视图">
-        <c-menu-item name="input" to="/components/alert">Alert 警告提示</c-menu-item>
-        <c-menu-item name="input" to="/components/message">Message 全局提示</c-menu-item>
-        <c-menu-item name="switch" to="/components/notice">Notice 通知提示</c-menu-item>
+        <c-menu-item name="alert" to="/components/alert">Alert 警告提示</c-menu-item>
+        <c-menu-item name="message" to="/components/message">Message 全局提示</c-menu-item>
+        <c-menu-item name="notice" to="/components/notice">Notice 通知提示</c-menu-item>
       </c-menu-group>
     </c-menu>
   </div>

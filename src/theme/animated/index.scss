@@ -1,4 +1,4 @@
-$animation-time: 2s; // 动画时间
+$animation-time: 200ms; // 动画时间
 
 /**
  animation 公用样式
@@ -13,7 +13,7 @@ $animation-time: 2s; // 动画时间
 @mixin makeMotion($className, $keyframeName) {
   /* 动画开始 */
   .#{$className}-enter-active, .#{$className}-appear {
-    @include motion-common();
+    @include motion-common($animation-time);
     animation-play-state: paused;
   }
   .#{$className}-enter-active, .#{$className}-appear {
@@ -22,7 +22,7 @@ $animation-time: 2s; // 动画时间
   }
   /* 动画结束 */
   .#{$className}-leave-active {
-    @include motion-common();
+    @include motion-common($animation-time);
     animation-play-state: paused;
   }
   .#{$className}-leave-active, .#{$className}-appear {
@@ -32,4 +32,5 @@ $animation-time: 2s; // 动画时间
 }
 
 @import "rotate.scss";
-@import "fade";
+@import "fade.scss";
+@import "slide.scss";
