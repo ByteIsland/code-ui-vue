@@ -1,26 +1,35 @@
 <template>
-	<div class="api">
+  <div class="api" id="API">
     <Anchor h1 :title="title" v-if="title !== ''"></Anchor>
     <Anchor h3 :title="SubTitle" v-if="SubTitle !== ''"></Anchor>
-		<table>
-			<thead>
-				<tr>
-					<th>属性</th>
-					<th>说明</th>
-					<th>类型</th>
-					<th>默认值</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr v-for="(item, index) in doc" :key="index">
-					<td>{{item.type}}</td>
-					<td v-html="item.desc"></td>
-					<td>{{item.typeof}}</td>
-					<td>{{item.default}}</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+    <table>
+      <thead>
+        <tr v-if="type === 4">
+          <th>属性</th>
+          <th>说明</th>
+          <th>类型</th>
+          <th>默认值</th>
+        </tr>
+        <tr v-if="type === 3">
+          <th>事件名</th>
+          <th>说明</th>
+          <th>返回值</th>
+        </tr>
+        <tr v-if="type === 2">
+          <th>名称</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in doc" :key="index">
+          <td>{{ item.type }}</td>
+          <td v-html="item.desc"></td>
+          <td v-html="item.typeof" v-if="type === 4 || type === 3"></td>
+          <td v-if="type === 4">{{ item.default }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
@@ -40,6 +49,10 @@ export default {
       default: () => {
         return [];
       }
+    },
+    type: {
+      type: Number,
+      default: 4 // mode 4 => 基础4格 3 => 事件3格 2 => slot
     }
   },
   components: { Anchor }

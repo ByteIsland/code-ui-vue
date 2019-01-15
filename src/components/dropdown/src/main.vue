@@ -32,6 +32,7 @@
 import Drop from "@/components/base/select/dropdown.vue";
 import { directive as clickOutside } from "v-click-outside-x";
 import { CheckProps } from "@/utils/assets";
+import { findComponentUpward } from "@/utils/assets";
 
 const prefixClass = "c-dropdown";
 export default {
@@ -167,14 +168,56 @@ export default {
       this.handleRightClose();
       if (this.currentVisible) this.$emit("on-clickoutside", e);
     },
+    // 普通关闭事件
     handleClose() {
       if (!this.isCustomAndClick()) return;
       this.currentVisible = false;
     },
+    // 右键点击关闭
     handleRightClose() {
       if (!this.isCustomAndRightClick()) return;
       this.currentVisible = false;
+    },
+    hasParent() {
+      const parent = findComponentUpward(this, "CDropdown");
+      if (parent) {
+        return parent;
+      } else {
+        return false;
+      }
     }
+  },
+  mounted() {
+    // hover事件点击
+    this.$on("on-hover-click", () => {
+      const parent = this.hasParent();
+      if (parent) {
+        this.$nextTick(() => {
+          if (this.trigger === "custom") return false;
+          this.currentVisible = false;
+        });
+        parent.$emit("on-hover-click");
+      } else {
+        this.$nextTick(() => {
+          if (this.trigger === "custom") return false;
+          this.currentVisible = false;
+        });
+      }
+    });
+    // 普通点击事件
+    this.$on("on-click", key => {
+      const parent = this.hasParent();
+      if (parent) parent.$emit("on-click", key);
+    });
+    // 判断是否有子节点
+    this.$on("on-hasChild-click", () => {
+      this.$nextTick(() => {
+        if (this.trigger === "custom") return false;
+        this.currentVisible = true;
+        const parent = this.hasParent();
+        if (parent) parent.$emit("on-hasChild-click");
+      });
+    });
   },
   components: {
     Drop

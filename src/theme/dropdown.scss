@@ -7,6 +7,10 @@ $DropdownItem: '.c-dropdown-item';
     min-height: 0;
     overflow: visible;
   }
+  /* 嵌套使用 */
+  #{$Dropdown} {
+    width: 100%;
+  }
   #{$Dropdown}-menu {
     min-width: 100px;
     #{$DropdownItem} {

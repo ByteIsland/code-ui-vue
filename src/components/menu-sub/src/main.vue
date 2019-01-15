@@ -1,13 +1,13 @@
 <template>
-  <li :class="classes">
+  <li :class="classes" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
     <div
-      :class="[prefixClass + '-sub-title']"
+      :class="[prefixClass + '-title']"
       ref="reference"
       @click.stop="handleClick"
       :style="titleStyle"
     >
       <slot name="title"></slot>
-      <Icon name="arrow-down" :class="[prefixClass + '-sub-title-icon']"></Icon>
+      <Icon name="arrow-down" :class="[prefixClass + '-title-icon']"></Icon>
     </div>
     <!-- 下拉菜单 -->
     <collapse-transition v-if="mode === 'vertical'">
@@ -15,17 +15,29 @@
         <slot></slot>
       </ul>
     </collapse-transition>
+    <transition name="slide-up" v-else>
+      <Drop v-show="opened" placement="bottom" ref="drop" :style="dropStyle">
+        <ul :class="[prefixClass + '-drop-list']">
+          <slot></slot>
+        </ul>
+      </Drop>
+    </transition>
   </li>
 </template>
 
 <script>
 import Icon from "@/components/icon/src/main.vue";
 import CollapseTransition from "@/components/base/collapse-transition/main.vue";
+import Drop from "@/components/base/select/dropdown.vue";
 import MenuMixin from "@/mixins/menu-mixin.js";
 import Broadcast from "@/mixins/broadcast.js";
-import { findComponentsDownward, findComponentUpward } from "@/utils/assets.js";
+import {
+  findComponentsDownward,
+  findComponentUpward,
+  getStyle
+} from "@/utils/assets.js";
 
-const prefixClass = "c-menu";
+const prefixClass = "c-menu-submenu";
 
 export default {
   name: "CMenuSub",
@@ -44,21 +56,27 @@ export default {
     return {
       prefixClass: prefixClass,
       active: false, // 是否选中
-      opened: false // 是否打开
+      opened: false, // 是否打开
+      dropWidth: parseFloat(getStyle(this.$el, "width"))
     };
   },
   computed: {
     classes() {
       return [
-        `${prefixClass}-menusub`,
+        `${prefixClass}`,
         {
           [`${prefixClass}-item-active`]: this.active && !this.hasParentSubmenu,
           [`${prefixClass}-opened`]: this.opened,
           [`${prefixClass}-disabled`]: this.disabled,
-          [`${prefixClass}-menusub-has-parent-menusub`]: this.hasParentSubmenu,
+          [`${prefixClass}-submenu-has-parent-submenu`]: this.hasParentSubmenu,
           [`${prefixClass}-child-item-active`]: this.active
         }
       ];
+    },
+    dropStyle() {
+      let style = {};
+      if (this.dropWidth) style.minWidth = `${this.dropWidth}px`;
+      return style;
     },
     // 百叶窗模式
     accordion() {
@@ -74,7 +92,8 @@ export default {
   },
   components: {
     Icon,
-    CollapseTransition
+    CollapseTransition,
+    Drop
   },
   mounted() {
     this.$on("on-menu-item-select", name => {
@@ -105,18 +124,42 @@ export default {
       }
       this.opened = !opened; // 切换模式
       this.menu.updateOpenKeys(this.name);
-    }
+    },
+    // TODO 鼠标划入
+    handleMouseEnter() {
+      if (this.disabled) return;
+      if (this.mode === "vertical") return;
+      clearTimeout(this.timer);
+      this.timer = setTimeout(() => {
+        this.menu.updateOpenKeys(this.name);
+        this.opened = true;
+      }, 250);
+    },
+    // TODO 鼠标划出
+    handleMouseLeave() {
+      if (this.disabled) return;
+      if (this.mode === "vertical") return;
+      clearTimeout(this.timer);
+      this.timer = setTimeout(() => {
+        this.menu.updateOpenKeys(this.name);
+        this.opened = false;
+      }, 150);
+    },
   },
   watch: {
     mode(val) {
       if (val === "horizontal") {
-        // this.$refs.drop.update();
+        this.$refs.drop.create();
       }
     },
     opened(val) {
       if (this.mode === "vertical") return;
       if (val) {
-        console.log(val);
+        // 更新下拉框样式
+        this.dropWidth = parseFloat(getStyle(this.$el, "width"));
+        this.$refs.drop.create();
+      } else {
+        this.$refs.drop.destroy();
       }
     }
   }

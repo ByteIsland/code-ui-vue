@@ -185,11 +185,12 @@
         <div slot="desc">
           <p>可支持多个下拉菜单嵌套使用, 但注意展示方向</p>
         </div>
+        <code-demo lang="html" slot="code">{{ DropdownDoc.QTSY }}</code-demo>
       </Demo>
       <!-- API -->
       <api-table title="API" sub-title="Dropdown props" :doc="DropdownDoc.PropsDoc" />
-      <api-table sub-title="Dropdown events" :doc="DropdownDoc.EventsDoc" />
-      <api-table sub-title="Dropdown slot" :doc="DropdownDoc.SlotDoc" />
+      <api-table sub-title="Dropdown events" :doc="DropdownDoc.EventsDoc" :type="3" />
+      <api-table sub-title="Dropdown slot" :doc="DropdownDoc.SlotDoc" :type="2" />
       <api-table sub-title="DropdownItem props" :doc="DropdownDoc.ItemPropsDoc" />
     </article>
   </c-article>
