@@ -46,9 +46,9 @@ export default {
       return [
         `${prefixClass}`,
         {
-          [`${prefixClass}--active`]: this.active,
-          [`${prefixClass}--selected`]: this.active,
-          [`${prefixClass}--disabled`]: this.disabled
+          [`${prefixClass}-active`]: this.active,
+          [`${prefixClass}-selected`]: this.active,
+          [`${prefixClass}-disabled`]: this.disabled
         }
       ];
     },

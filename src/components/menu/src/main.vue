@@ -136,6 +136,7 @@ export default {
       if (this.currentActiveName === undefined) {
         this.currentActiveName = -1;
       }
+      console.log(this.currentActiveName);
       // 父组件委派事件到子组件
       this.broadcast("CMenuSub", "on-update-active-name", false);
       this.broadcast(

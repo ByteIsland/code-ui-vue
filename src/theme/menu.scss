@@ -45,152 +45,9 @@ $SelectDrop: "c-select-dropdown";
     vertical-align: bottom;
     transition: width .2s ease-in-out;
   }
-	// :horizontal 水平布局
-	&.#{$Menu}-horizontal {
-		height: 60px;
-		line-height: 60px;
-    .#{$MenuGroup}-item-title {
-      height: 30px;
-      line-height: 30px;
-      padding-left: 8px;
-      font-size: 12px;
-      color: #999;
-    }
-		.#{$MenuItem}, .#{$MenuSub} {
-			float: left;
-			padding: 0 20px;
-		}
-    .#{$SelectDrop} {
-      width: auto;
-      min-width: 100%;
-      .#{$MenuItem} {
-        float: none;
-        font-size: 14px!important;
-        padding: 7px 16px 8px;
-        height: auto !important;
-        line-height: normal !important;
-        border-bottom: 0 !important;
-        transition: background-color .2s ease-in-out;
-        &.#{$MenuItem}--selected,
-        &:hover {
-          color: $color-default;
-          background-color: #f3f3f3;
-        }
-      }
-    }
+  .#{$MenuItem} > i {
+    margin-right: 8px;
   }
-	// :vertical 垂直布局
-	&.#{$Menu}-vertical {
-		.#{$MenuItem} {
-			&.c-menu-item--active,
-			&.c-menu-item--selected{
-				background: #f0faff;
-			}
-			&.#{$MenuItem}--active:not(.c-menu-submenu)::after {
-				content: " ";
-				display: block;
-				width: 2px;
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				right: 0;
-				background: #2d8cf0;
-			}
-		}
-		// icon
-		.#{$MenuSub}-title > i,
-		.#{$MenuSub}-title-icon,
-    .#{$MenuItem} > i {
-			margin-right: 8px;
-		}
-		.#{$MenuSub}-title-icon {
-			float: right;
-			position: relative;
-			top: 4px;
-		}
-		// 目标选中下拉框 icon旋转
-		.#{$Menu}-opened .#{$MenuSub}-title-icon {
-			transform: rotate(180deg);
-		}
-		&::after{
-			content: "";
-			display: block;
-			width: 1px;
-			height: 100%;
-			background: #dcdee2;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			z-index: 1;
-		}
-	}
-	/* 白色主题 */ 
-	&.#{$Menu}-light {
-		background: #fff;
-    /* 白色主题下的水平布局 */
-    &.#{$Menu}-horizontal {
-      .#{$MenuItem}, .#{$Menu}-submenu {
-        line-height: inherit;
-        height: inherit;
-        border-bottom: 2px solid transparent;
-        position: relative;
-        cursor: pointer;
-      }
-      .#{$MenuItem}--active,
-      .#{$MenuItem}:hover{
-        border-bottom: 2px solid $color-default;
-      }
-      /* 水平布局开启下划线 */
-      &::after{
-        content: "";
-        display: block;
-        width: 100%;
-        height: 1px;
-        background: #dcdee2;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-      }
-    }
-		// 选中效果
-		.#{$MenuItem}--active,
-		.#{$MenuItem}--selected,
-		.#{$MenuItem}:hover {
-			color: $color-default;
-			z-index: 2;
-		}
-	}
-	// 黑色主题
-	&.#{$Menu}-dark {
-		background: #515a6e;
-		/* 黑色主题下无需开启下划线 */
-		.#{$MenuItem} {
-			color:$text-placeholder;
-			&.#{$MenuItem}--active,
-			&.#{$MenuItem}--selected,
-			&:hover {
-				color: $color-default;
-			}
-		}
-    /* 垂直布局关闭侧边线， 添加背景色 */
-    &.#{$Menu}-vertical {
-      .#{$MenuItem}--active,
-      .#{$MenuItem}--selected {
-        background: #363e4f;
-      }
-      &::after {
-        display: none;
-      }
-      .#{$MenuItem}--active:not(.c-menu-menusub)::after {
-        display: none !important;
-      }
-    }
-	}
-	/* 主题色 */ 
-	&.#{$Menu}-primary {
-		background: $color-default;
-	}
   /* 最小菜单模式 */
   &.collapsed-menu {
     .#{$MenuItem} i {
@@ -204,9 +61,173 @@ $SelectDrop: "c-select-dropdown";
   }
 }
 
+/*
+  布局
+*/
+
+/* horizontal 水平布局 */
+.#{$Menu}-horizontal {
+  height: 60px;
+  line-height: 60px;
+  .#{$MenuGroup}-item-title {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 8px;
+    font-size: 12px;
+    color: #999;
+  }
+  /* 水平布局全为float布局 */
+  .#{$MenuItem}, .#{$MenuSub} {
+    float: left;
+    padding: 0 20px;
+    position: relative;
+    cursor: pointer;
+    z-index: 3;
+  }
+  /* 下拉菜单 */
+  .#{$MenuSub} .#{$SelectDrop} {
+    width: auto;
+    min-width: 100%;
+    .#{$MenuItem} {
+      float: none;
+      font-size: 14px;
+      color: $text-primary;
+      padding: 7px 16px 8px;
+      height: auto;
+      line-height: normal;
+      border-bottom: 0;
+      transition: background-color .2s ease-in-out;
+      /* 选中后样式 */
+      &.#{$MenuItem}-selected,
+      &.#{$MenuItem}-active,
+      &:hover {
+        color: $color-default;
+        border-bottom: 0;
+      }
+      &:hover {
+        background-color: #f3f3f3;
+      }
+    }
+  }
+}
+/* vertical 垂直布局 */
+.#{$Menu}-vertical {
+  .#{$MenuItem} {
+    &.c-menu-item-active,
+    &.c-menu-item-selected{
+      background: #f0faff;
+    }
+    &.#{$MenuItem}-active:not(.c-menu-submenu)::after {
+      content: " ";
+      display: block;
+      width: 2px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background: #2d8cf0;
+    }
+  }
+  // icon
+  .#{$MenuSub}-title > i,
+  .#{$MenuSub}-title-icon,
+  .#{$MenuItem} > i {
+    margin-right: 8px;
+  }
+  .#{$MenuSub}-title-icon {
+    float: right;
+    position: relative;
+    top: 4px;
+  }
+  // 目标选中下拉框 icon旋转
+  .#{$Menu}-opened .#{$MenuSub}-title-icon {
+    transform: rotate(180deg);
+  }
+  &::after{
+    content: "";
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: #dcdee2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+/*
+  主题
+*/
+
+/* 白色主题 */
+.#{$Menu}-light {
+  background: #fff;
+  /* 白色主题下的水平布局 */
+  &.#{$Menu}-horizontal {
+    .#{$MenuItem}, .#{$Menu}-submenu {
+      line-height: inherit;
+      height: inherit;
+      border-bottom: 2px solid transparent;
+    }
+    .#{$MenuItem}-active,
+    .#{$MenuItem}:hover{
+      color: $color-default;
+      border-bottom: 2px solid $color-default;
+    }
+    /* 水平布局开启下划线 */
+    &::after{
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: #dcdee2;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+  // 选中效果
+  .#{$MenuItem}-active,
+  .#{$MenuItem}-selected,
+  .#{$MenuItem}:hover {
+    color: $color-default;
+    z-index: 2;
+  }
+}
+
+/* 黑色主题 */
+.#{$Menu}-dark {
+  background: #515a6e;
+  /* 黑色主题下无需开启下划线 */
+  .#{$MenuItem},
+  .#{$MenuSub} {
+    color: $text-placeholder;
+    &.#{$MenuItem}-active,
+    &.#{$MenuItem}-selected,
+    &:hover {
+      color: #fff;
+    }
+  }
+  /* 垂直布局关闭侧边线， 添加背景色 */
+  &.#{$Menu}-vertical {
+    .#{$MenuItem}-active,
+    .#{$MenuItem}-selected {
+      background: #363e4f;
+    }
+    &::after {
+      display: none;
+    }
+    .#{$MenuItem}-active:not(.c-menu-menusub)::after {
+      display: none !important;
+    }
+  }
+}
+
 /* 下拉菜单 */
 .#{$MenuSub} {
   .#{$MenuSub}-title > i {
-    margin-right: 6px;
+    margin-right: 8px;
   }
 }

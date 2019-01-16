@@ -1,13 +1,20 @@
 <template>
-  <li :class="classes" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
+  <li
+    :class="classes"
+    @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave"
+  >
     <div
-      :class="[prefixClass + '-title']"
+      :class="[prefixClass + '-submenu-title']"
       ref="reference"
       @click.stop="handleClick"
       :style="titleStyle"
     >
       <slot name="title"></slot>
-      <Icon name="arrow-down" :class="[prefixClass + '-title-icon']"></Icon>
+      <Icon
+        name="arrow-down"
+        :class="[prefixClass + 'submenu-title-icon']"
+      ></Icon>
     </div>
     <!-- 下拉菜单 -->
     <collapse-transition v-if="mode === 'vertical'">
@@ -37,7 +44,7 @@ import {
   getStyle
 } from "@/utils/assets.js";
 
-const prefixClass = "c-menu-submenu";
+const prefixClass = "c-menu";
 
 export default {
   name: "CMenuSub",
@@ -63,7 +70,7 @@ export default {
   computed: {
     classes() {
       return [
-        `${prefixClass}`,
+        `${prefixClass}-submenu`,
         {
           [`${prefixClass}-item-active`]: this.active && !this.hasParentSubmenu,
           [`${prefixClass}-opened`]: this.opened,
@@ -103,12 +110,16 @@ export default {
     });
     // 监听是否有需要更改的表头 => 只允许展示一个表头
     this.$on("on-update-active-name", status => {
-      if (findComponentUpward(this, "CMenuSub"))
+      console.log("status", status);
+      if (findComponentUpward(this, "CMenuSub")) {
         this.dispatch("CMenuSub", "on-update-active-name", status);
-      if (findComponentsDownward(this, "CMenuSub"))
+      }
+      if (findComponentsDownward(this, "CMenuSub")) {
         findComponentsDownward(this, "CMenuSub").forEach(item => {
           item.active = false;
         });
+      }
+      this.active = status;
     });
   },
   methods: {
@@ -144,7 +155,7 @@ export default {
         this.menu.updateOpenKeys(this.name);
         this.opened = false;
       }, 150);
-    },
+    }
   },
   watch: {
     mode(val) {

@@ -1,9 +1,11 @@
 <template>
-	<c-article>
-		<article>
+  <c-article>
+    <article>
       <Anchor h1 title="Menu 菜单" />
       <Anchor h2 title="概述" />
-      <p class="description">为页面提供导航功能的菜单列表, 常用语网页顶部与左侧</p>
+      <p class="description">
+        为页面提供导航功能的菜单列表, 常用语网页顶部与左侧
+      </p>
       <Anchor h2 title="代码示例" />
       <Demo id="BASE">
         <div slot="case">
@@ -40,16 +42,17 @@
         <span slot="title" class="title">顶部导航</span>
         <div slot="desc">
           <p>水平的顶部导航</p>
-          <p>通过设置属性<code>theme</code>来切换主题, 可用值<code>dark</code>、<code>light</code>、<code>primary</code></p>
+          <p>通过设置属性<code>theme</code>来切换主题, 可用值<code>dark</code>黑色与<code>light</code>亮色</p>
           <p>该组件提供了<code>on-select</code>事件, 可得到点击菜单的name值</p>
         </div>
-        <code-demo lang="html" slot="code"></code-demo>
+        <code-demo lang="html" slot="code">{{ MenuDoc.BASE }}</code-demo>
       </Demo>
     </article>
-	</c-article>
+  </c-article>
 </template>
 
 <script>
+import MenuDoc from "../../doc/menu";
 import CArticle from "../../common/article.vue";
 import Anchor from "../../common/anchor.vue";
 import Demo from "../../common/demo.vue";
@@ -57,6 +60,11 @@ import CodeDemo from "../../common/code.vue";
 import ApiTable from "../../common/table.vue";
 import CMenuGroup from "../../../src/components/menu-group/src/main";
 export default {
+  data() {
+    return {
+      MenuDoc
+    };
+  },
   components: {
     CMenuGroup,
     CArticle,
