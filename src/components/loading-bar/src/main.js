@@ -16,7 +16,7 @@ const cLoadingBar = properties => {
   // 获取节点
   const loading_bar = instace.vm;
   return {
-    compoent: loading_bar,
+    component: loading_bar,
     /* 组件更新 */
     update(options) {
       // options => object

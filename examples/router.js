@@ -49,6 +49,11 @@ export default [
     component: resolve => require(["./view/components/breadcrumb.vue"], resolve)
   },
   {
+    path: "/components/loadingBar",
+    name: "loadingBar",
+    component: resolve => require(["./view/components/loadingBar.vue"], resolve)
+  },
+  {
     path: "/components/input",
     name: "input",
     component: resolve => require(["./view/components/input.vue"], resolve)

@@ -23,7 +23,7 @@ function getLoadingBarInstance() {
 function update(options) {
   let instace = getLoadingBarInstance();
 
-  return instace.update(options);
+  instace.update(options);
 }
 
 /* 清空定时器 */

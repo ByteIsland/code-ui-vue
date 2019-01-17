@@ -13,7 +13,7 @@
       <slot name="title"></slot>
       <Icon
         name="arrow-down"
-        :class="[prefixClass + 'submenu-title-icon']"
+        :class="[prefixClass + '-submenu-title-icon']"
       ></Icon>
     </div>
     <!-- 下拉菜单 -->
@@ -110,7 +110,6 @@ export default {
     });
     // 监听是否有需要更改的表头 => 只允许展示一个表头
     this.$on("on-update-active-name", status => {
-      console.log("status", status);
       if (findComponentUpward(this, "CMenuSub")) {
         this.dispatch("CMenuSub", "on-update-active-name", status);
       }

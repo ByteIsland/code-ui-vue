@@ -1,7 +1,7 @@
 <template>
   <transition name="c-loading-fade">
     <div class="c-loading-bar" v-show="visible">
-      <div :style="style" :class="innserClasses">
+      <div :style="style" :class="Classes">
       </div>
     </div>
   </transition>
@@ -21,7 +21,7 @@ export default {
     };
   },
   computed: {
-    innserClasses() {
+    Classes() {
       return [
         prefixName,
         {

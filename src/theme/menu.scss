@@ -14,7 +14,8 @@ $SelectDrop: "c-select-dropdown";
 	z-index: 900;
 	// 主标题
 	.#{$MenuGroup}-item-title {
-		font-size: 12px;
+		font-size: 14px;
+    font-weight: 400;
 		color: #999;
     padding-left: 28px;
 		height: 50px;
@@ -26,16 +27,6 @@ $SelectDrop: "c-select-dropdown";
 		transition: transform .2s linear;
 	}
 	// 子菜单 & 折叠菜单标题
-	.#{$MenuItem},
-	&.#{$Menu}-vertical .#{$MenuSub}-title {
-		display: block;
-		color: inherit;
-		padding: 14px 24px;
-		position: relative;
-		cursor: pointer;
-		z-index: 1;
-		transition: all .2s ease-in-out;
-	}
   .#{$MenuItem} span {
     display: inline-block;
     width: 69px;
@@ -47,6 +38,10 @@ $SelectDrop: "c-select-dropdown";
   }
   .#{$MenuItem} > i {
     margin-right: 8px;
+  }
+  // 目标选中下拉框 icon旋转
+  .#{$Menu}-opened .#{$MenuSub}-title-icon {
+    transform: rotate(180deg);
   }
   /* 最小菜单模式 */
   &.collapsed-menu {
@@ -83,6 +78,7 @@ $SelectDrop: "c-select-dropdown";
     position: relative;
     cursor: pointer;
     z-index: 3;
+    transition: all .2s ease-in-out;
   }
   /* 下拉菜单 */
   .#{$MenuSub} .#{$SelectDrop} {
@@ -112,11 +108,15 @@ $SelectDrop: "c-select-dropdown";
 }
 /* vertical 垂直布局 */
 .#{$Menu}-vertical {
-  .#{$MenuItem} {
-    &.c-menu-item-active,
-    &.c-menu-item-selected{
-      background: #f0faff;
-    }
+  .#{$MenuItem},
+  .#{$MenuSub}-title {
+    display: block;
+    color: inherit;
+    padding: 14px 24px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    transition: all .2s ease-in-out;
     &.#{$MenuItem}-active:not(.c-menu-submenu)::after {
       content: " ";
       display: block;
@@ -126,6 +126,9 @@ $SelectDrop: "c-select-dropdown";
       bottom: 0;
       right: 0;
       background: #2d8cf0;
+    }
+    .#{$MenuItem}{
+      background: #f0faff;
     }
   }
   // icon
@@ -138,10 +141,6 @@ $SelectDrop: "c-select-dropdown";
     float: right;
     position: relative;
     top: 4px;
-  }
-  // 目标选中下拉框 icon旋转
-  .#{$Menu}-opened .#{$MenuSub}-title-icon {
-    transform: rotate(180deg);
   }
   &::after{
     content: "";
@@ -172,8 +171,8 @@ $SelectDrop: "c-select-dropdown";
       border-bottom: 2px solid transparent;
     }
     .#{$MenuItem}-active,
-    .#{$MenuItem}:hover{
-      color: $color-default;
+    .#{$MenuItem}:hover,
+    .#{$MenuSub}:hover{
       border-bottom: 2px solid $color-default;
     }
     /* 水平布局开启下划线 */
@@ -189,12 +188,17 @@ $SelectDrop: "c-select-dropdown";
     }
   }
   // 选中效果
-  .#{$MenuItem}-active,
+  .#{$MenuItem}-active:not(.c-menu-submenu),
   .#{$MenuItem}-selected,
-  .#{$MenuItem}:hover {
+  .#{$MenuItem}:hover,
+  .#{$MenuSub}-title:hover{
     color: $color-default;
     z-index: 2;
   }
+  .#{$MenuItem}-active:not(.c-menu-submenu) {
+    background: #f0faff;
+  }
+
 }
 
 /* 黑色主题 */
@@ -202,24 +206,36 @@ $SelectDrop: "c-select-dropdown";
   background: #515a6e;
   /* 黑色主题下无需开启下划线 */
   .#{$MenuItem},
-  .#{$MenuSub} {
-    color: $text-placeholder;
-    &.#{$MenuItem}-active,
-    &.#{$MenuItem}-selected,
-    &:hover {
-      color: #fff;
-    }
+  .#{$MenuSub}-title {
+    color: hsla(0,0%,100%,.6);
+  }
+  // hover & active
+  .#{$MenuItem}-active,
+  .#{$MenuItem}-selected,
+  .#{$MenuItem}-active .#{$MenuSub}-title,
+  .#{$MenuItem}:hover,
+  .#{$MenuSub}-title:hover{
+    color: #fff;
   }
   /* 垂直布局关闭侧边线， 添加背景色 */
   &.#{$Menu}-vertical {
-    .#{$MenuItem}-active,
-    .#{$MenuItem}-selected {
+    .#{$MenuSub}-title {
+      background: #515a6e;
+    }
+    .#{$Menu}-opened {
       background: #363e4f;
+      .#{$MenuSub}-title {
+        color: #fff;
+      }
+    }
+    .#{$MenuItem}-active:not(.c-menu-submenu),
+    .#{$MenuItem}-selected {
+      background: $color-default;
     }
     &::after {
       display: none;
     }
-    .#{$MenuItem}-active:not(.c-menu-menusub)::after {
+    .#{$MenuItem}-active:not(.c-menu-submenu)::after {
       display: none !important;
     }
   }
