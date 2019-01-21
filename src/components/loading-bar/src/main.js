@@ -1,20 +1,22 @@
 import Vue from "vue";
-import Component from "./main.vue";
+import LoadingBar from "./main.vue";
 
-const CLoadingBar = Vue.extend(Component);
-
-const cLoadingBar = properties => {
-  const props = properties || {};
-  // 实例化组件
-  const instace = new CLoadingBar({
-    data: props
+LoadingBar.newInstall = properties => {
+  const _props = properties || {};
+  /* 重新传入并且实例化组件 */
+  const Instance = new Vue({
+    data: _props,
+    render(h) {
+      return h(LoadingBar, {
+        props: _props
+      });
+    }
   });
 
-  instace.vm = instace.$mount(); // 组件dom结构生成
-  // 挂载到body节点
-  document.body.appendChild(instace.vm.$el);
-  // 获取节点
-  const loading_bar = instace.vm;
+  const component = Instance.$mount(); // 组件生成
+  document.body.appendChild(component.$el); // 传入节点
+  const loading_bar = Instance.$children[0]; // 获取到LoadingBar示例 （Install层是Vue实例）
+
   return {
     component: loading_bar,
     /* 组件更新 */
@@ -39,4 +41,4 @@ const cLoadingBar = properties => {
   };
 };
 
-export default cLoadingBar;
+export default LoadingBar;

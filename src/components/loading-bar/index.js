@@ -6,16 +6,15 @@ let failedColor = "error";
 let height = 2;
 let timer;
 
-/* 获取已经实例化的loadingbar节点 */
+/* 获取已经实例化的loadingBar节点 */
 function getLoadingBarInstance() {
   loadingBarInstance =
     loadingBarInstance ||
-    CLoadingBar({
+    CLoadingBar.newInstall({
       color,
       failedColor,
       height
     });
-
   return loadingBarInstance;
 }
 
@@ -49,7 +48,7 @@ function hide() {
 }
 
 export default {
-  // 开始调用
+  // TODO 初始化loadingBar
   start() {
     if (timer) return;
 
@@ -75,8 +74,18 @@ export default {
       });
     }, 300);
   },
-  // 加载完毕
+  // TODO loadingBar 完成 - 进度
   finish() {
+    clearTimer(); // 清空定时器
+    update({
+      percent: 100,
+      status: "finish",
+      show: true
+    });
+    hide(); // 隐藏进度条
+  },
+  // TODO loadingBar 成功 - 进度
+  success() {
     clearTimer(); // 清空定时器
     update({
       percent: 100,
@@ -85,7 +94,7 @@ export default {
     });
     hide(); // 隐藏进度条
   },
-  // 加载失败
+  // TODO loadingBar 错误 - 进度
   error() {
     clearTimer(); // 清空定时器
     update({
@@ -95,7 +104,28 @@ export default {
     });
     hide(); // 隐藏进度条
   },
-  // 组件销毁
+  // TODO 配置loadingBar属性
+  config(options) {
+    if (options.color) {
+      color = options.color;
+    }
+    if (options.failedColor) {
+      failedColor = options.failedColor;
+    }
+    if (options.height) {
+      height = options.height;
+    }
+  },
+  // TODO 精确LoadingBar计算
+  update(percent) {
+    clearTimer(); // 清空定时器
+    update({
+      percent: percent,
+      status: "finish",
+      show: true
+    });
+  },
+  // TODO 销毁LoadingBar
   destroy() {
     clearTimer();
     let instace = getLoadingBarInstance();

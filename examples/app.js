@@ -20,16 +20,16 @@ const router = new VueRouter({
 
 // 全局拦截
 router.beforeEach((to, from, next) => {
-  router.app.$loading.start();
+  CodeUI.CLoadingBar.start();
   next();
 });
 
 router.afterEach(() => {
-  router.app.$loading.finish(); // 页面加载完毕关闭加载
+  CodeUI.CLoadingBar.finish(); // 页面加载完毕关闭加载
 });
 
 router.onError(() => {
-  router.app.$loading.error(); // 页面加载完毕关闭加载
+  CodeUI.CLoadingBar.error(); // 页面加载完毕关闭加载
 });
 
 new Vue({

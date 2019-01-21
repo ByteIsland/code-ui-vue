@@ -34,7 +34,7 @@ import CMessage from "./components/message/index.js";
 import CMessageBox from "./components/message-box/index.js";
 import CLoadingBar from "./components/loading-bar/index.js";
 
-const components = [
+const components = {
   CButton,
   CIcon,
   CButtonGroup,
@@ -60,16 +60,20 @@ const components = [
   CDropdownItem,
   CAffix,
   CInput,
-  CSwitch
-];
+  CSwitch,
+  CLoadingBar
+};
 
 const install = function(Vue) {
   if (install.installed) return;
-  components.map(component => Vue.component(component.name, component));
+  // 遍历组件
+  Object.keys(components).forEach(key => {
+    Vue.component(key, components[key]);
+  });
   /* 注册全局组件 */
+  Vue.prototype.$loading = CLoadingBar; // 加载
   Vue.prototype.$notice = CNotification; // 提示框
   Vue.prototype.$message = CMessage; // 消息框
-  Vue.prototype.$loading = CLoadingBar; // 加载
   Vue.prototype.$alert = CMessageBox.alert; // 警告框
   Vue.prototype.$confirm = CMessageBox.confirm; // 确认框
   // Vue.prototype.$prompt = CMessageBox.prompt; // 输入框
@@ -80,6 +84,7 @@ if (typeof window !== "undefined" && window.Vue) {
 }
 
 const API = {
+  version: process.env.VERSION,
   install,
   ...components
 };

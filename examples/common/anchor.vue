@@ -54,5 +54,9 @@ export default {
     font-weight: 400;
     margin: 8px 0;
   }
+  h4 {
+    font-size: 14px;
+    font-weight: 400;
+  }
 }
 </style>

@@ -2,6 +2,7 @@
   <div class="api" id="API">
     <Anchor h1 :title="title" v-if="title !== ''"></Anchor>
     <Anchor h3 :title="SubTitle" v-if="SubTitle !== ''"></Anchor>
+    <slot></slot>
     <table>
       <thead>
         <tr v-if="type === 4">
@@ -11,9 +12,11 @@
           <th>默认值</th>
         </tr>
         <tr v-if="type === 3">
-          <th>事件名</th>
+          <th v-if="typeName === ''">事件名</th>
+          <th v-else>{{ typeName }}</th>
           <th>说明</th>
-          <th>返回值</th>
+          <th v-if="typeofName === ''">返回值</th>
+          <th v-else>{{ typeofName }}</th>
         </tr>
         <tr v-if="type === 2">
           <th>名称</th>
@@ -53,6 +56,14 @@ export default {
     type: {
       type: Number,
       default: 4 // mode 4 => 基础4格 3 => 事件3格 2 => slot
+    },
+    typeName: {
+      type: String,
+      default: ""
+    },
+    typeofName: {
+      type: String,
+      default: ""
     }
   },
   components: { Anchor }
