@@ -1,10 +1,13 @@
 /* base */
-.c-input-warpper{
+$Input: ".c-input";
+$InputGroup: ".c-input-group";
+
+#{$Input}-warpper{
 	display: inline-block;
 	width: 100%;
 	position: relative;
 	vertical-align: middle;
-	.c-input {
+  #{$Input} {
 		display: inline-block;
 		font-size: $font-size-small;
 		color: $text-content;
@@ -27,15 +30,15 @@
 			box-shadow: 0 0 0 2px rgba(38, 136, 240, 0.2);
 		}
 		// prefix
-		&.c-input--prefix {
+		&#{$Input}-prefix {
 			padding-left: 32px;
 		}
-		&.c-input--suffix {
+		&#{$Input}-suffix {
 			padding-right: 32px;
 		}
 	}
 	// 表单内的icon
-	.c-input-icon {
+	#{$Input}-icon {
 		display: inline-block;
 		font-size: $font-size-medium-x;
 		color: $text-placeholder;
@@ -48,8 +51,8 @@
 		cursor: pointer;
 	}
 	// input框Icon
-	.c-input--with-suffix,
-	.c-input--with-prefix {
+	#{$Input}-with-suffix,
+	#{$Input}-with-prefix {
 		width: 32px;
     height: 100%;
     text-align: center;
@@ -63,12 +66,12 @@
 		}
 	}
 	// 右侧图标
-	.c-input--with-suffix {
+  #{$Input}-with-suffix {
 		left: auto;
 		right: 0;
 	}
 	// 禁用样式
-	.c-input--disabled {
+  #{$Input}-disabled {
 		color: $text-placeholder;
 		background-color: #f3f3f3;
 		opacity: 1;
@@ -80,40 +83,38 @@
 }
 
 /* large */
-.c-input-group-large {
-	.c-input-large {
+#{$InputGroup}-large {
+  #{$Input}-large {
 		font-size: $font-size-medium;
 		height: 36px;
 		line-height: 36px;
 	}
 }
 /* group large */
-.c-input-group--with-large .c-input--group-append,
-.c-input-group--with-large .c-input--group-prepend {
+#{$InputGroup}-with-large #{$InputGroup}-append,
+#{$InputGroup}-with-large #{$InputGroup}-prepend {
 	padding: 4px 8px;
 	height: 36px;
-	// border-radius: 3px;
 }
 
 /* small */
-.c-input-group-small {
-	.c-input-small {
+#{$InputGroup}-small {
+  #{$Input}-small {
 		padding: 1px 8px;
 		height: 24px;
 		border-radius: 3px;
 	}
 }
 /* group small */
-.c-input-group--with-small .c-input--group-append,
-.c-input-group--with-small .c-input--group-prepend {
+#{$InputGroup}-with-small #{$InputGroup}-append,
+#{$InputGroup}-with-small #{$InputGroup}-prepend {
 	padding: 0 7px;
 	height: 24px;
-	// border-radius: 3px;
 }
 
 // append & prepend 
-.c-input--group-append, 
-.c-input--group-prepend {
+#{$InputGroup}-append,
+#{$InputGroup}-prepend {
 	padding: 4px 8px;
 	font-size: inherit;
 	font-weight: 400;
@@ -126,42 +127,42 @@
 	vertical-align: middle;
 }
 /* 消除左半边边框以及Input右边边框*/
-.c-input--group-append {
+#{$InputGroup}-append {
 	border-left: 0;
 	border-bottom-left-radius: 0;
 	border-top-left-radius: 0;
 }
-.c-input-group--with-append .c-input {
+#{$InputGroup}-with-append #{$Input} {
 	border-bottom-right-radius: 0;
 	border-top-right-radius: 0;
 }
 // search按钮样式
-.c-input--group-append.c-input-search {
+#{$InputGroup}-append#{$Input}-search {
 	color: #fff;
 	background: $color-default;
 	border-color: $color-default;
 	cursor: pointer;
 }
 /* 消除右半边边框以及Input左边边框 */
-.c-input--group-prepend {
+#{$InputGroup}-prepend {
 	border-right: 0;
 	border-bottom-right-radius: 0;
 	border-top-right-radius: 0;
 }
-.c-input-group--with-prepend .c-input {
+#{$InputGroup}-with-prepend #{$Input}{
 	border-bottom-left-radius: 0;
 	border-top-left-radius: 0;
 }
 
 /* table布局 */
-.c-input-group {
+#{$InputGroup} {
 	display: table;
 	width: 100%;
 	position: relative;
 	font-size: 12px;
-	.c-input,
-	.c-input--group-append, 
-	.c-input--group-prepend
+  #{$Input},
+  #{$InputGroup}-append,
+  #{$InputGroup}-prepend
 	{
 		display: table-cell
 	}
