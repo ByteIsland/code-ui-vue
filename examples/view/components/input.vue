@@ -81,10 +81,64 @@
         </div>
         <span slot="title" class="title">带Icon</span>
         <div slot="desc">
-          <p>设置属性<code>icon</code>传入icon名字, 用法与<code>CIcon</code>相同</p>
+          <p>
+            设置属性<code>icon</code>传入icon名字, 用法与<code>CIcon</code>相同
+          </p>
           <p>点击Icon可触发<code>on-click</code>事件</p>
         </div>
         <code-demo lang="html" slot="code">{{ InputDoc.DICON }}</code-demo>
+      </Demo>
+      <!-- 左右Icon -->
+      <Demo id="ZYTB">
+        <div slot="case">
+          <div>
+            <span>属性方式</span>
+            <c-input
+              prefix="users"
+              placeholder="请输入用户名"
+              style="width: 180px; margin-right: 5px;"
+            />
+            <c-input
+              suffix="search"
+              placeholder="请输入搜索内容"
+              style="width: 180px;"
+            />
+          </div>
+          <div style="margin-top: 6px">
+            <span style="margin-right: 2px">slot方式</span>
+            <c-input
+              placeholder="请输入用户名"
+              style="width: 180px; margin-right: 5px"
+            >
+              <c-icon name="users" slot="prefix" />
+            </c-input>
+            <c-input placeholder="请输入搜索内容" style="width: 180px;">
+              <c-icon name="search" slot="suffix" />
+            </c-input>
+          </div>
+        </div>
+        <span class="title" slot="title">前缀和后缀图标</span>
+        <div slot="desc">
+          <p>
+            通过设置<code>prefix</code>或<code>suffix</code>以及同名slot实现前缀和后缀图标
+          </p>
+        </div>
+        <code-demo lang="html" slot="code">{{ InputDoc.ZYTB }}</code-demo>
+      </Demo>
+      <!-- 搜索框开启 -->
+      <Demo id="SEARCH">
+        <div slot="case">
+          <c-input search placeholder="Search Something..." style="margin-bottom: 5px" />
+          <c-input search enter-button placeholder="Search Something..." style="margin-bottom: 5px" />
+          <c-input search enter-button="搜索" placeholder="Search Something..." />
+        </div>
+        <span slot="title" class="title">搜索框</span>
+        <div slot="desc">
+          <p>
+            设置<code>search</code>属性，可以设置为搜索型输入框,
+            另外提供<code>enter-button</code>可让输入框右侧出现按钮
+          </p>
+        </div>
       </Demo>
     </article>
   </c-article>

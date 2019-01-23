@@ -28,7 +28,7 @@
       />
       <!-- 左Icon -->
       <span :class="[`${prefixCls}-with-prefix`]" v-else-if="showPrefix">
-        <slot name="prefix"> <i class="c-icon" :class="prefix"></i> </slot>
+        <slot name="prefix"> <c-icon :name="prefix" /> </slot>
       </span>
       <!-- 左边标签 -->
       <div :class="[`${prefixCls}-group-prepend`]" v-if="prepend">
@@ -62,7 +62,7 @@
       />
       <!-- 右Icon -->
       <span :class="[`${prefixCls}-with-suffix`]" v-if="showSuffix">
-        <slot name="suffix"> <i class="c-icon" :class="suffix"></i> </slot>
+        <slot name="suffix"> <c-icon :name="suffix" /> </slot>
       </span>
       <!-- 右边标签 -->
       <div :class="[`${prefixCls}-group-append`]" v-if="append">
@@ -74,7 +74,7 @@
         v-if="search && enterButton"
         @click="handleSearch"
       >
-        <i class="c-icon code-icon-search" v-if="enterButton === true"></i>
+        <c-icon name="search" v-if="enterButton === true" />
         <template v-else>{{ enterButton }}</template>
       </div>
     </template>
@@ -247,15 +247,15 @@ export default {
   computed: {
     wrapClasses() {
       return [
-        `${prefixCls}-warpper`,
+        `${prefixCls}-wrapper`,
         {
           [`${prefixCls}-group`]:
             this.prepend || this.append || (this.search && this.enterButton),
           [`${prefixCls}-group-${this.size}`]: !!this.size,
-          [`${prefixCls}-group--with-append`]:
+          [`${prefixCls}-group-with-append`]:
             this.append || (this.search && this.enterButton),
-          [`${prefixCls}-group--with-prepend`]: this.prepend,
-          [`${prefixCls}-group--with-${this.size}`]:
+          [`${prefixCls}-group-with-prepend`]: this.prepend,
+          [`${prefixCls}-group-with-${this.size}`]:
             !!this.size &&
             (this.append || this.prepend || (this.search && this.enterButton))
         }

@@ -2,13 +2,14 @@
 * 公用规范
 */
 
-/* 颜色规范 */ 
-$color-default: #409eff;
-$color-default-hover: #ecf5ff;
-$color-primary: #4cb4e7;
-$color-primary-hover: #73c2e9;
-$color-success: #70ce41;
-$color-success-hover: #a2e282;
+/* 颜色规范 */
+// 主色調
+$color-primary: #2196f3;
+$color-primary-hover: #64b5f6;
+$color-primary-active: #2196f3;
+// 辅助色
+$color-success: #4caf50;
+$color-success-hover: #81c784;
 $color-info: #909399;
 $color-info-hover: #989da5;
 $color-warning: #ec8938;
@@ -53,9 +54,10 @@ $text-title: #17243f;
 $text-content: #596379;
 $text-icon: #888e9e;
 $text-disabled: #d5d8df;
+$text-divider: #9e9e9e;
 
 /* 边框色彩 */
-$border-primary: #DCDEE2;
-$border-regular: #E4E7ED;
-$border-secondary: #EBEEF5;
-$border-placeholder: #F2F6FC;
+$border-primary: #cfd8dc;
+$border-regular: #b0bec5;
+$border-secondary: #90a4ae;
+$border-placeholder: #90a4ae;

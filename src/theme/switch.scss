@@ -79,8 +79,8 @@
 
 	/* checked */ 
 	&.c-switch-checked {
-		background: $color-default;
-		border-color: $color-default;
+		background: $color-primary;
+		border-color: $color-primary;
 		&::after {
 			left: 21px;
 		}

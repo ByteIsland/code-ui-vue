@@ -329,7 +329,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .layout-single {
   margin-bottom: 48px;
 }

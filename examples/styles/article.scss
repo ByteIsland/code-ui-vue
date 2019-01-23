@@ -37,7 +37,8 @@
 				list-style: outside upper-roman;
 			}
 		}
-    ul:not(.c-article-ul):not(.c-dropdown-menu) {
+    //ul:not(.c-article-ul):not(.c-dropdown-menu):not(.c-menu) {
+    .api > ul {
       padding-left: 40px;
       list-style-type: disc;
       li {

@@ -2,7 +2,7 @@
 $Input: ".c-input";
 $InputGroup: ".c-input-group";
 
-#{$Input}-warpper{
+#{$Input}-wrapper{
 	display: inline-block;
 	width: 100%;
 	position: relative;
@@ -23,7 +23,7 @@ $InputGroup: ".c-input-group";
 			color: $text-placeholder;
 		}
 		&:hover, &:focus {
-			border-color: $color-default;
+			border-color: $color-primary;
 		}
 		&:focus{
 			outline: 0;
@@ -126,7 +126,14 @@ $InputGroup: ".c-input-group";
 	border-radius: 4px;
 	vertical-align: middle;
 }
-/* 消除左半边边框以及Input右边边框*/
+// 处理宽度问题
+#{$InputGroup}-append,
+#{$InputGroup}-prepend {
+  width: 2px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+  /* 消除左半边边框以及Input右边边框*/
 #{$InputGroup}-append {
 	border-left: 0;
 	border-bottom-left-radius: 0;
@@ -137,11 +144,20 @@ $InputGroup: ".c-input-group";
 	border-top-right-radius: 0;
 }
 // search按钮样式
-#{$InputGroup}-append#{$Input}-search {
-	color: #fff;
-	background: $color-default;
-	border-color: $color-default;
-	cursor: pointer;
+#{$Input}-search {
+  color: #fff;
+  padding: 0 17px;
+  background: $color-primary;
+  border-color: $color-primary;
+  cursor: pointer;
+  transition: all .2s linear;
+  &:hover {
+    background: $color-primary-hover;
+    border-color: $color-primary-hover;
+  }
+  &:hover + #{$Input} {
+    border-color: $color-primary-hover;
+  }
 }
 /* 消除右半边边框以及Input左边边框 */
 #{$InputGroup}-prepend {

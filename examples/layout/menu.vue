@@ -2,6 +2,12 @@
   <div class="menu-list">
     <c-menu :active-name="activeName" style="width: auto">
       <c-menu-group title="基础">
+        <c-menu-item name="color" to="/components/color">
+          Color <span>色彩</span>
+        </c-menu-item>
+        <c-menu-item name="font" to="/components/font">
+          Font <span>字体</span>
+        </c-menu-item>
         <c-menu-item name="button" to="/components/button">
           Button <span>按钮</span>
         </c-menu-item>

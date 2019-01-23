@@ -27,7 +27,7 @@
 				width: 8px;
 				height: 8px;
 				background: #fff;
-				border: 2px solid $color-default;
+				border: 2px solid $color-primary;
 				border-radius: 50%;
 				left: 50%;
 				transition: top .2s ease-in-out;
@@ -48,11 +48,11 @@
 				text-overflow: ellipsis;
 				margin-bottom: 8px;
 				&:hover{
-					color: $color-default
+					color: $color-primary
 				}
 			}
 			&.c-anchor-link-active .c-anchor-link-title{
-				color: $color-default
+				color: $color-primary
 			}
 		}
 	}

@@ -15,7 +15,7 @@
 		opacity: 0;
 	}
 	.c-loading-bar-inner {
-		background: $color-default;
+		background: $color-primary;
 		transition: width .2s linear;
 		&.c-loading-bar-inner-error {
 			background: $color-danger;			

@@ -21,8 +21,8 @@
 	}
 	&.c-button-deafult {
 		&:hover {
-			color: $color-default;
-			background: $color-default-hover;
+			color: $color-primary;
+			background: $color-primary-hover;
 			border-color: #c6e2ff;
 		}
 		&:disabled {

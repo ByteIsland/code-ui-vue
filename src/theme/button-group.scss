@@ -21,10 +21,10 @@
 		}
 		&.c-button-primary {
 			& + .c-button {
-				border-left-color: $color-default-hover;
+				border-left-color: $color-primary-hover;
 			}
 			&::last-child {
-				border-right-color: $color-default-hover;
+				border-right-color: $color-primary-hover;
 			}
 		}
 	}

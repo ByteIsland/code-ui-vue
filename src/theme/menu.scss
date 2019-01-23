@@ -97,7 +97,7 @@ $SelectDrop: "c-select-dropdown";
       &.#{$MenuItem}-selected,
       &.#{$MenuItem}-active,
       &:hover {
-        color: $color-default;
+        color: $color-primary;
         border-bottom: 0;
       }
       &:hover {
@@ -128,6 +128,9 @@ $SelectDrop: "c-select-dropdown";
       background: #2d8cf0;
     }
     .#{$MenuItem}{
+      background: #f0faff;
+    }
+    &.#{$MenuItem}-active:not(.c-menu-submenu) {
       background: #f0faff;
     }
   }
@@ -173,7 +176,7 @@ $SelectDrop: "c-select-dropdown";
     .#{$MenuItem}-active,
     .#{$MenuItem}:hover,
     .#{$MenuSub}:hover{
-      border-bottom: 2px solid $color-default;
+      border-bottom: 2px solid $color-primary;
     }
     /* 水平布局开启下划线 */
     &::after{
@@ -192,13 +195,9 @@ $SelectDrop: "c-select-dropdown";
   .#{$MenuItem}-selected,
   .#{$MenuItem}:hover,
   .#{$MenuSub}-title:hover{
-    color: $color-default;
+    color: $color-primary;
     z-index: 2;
   }
-  .#{$MenuItem}-active:not(.c-menu-submenu) {
-    background: #f0faff;
-  }
-
 }
 
 /* 黑色主题 */
@@ -230,7 +229,7 @@ $SelectDrop: "c-select-dropdown";
     }
     .#{$MenuItem}-active:not(.c-menu-submenu),
     .#{$MenuItem}-selected {
-      background: $color-default;
+      background: $color-primary;
     }
     &::after {
       display: none;

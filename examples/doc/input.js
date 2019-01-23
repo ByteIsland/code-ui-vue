@@ -68,4 +68,25 @@ export default {
 </script>
 `;
 
+code.ZYTB = `
+<template>
+<div>
+<div>
+  <span>属性方式</span>
+  <c-input prefix="users" placeholder="请输入用户名" style="width: 180px; margin-right: 5px;" />
+  <c-input suffix="search" placeholder="请输入搜索内容" style="width: 180px;" />
+</div>
+  <div style="margin-top: 6px">
+    <span style="margin-right: 2px">slot方式</span>
+    <c-input placeholder="请输入用户名" style="width: 180px; margin-right: 5px">
+      <c-icon name="users" slot="prefix" />
+    </c-input>
+    <c-input placeholder="请输入搜索内容" style="width: 180px;">
+      <c-icon name="search" slot="suffix" />
+    </c-input>
+  </div>
+</div>
+</template>
+`;
+
 export default code;

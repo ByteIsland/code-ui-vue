@@ -9,6 +9,16 @@ export default [
     redirect: "/components/button"
   },
   {
+    path: "/components/color",
+    name: "color",
+    component: resolve => require(["./view/components/color.vue"], resolve)
+  },
+  {
+    path: "/components/font",
+    name: "font",
+    component: resolve => require(["./view/components/font.vue"], resolve)
+  },
+  {
     path: "/components/button",
     name: "button",
     component: resolve => require(["./view/components/button.vue"], resolve)
