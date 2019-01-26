@@ -1,15 +1,15 @@
 {
-  "name": "codeui",
-  "version": "0.1.12-beta",
+  "name": "code-ui-vue",
+  "version": "0.1.13-beta",
   "author": "Saber",
   "title": "Code-UI",
   "description": "A fun for VueJS UI Library",
   "main": "dist/codeui.min.js",
-  "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development  --progress --config build/webpack.config.dev.js",
     "build:style": "gulp --gulpfile build/gulp-style.js",
     "build:prod": "webpack --config build/webpack.config.prod.js",
+    "build:doc": "webpack --config build/webpack.config.doc.js",
     "build": "npm run build:style && npm run build:prod"
   },
   "homepage": "http://ui.codetoby.com",
@@ -18,6 +18,9 @@
     "url": "https://github.com/iTobys/code-ui/issues",
     "email": "1378993548@qq.com"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "codeui",
     "ui",

@@ -23,7 +23,7 @@
       <c-icon
         name="search"
         :class="[`${prefixCls}-icon`, `${prefixCls}-ios-search`]"
-        v-else-if="search && enterButton === false"
+        v-else-if="search && searchButton === false"
         @click="handleSearch"
       />
       <!-- 左Icon -->
@@ -71,11 +71,11 @@
       <!-- search按钮 -->
       <div
         :class="[`${prefixCls}-group-append`, `${prefixCls}-search`]"
-        v-if="search && enterButton"
+        v-if="search && searchButton"
         @click="handleSearch"
       >
-        <c-icon name="search" v-if="enterButton === true" />
-        <template v-else>{{ enterButton }}</template>
+        <c-icon name="search" v-if="searchButton === true" />
+        <template v-else>{{ searchButton }}</template>
       </div>
     </template>
     <textarea
@@ -91,7 +91,7 @@
       :value="value"
       :disabled="disabled"
       :rows="rows"
-      :readonly="readOnly"
+      :readonly="readonly"
       :maxlength="maxlength"
       ref="textarea"
       @input="handleInput"
@@ -113,6 +113,7 @@
 <script>
 import CIcon from "@/components/icon/src/main.vue";
 import { CheckProps } from "@/utils/assets.js";
+import calcTextareaHeight from "@/utils/calcTextareaHeight.js";
 const prefixCls = "c-input";
 export default {
   name: "CInput",
@@ -132,7 +133,6 @@ export default {
           "password",
           "url",
           "email",
-          "url",
           "textarea"
         ]);
       },
@@ -187,7 +187,7 @@ export default {
       default: false
     },
     // 开启搜索按钮
-    enterButton: {
+    searchButton: {
       type: [Boolean, String],
       default: false
     },
@@ -216,8 +216,8 @@ export default {
     // Textarea专用
     // 自动宽高
     autosize: {
-      type: Boolean,
-      default: true
+      type: [Boolean, Object],
+      default: false
     },
     // 换行模式
     wrap: {
@@ -250,14 +250,14 @@ export default {
         `${prefixCls}-wrapper`,
         {
           [`${prefixCls}-group`]:
-            this.prepend || this.append || (this.search && this.enterButton),
+            this.prepend || this.append || (this.search && this.searchButton),
           [`${prefixCls}-group-${this.size}`]: !!this.size,
           [`${prefixCls}-group-with-append`]:
-            this.append || (this.search && this.enterButton),
+            this.append || (this.search && this.searchButton),
           [`${prefixCls}-group-with-prepend`]: this.prepend,
           [`${prefixCls}-group-with-${this.size}`]:
             !!this.size &&
-            (this.append || this.prepend || (this.search && this.enterButton))
+            (this.append || this.prepend || (this.search && this.searchButton))
         }
       ];
     },
@@ -349,7 +349,25 @@ export default {
     // 设置值
     setCurrentValue(value) {
       if (value === this.currentValue) return;
+      this.$nextTick(() => {
+        this.resizeTextarea();
+      });
       this.currentValue = value;
+    },
+    // 自适应多行文本框高度
+    resizeTextarea() {
+      const autosize = this.autosize;
+      if (!autosize || this.type !== "textarea") {
+        return false;
+      }
+      const minRows = autosize.minRow;
+      const maxRows = autosize.maxRow;
+
+      this.textareaStyles = calcTextareaHeight(
+        this.$refs.textarea,
+        minRows,
+        maxRows
+      );
     },
     focus() {
       this.$refs.input.focus();

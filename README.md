@@ -11,21 +11,23 @@
 </p>
 <p align=center>
 	<b size=5 color=#7FFFD4 face="微软雅黑" align=center>
-		**该组件仅支持本地运行目前预览
+		**该组件库目前仅供学习交流(尚未进行单元测试)**
 	</b>
 </p>
 
 
 
-## 项目启动前运行
+## 在项目安装
 ```
-npm install
-```
-
-### 开启本地运行
-```
-npm run dev
+npm install code-ui-vue -S
 ```
 
-### Warning
-- v0.1.0-beta正在重构整个项目结构
+### 在项目全局注册
+```
+import Vue from "vue"
+import CodeUI from "code-ui-vue"
+
+Vue.use(CodeUI) // 这样你就可以开始使用CodUI的相关内容了
+```
+
+[中文文档](http://ui.codetoby.com)

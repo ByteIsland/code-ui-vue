@@ -1,6 +1,9 @@
 <template>
   <div class="menu-list">
-    <c-menu :active-name="activeName" style="width: auto">
+    <c-menu :active-name="activeName" v-if="isGuide">
+      <c-menu-item name="introduce" to="/guide/introduce">介绍</c-menu-item>
+    </c-menu>
+    <c-menu :active-name="activeName" v-else style="width: auto">
       <c-menu-group title="基础">
         <c-menu-item name="color" to="/components/color">
           Color <span>色彩</span>
@@ -69,11 +72,14 @@ export default {
     activeName() {
       const router = this.$router;
       return router.currentRoute.name ? router.currentRoute.name : "button";
+    },
+    isGuide() {
+      return this.$router.currentRoute.path.indexOf("/guide") > -1;
     }
   }
 };
 </script>
 
-<style scoped lang="scss">
-  @import "../styles/menu.scss";
+<style lang="scss">
+@import "../styles/menu.scss";
 </style>

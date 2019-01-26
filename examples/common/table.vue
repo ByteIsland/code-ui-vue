@@ -54,7 +54,7 @@ export default {
       }
     },
     type: {
-      type: Number,
+      type: [Number, String],
       default: 4 // mode 4 => 基础4格 3 => 事件3格 2 => slot
     },
     typeName: {

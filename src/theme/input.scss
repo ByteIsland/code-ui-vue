@@ -7,79 +7,80 @@ $InputGroup: ".c-input-group";
 	width: 100%;
 	position: relative;
 	vertical-align: middle;
-  #{$Input} {
-		display: inline-block;
-		font-size: $font-size-small;
-		color: $text-content;
-		width: 100%;
-		height: 32px;
-		line-height: 1.5;
-		padding: 4px 7px;
-		border: 1px solid $border-primary;
-		border-radius: 5px;
-		background: #fff;
-		transition: border .3s ease-in-out, box-shadow .3s ease-in-out;
-		&::-webkit-input-placeholder{
-			color: $text-placeholder;
-		}
-		&:hover, &:focus {
-			border-color: $color-primary;
-		}
-		&:focus{
-			outline: 0;
-			box-shadow: 0 0 0 2px rgba(38, 136, 240, 0.2);
-		}
-		// prefix
-		&#{$Input}-prefix {
-			padding-left: 32px;
-		}
-		&#{$Input}-suffix {
-			padding-right: 32px;
-		}
-	}
-	// 表单内的icon
-	#{$Input}-icon {
-		display: inline-block;
-		font-size: $font-size-medium-x;
-		color: $text-placeholder;
-		text-align: center;
-		width: 32px;
-		height: 32px;
-		line-height: 32px;
-		position: absolute;
-		right: 0;
-		cursor: pointer;
-	}
-	// input框Icon
-	#{$Input}-with-suffix,
-	#{$Input}-with-prefix {
-		width: 32px;
-    height: 100%;
-    text-align: center;
-    position: absolute;
-    left: 0;
-    top: 0;
-		z-index: 1;
-		i {
-			font-size: $font-size-medium-x;
-			line-height: 32px;
-		}
-	}
-	// 右侧图标
-  #{$Input}-with-suffix {
-		left: auto;
-		right: 0;
-	}
-	// 禁用样式
-  #{$Input}-disabled {
-		color: $text-placeholder;
-		background-color: #f3f3f3;
-		opacity: 1;
-		cursor: not-allowed;
-		&:hover {
-			border-color: $border-primary;
-		}
-	}
+}
+// Input格式
+#{$Input} {
+  display: inline-block;
+  font-size: $font-size-small;
+  color: $text-content;
+  width: 100%;
+  height: 32px;
+  line-height: 1.5;
+  padding: 4px 7px;
+  border: 1px solid $border-primary;
+  border-radius: 5px;
+  background: #fff;
+  transition: border .3s ease-in-out, box-shadow .3s ease-in-out;
+  &::-webkit-input-placeholder{
+    color: $text-placeholder;
+  }
+  &:hover, &:focus {
+    border-color: $color-primary;
+  }
+  &:focus{
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(38, 136, 240, 0.2);
+  }
+  // prefix
+  &#{$Input}-prefix {
+    padding-left: 32px;
+  }
+  &#{$Input}-suffix {
+    padding-right: 32px;
+  }
+}
+// 表单内的icon
+#{$Input}-icon {
+  display: inline-block;
+  font-size: $font-size-medium-x;
+  color: $text-placeholder;
+  text-align: center;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+// input框Icon
+#{$Input}-with-suffix,
+#{$Input}-with-prefix {
+  width: 32px;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  i {
+    font-size: $font-size-medium-x;
+    line-height: 32px;
+  }
+}
+// 右侧图标
+#{$Input}-with-suffix {
+  left: auto;
+  right: 0;
+}
+// 禁用样式
+#{$Input}-disabled {
+  color: $text-placeholder;
+  background-color: #f3f3f3;
+  opacity: 1;
+  cursor: not-allowed;
+  &:hover {
+    border-color: $border-primary;
+  }
 }
 
 /* large */
@@ -183,3 +184,13 @@ $InputGroup: ".c-input-group";
 		display: table-cell
 	}
 }
+
+/* textarea 文本框 */
+textarea#{$Input} {
+  font-size: $font-size-medium;
+  height: auto;
+  max-width: 100%;
+  min-height: 32px;
+  vertical-align: bottom;
+}
+

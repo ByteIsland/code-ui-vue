@@ -5,6 +5,15 @@ export default [
     component: resolve => require(["./view/index.vue"], resolve)
   },
   {
+    path: "/guide",
+    redirect: "/guide/introduce"
+  },
+  {
+    path: "/guide/introduce",
+    name: "introduce",
+    component: resolve => require(["./view/guide/introduce.vue"], resolve)
+  },
+  {
     path: "/components",
     redirect: "/components/button"
   },
