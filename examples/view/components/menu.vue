@@ -3,7 +3,7 @@
     <article>
       <Anchor h1 title="Menu 菜单" />
       <Anchor h2 title="概述" />
-      <p class="description">
+      <p class="desc">
         为页面提供导航功能的菜单列表, 常用语网页顶部与左侧
       </p>
       <Anchor h2 title="代码示例" />

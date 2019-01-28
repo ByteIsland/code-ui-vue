@@ -3,7 +3,7 @@
     <article>
       <Anchor h1 title="Card 卡片" />
       <Anchor h2 title="概述" />
-      <p class="description">基础容器，用来显示文字、列表、图文等内容，也可以配合其它组件一起使用</p>
+      <p class="desc">基础容器，用来显示文字、列表、图文等内容，也可以配合其它组件一起使用</p>
       <Anchor h2 title="代码示例" />
       <!-- 基础用法-->
       <Demo id="BASE">

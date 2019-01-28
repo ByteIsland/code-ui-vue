@@ -3,7 +3,7 @@
     <Anchor h1 :title="title" v-if="title !== ''"></Anchor>
     <Anchor h3 :title="SubTitle" v-if="SubTitle !== ''"></Anchor>
     <slot></slot>
-    <table>
+    <table v-if="!font">
       <thead>
         <tr v-if="type === 4">
           <th>属性</th>
@@ -29,6 +29,27 @@
           <td v-html="item.desc"></td>
           <td v-html="item.typeof" v-if="type === 4 || type === 3"></td>
           <td v-if="type === 4">{{ item.default }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <table v-else>
+      <thead>
+        <tr>
+          <th v-if="isCN">中文字体</th>
+          <th v-else>英文字体</th>
+          <th>示例</th>
+          <th>加粗</th>
+          <th>颜色</th>
+          <th>字号</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in doc" :key="index">
+          <td>{{ item.title }}</td>
+          <td v-html="item.case"></td>
+          <td>{{ item.weight }}</td>
+          <td>{{ item.color }}</td>
+          <td>{{ item.size }}</td>
         </tr>
       </tbody>
     </table>
@@ -64,7 +85,9 @@ export default {
     typeofName: {
       type: String,
       default: ""
-    }
+    },
+    font: Boolean,
+    isCN: Boolean
   },
   components: { Anchor }
 };
@@ -73,7 +96,6 @@ export default {
 <style lang="scss">
 .api {
   table {
-    font-family: Consolas, Menlo, Courier, monospace;
     font-size: 12px;
     border-collapse: collapse;
     border-spacing: 0;

@@ -6,7 +6,7 @@
 	left: 0;
 	text-align: center;
 	width: 100%;
-	text-align: center;
+  z-index: 1001;
 	&.c-message-slide-enter-active {
 		transition: transform .35s;
 	} 

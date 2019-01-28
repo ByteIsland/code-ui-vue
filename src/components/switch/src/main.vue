@@ -1,14 +1,11 @@
 <template>
-	<div
-		:class="wrapClasses"
-		@click.stop="handleToggle"
-	>
-		<input type="hidden" :name="name" :value="currentValue">
-		<div :class="ineerClasses">
-			<slot name="trueValue" v-if="trueValue === currentValue"></slot>
-			<slot name="falseValue" v-if="falseValue === currentValue "></slot>
-		</div>
-	</div>
+  <div :class="wrapClasses" @click.stop="handleToggle">
+    <input type="hidden" :name="name" :value="currentValue" />
+    <div :class="innerClasses">
+      <slot name="open" v-if="trueValue === currentValue"></slot>
+      <slot name="close" v-if="falseValue === currentValue"></slot>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -34,7 +31,7 @@ export default {
     },
     size: {
       type: String,
-      default: "defalut"
+      default: "default"
     },
     name: String
   },
@@ -55,8 +52,8 @@ export default {
         }
       ];
     },
-    ineerClasses() {
-      return [`${this.prefixClass}-inner`, {}];
+    innerClasses() {
+      return [`${this.prefixClass}-inner`];
     }
   },
   methods: {
@@ -64,15 +61,15 @@ export default {
       if (this.disabled) return;
       const checked =
         this.currentValue === this.trueValue ? this.falseValue : this.trueValue;
-
       this.currentValue = checked;
       this.$emit("on-change", checked);
+      this.$emit("input", checked); // 让外部v-model也能被更改
     }
   },
   watch: {
     value(val) {
       if (val !== this.trueValue && val !== this.falseValue) {
-        throw "Value should be TrueValue or FalseValue";
+        throw "Value 值必须是 TrueValue 或 FalseValue 其中一个";
       }
       this.currentValue = val;
     }

@@ -3,7 +3,7 @@
     <article>
       <Anchor h1 title="Dropdown 下拉框" />
       <Anchor h2 title="概述" />
-      <p class="description">展示一个带折叠效果的面板</p>
+      <p class="desc">展示一个带折叠效果的面板</p>
       <Anchor h2 title="代码示例" />
       <!-- 基础使用 -->
       <Demo id="BASE">

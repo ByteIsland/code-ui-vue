@@ -14,6 +14,21 @@ export default [
     component: resolve => require(["./view/guide/introduce.vue"], resolve)
   },
   {
+    path: "/guide/install",
+    name: "install",
+    component: resolve => require(["./view/guide/install.vue"], resolve)
+  },
+  {
+    path: "/guide/start",
+    name: "start",
+    component: resolve => require(["./view/guide/start.vue"], resolve)
+  },
+  {
+    path: "/guide/update",
+    name: "update",
+    component: resolve => require(["./view/guide/update.vue"], resolve)
+  },
+  {
     path: "/components",
     redirect: "/components/button"
   },
@@ -81,5 +96,20 @@ export default [
     path: "/components/switch",
     name: "switch",
     component: resolve => require(["./view/components/switch.vue"], resolve)
+  },
+  {
+    path: "/components/alert",
+    name: "alert",
+    component: resolve => require(["./view/components/alert.vue"], resolve)
+  },
+  {
+    path: "/components/message",
+    name: "message",
+    component: resolve => require(["./view/components/message.vue"], resolve)
+  },
+  {
+    path: "/components/notice",
+    name: "notice",
+    component: resolve => require(["./view/components/notice.vue"], resolve)
   }
 ];

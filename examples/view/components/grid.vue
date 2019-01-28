@@ -23,11 +23,11 @@
         <c-col :span="16" class="demo-col">18：66.66%</c-col>
         <c-col :span="8" class="demo-col demo-col-light">8：33.33%</c-col>
       </c-row>
-      <p class="description">
+      <p class="desc">
         <code>codeUI</code>采用主流的24栅格系统, 将区域进行24等分, 可轻松应对大部分的布局要求。 使用栅格系统进行网页布局, 可让页面
         排版美观、舒适。
       </p>
-      <p class="description">栅格系统提供了<code>CRow</code>行和<code>CCol</code>列组件, 减少开发复杂度, 使用流程如下</p>
+      <p class="desc">栅格系统提供了<code>CRow</code>行和<code>CCol</code>列组件, 减少开发复杂度, 使用流程如下</p>
       <ul class="c-article-ul">
         <li>使用<code>CRow</code>在水平方向创建一行</li>
         <li>将一组<code>CCol</code>放置在<code>CRow</code>中</li>
@@ -132,35 +132,35 @@
       <!-- 布局 -->
       <Demo id="FLEXBJ">
         <div slot="case">
-          <p class="description">子元素向左排列</p>
+          <p class="desc">子元素向左排列</p>
           <c-row flex justify="start" class="code-row-bg">
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
           </c-row>
-          <p class="description">子元素向右排列</p>
+          <p class="desc">子元素向右排列</p>
           <c-row flex justify="end" class="code-row-bg">
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
           </c-row>
-          <p class="description">子元素居中排列</p>
+          <p class="desc">子元素居中排列</p>
           <c-row flex justify="center" class="code-row-bg">
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
           </c-row>
-          <p class="description">子元素等宽排列</p>
+          <p class="desc">子元素等宽排列</p>
           <c-row flex justify="space-between" class="code-row-bg">
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
           </c-row>
-          <p class="description">子元素分散排列</p>
+          <p class="desc">子元素分散排列</p>
           <c-row flex justify="space-around" class="code-row-bg">
             <c-col span="4"> col-4 </c-col>
             <c-col span="4"> col-4 </c-col>
@@ -177,21 +177,21 @@
       <!-- 对齐 -->
       <Demo id="FLEXDQ">
         <div slot="case">
-          <p class="description">顶部对齐</p>
+          <p class="desc">顶部对齐</p>
           <c-row flex justify="center" align="top" class="code-row-bg">
             <c-col span="4" style="line-height: 80px;">col-4</c-col>
             <c-col span="4" style="line-height: 40px;">col-4</c-col>
             <c-col span="4" style="line-height: 100px">col-4</c-col>
             <c-col span="4" style="line-height: 60px">col-4</c-col>
           </c-row>
-          <p class="description">居中对齐</p>
+          <p class="desc">居中对齐</p>
           <c-row flex justify="center" align="middle" class="code-row-bg">
             <c-col span="4" style="line-height: 80px;">col-4</c-col>
             <c-col span="4" style="line-height: 40px;">col-4</c-col>
             <c-col span="4" style="line-height: 100px">col-4</c-col>
             <c-col span="4" style="line-height: 60px">col-4</c-col>
           </c-row>
-          <p class="description">底部对齐</p>
+          <p class="desc">底部对齐</p>
           <c-row flex justify="center" align="bottom" class="code-row-bg">
             <c-col span="4" style="line-height: 80px;">col-4</c-col>
             <c-col span="4" style="line-height: 40px;">col-4</c-col>

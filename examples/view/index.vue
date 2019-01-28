@@ -1,22 +1,33 @@
 <template>
-<div class="container">
-  <div class="vertical-middle">
-    <img :src="require('assets/UIbg.png')" class="bg" alt="">
-    <div class="product-name">
-      <!-- <img src="../assets/logo-icon.png" class="logo" alt="logo" title="logo"> -->
-      <h2>Code UI</h2>
-      <img :src="require('assets/incubating.png')" class="incubating" alt="">
-    </div>
-    <div class="product-desc">
-      <p>一套基于Vue.Js的高可用的UI组件库</p>
-      <p>一套写法, 三端统一（PC、移动端、小程序）</p>
-    </div>
-    <div class="product-btns">
-      <router-link to="/components/button" class="c-button is_round">开始使用</router-link>
-      <a href="https://github.com/iTobys/code-ui" target="_blank" class="c-button is_round">Github</a>
+  <div class="container">
+    <div class="vertical-middle">
+      <img :src="require('assets/UIbg.png')" class="bg" alt="" />
+      <div class="product-name">
+        <h2>Code UI</h2>
+        <img
+          :src="require('assets/incubating.png')"
+          class="incubating"
+          alt="logo"
+        />
+      </div>
+      <div class="product-desc">
+        <p>一套基于Vue.Js的高可用的UI组件库</p>
+        <p>一套写法, 三端统一（PC、移动端、小程序）</p>
+      </div>
+      <div class="product-btns">
+        <router-link to="/guide/install" class="c-button is_round">
+          开始使用
+        </router-link>
+        <a
+          href="https://github.com/Code-Street/code-ui-vue"
+          target="_blank"
+          class="c-button is_round"
+        >
+          Github
+        </a>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>

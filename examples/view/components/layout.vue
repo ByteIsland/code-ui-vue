@@ -2,7 +2,7 @@
   <c-article>
     <article>
       <Anchor h1 title="Layout 布局"></Anchor>
-      <p class="description">协助进行页面级整体布局</p>
+      <p class="desc">协助进行页面级整体布局</p>
       <Anchor h2 title="组件概述"></Anchor>
       <ul class="c-article-ul">
         <li>

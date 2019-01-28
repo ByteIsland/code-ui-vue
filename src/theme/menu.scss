@@ -169,6 +169,7 @@ $SelectDrop: "c-select-dropdown";
   /* 白色主题下的水平布局 */
   &.#{$Menu}-horizontal {
     .#{$MenuItem}, .#{$Menu}-submenu {
+      color: $text-primary;
       line-height: inherit;
       height: inherit;
       border-bottom: 2px solid transparent;

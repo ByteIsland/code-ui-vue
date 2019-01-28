@@ -35,17 +35,17 @@
         <code-demo lang="auto" slot="code">{{ LoadingBar.JCYF }}</code-demo>
       </Demo>
       <api-table title="API" sub-title="LoadingBar instance" :type="3" type-name="函数名" typeofName="参数" :doc="LoadingBar.instanceDoc">
-        <p class="description">通过直接调用以下方法来使用组件(全局)：</p>
+        <p class="desc">通过直接调用以下方法来使用组件(全局)：</p>
         <ul>
           <li><code>this.$loading.start()</code></li>
           <li><code>this.$loading.finish()</code></li>
           <li><code>this.$loading.success()</code></li>
           <li><code>this.$loading.error()</code></li>
         </ul>
-        <p class="description">函数及参数说明如下</p>
+        <p class="desc">函数及参数说明如下</p>
       </api-table>
       <api-table :doc="LoadingBar.propsDoc">
-        <p class="description">另外提供了全局配置和全局销毁的方法：</p>
+        <p class="desc">另外提供了全局配置和全局销毁的方法：</p>
         <ul>
           <li><code>this.$loading.config(options)</code></li>
           <li><code>this.$loading.destroy()</code></li>

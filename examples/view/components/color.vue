@@ -3,16 +3,17 @@
     <article>
       <Anchor h1 title="Color 色彩" />
       <Anchor h2 title="概述" />
-      <p class="description">
+      <p class="desc">
         CodeUI 筛选了多套开源UI库的主色库以及设计规范,
         推荐使用以下调色板的颜色作为设计和开发规范,
         以便保证页面和组件视觉效果上的统一
       </p>
       <br />
       <Anchor h3 title="主色" />
-      <p class="description">
+      <p class="desc">
         CodeUI 使用行业上用的最多的主色调<code>蓝色</code>作为主色调, 其中 Light
-        Default 常用于在<code>hover</code>中, Dark Default 用于<code>active</code> 中
+        Default 常用于在<code>hover</code>中, Dark Default 用于
+        <code>active</code>中
       </p>
       <c-row gutter="18">
         <c-col span="8">
@@ -36,7 +37,9 @@
       </c-row>
       <br />
       <Anchor h3 title="辅助色" />
-      <p class="description">CodeUI 提供了4种辅助色, 常用于提示消息, 比如成功, 警告, 问题, 以及错误</p>
+      <p class="desc">
+        CodeUI 提供了4种辅助色, 常用于提示消息, 比如成功, 警告, 问题, 以及错误
+      </p>
       <c-row gutter="18">
         <c-col span="6">
           <c-card style="background: #4caf50">
@@ -65,7 +68,7 @@
       </c-row>
       <br />
       <Anchor h3 title="中性色" />
-      <p class="description">
+      <p class="desc">
         中性色常用于标题、文本、阴影、禁用等，可以体现出页面的层次结构
       </p>
       <c-row gutter="18">
@@ -105,7 +108,7 @@
       </c-row>
       <br />
       <Anchor h3 title="边框" />
-      <p class="description">CodeUI 提供4种边框颜色, 可用于各种不同场景</p>
+      <p class="desc">CodeUI 提供4种边框颜色, 可用于各种不同场景</p>
       <c-row gutter="18">
         <c-col span="6">
           <c-card style="background: #cfd8dc">
@@ -149,13 +152,15 @@ export default {
 </script>
 
 <style lang="scss">
-p.name {
-  font-size: 16px;
-  color: #fff;
-}
-p.desc {
-  font-size: 12px;
-  color: #fff;
-  opacity: 0.6;
+.c-card {
+  p.name {
+    font-size: 16px;
+    color: #fff;
+  }
+  p.desc {
+    font-size: 12px;
+    color: #fff;
+    opacity: 0.6;
+  }
 }
 </style>

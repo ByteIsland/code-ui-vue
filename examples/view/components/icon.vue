@@ -2,11 +2,11 @@
   <c-article>
     <article>
       <Anchor h1 title="Icon 图标"></Anchor>
-      <p class="description">
+      <p class="desc">
         CodeUI的字体图标从<a href="http://www.iconfont.cn/" target="_blank">iconfont</a>挑选的
       </p>
       <Anchor title="使用方法" h2 id="USER"></Anchor>
-      <p class="description">
+      <p class="desc">
         使用<code>&lt;c-icon /&gt;</code>组件,
         往<code>name</code>中传入指定图标的名称
       </p>
@@ -16,7 +16,7 @@
         :closable="false"
       ></c-alert>
       <code-demo :bg="true" lang="html">{{ IconDoc.Icon }}</code-demo>
-      <p class="description">渲染后</p>
+      <p class="desc">渲染后</p>
       <code-demo :bg="true" lang="html">{{ IconDoc.IconRender }}</code-demo>
       <api-table
         title="API"

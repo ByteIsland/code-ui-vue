@@ -1,7 +1,10 @@
 <template>
   <div class="menu-list">
-    <c-menu :active-name="activeName" v-if="isGuide">
+    <c-menu :active-name="activeName" v-if="isGuide" style="width: auto">
       <c-menu-item name="introduce" to="/guide/introduce">介绍</c-menu-item>
+      <c-menu-item name="install" to="/guide/install">安装</c-menu-item>
+      <c-menu-item name="start" to="/guide/start">快速入门</c-menu-item>
+      <c-menu-item name="update" to="/guide/update">更新日志</c-menu-item>
     </c-menu>
     <c-menu :active-name="activeName" v-else style="width: auto">
       <c-menu-group title="基础">

@@ -2,7 +2,7 @@
   <c-article>
     <article>
       <Anchor h1 title="Button 按钮"></Anchor>
-      <p class="description">基础组件, 触发业务逻辑可使用</p>
+      <p class="desc">基础组件, 触发业务逻辑可使用</p>
       <Anchor h2 title="代码示例"></Anchor>
       <Demo id="BASE">
         <div slot="case">

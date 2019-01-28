@@ -5,6 +5,16 @@
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
 	.c-article {
 		padding: 20px 30px;
+    &:after {
+      content: " ";
+      display: block;
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      left: -1px;
+      top: 0;
+      background: #ddd;
+    }
 		code:not(.hljs) {
 			display: inline-block;
 			font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
@@ -16,7 +26,7 @@
 			color: #666;
 			border: 1px solid #eee;
 		}
-		p.description {
+		p.desc {
 			font-size: 14px;
 			margin: 5px;
 			a {
@@ -48,4 +58,14 @@
       }
     }
 	}
+}
+
+.guide-list{
+  padding-left: 40px;
+  list-style-type: disc;
+  li {
+    list-style-type: disc;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
 }
