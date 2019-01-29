@@ -3,7 +3,7 @@ $animation-time: 200ms; // 动画时间
 /**
  animation 公用样式
  */
-@mixin motion-common ($time:2s) {
+@mixin motion-common ($time:2.5s) {
   animation-duration: $time;
   animation-fill-mode: both;  //  可控制animation状态结束的最后状态， both为向前和向后填充模式都被应用。
 };

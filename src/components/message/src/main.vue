@@ -1,32 +1,25 @@
 <template>
-	<transition 
-		name="c-message-slide"  
-		@after-leave="afterLeave" 
-		@after-enter="afterEnter"
-	>
-		<div 
-			class="c-message"
-			:style="verticalTop"
-			v-show="visible"
-		>
-			<div class="c-message--main" :class="type">
-				<i 
-					class="c-message--icon"
-					:class="verticalType"
-				></i>
-				<span 
-					class="c-message--title" 
-					:class="{'is-padding': showClose}"
-					v-text="title" 
-				></span>
-				<i 
-					class="c-message--closeBtn code-icon-close"
-					v-if="showClose"
-					@click.stop="handleClose"
-				></i>
-			</div>
-		</div>
-	</transition>
+  <transition
+    name="c-message-slide"
+    @after-leave="afterLeave"
+    @after-enter="afterEnter"
+  >
+    <div class="c-message" :style="verticalTop" v-show="visible">
+      <div class="c-message--main" :class="type">
+        <i class="c-message--icon" :class="verticalType"></i>
+        <span
+          class="c-message--title"
+          :class="{ 'is-padding': showClose }"
+          v-text="title"
+        ></span>
+        <i
+          class="c-message--closeBtn code-icon-close"
+          v-if="showClose"
+          @click.stop="handleClose"
+        ></i>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -86,6 +79,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-</style>

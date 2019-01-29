@@ -1,0 +1,34 @@
+/**
+  fade渐入动画
+ */
+@mixin fade-motion ($className, $keyframeName) {
+  @include makeMotion($className, $keyframeName);
+  .#{$className}-enter-active,
+  .#{$className}-apper {
+    opacity: 0;
+    animation-timing-function: linear;
+  }
+  .#{$className}-leave-active {
+    animation-timing-function: linear;
+  }
+}
+
+@include fade-motion("fade", CFade)
+
+@keyframes CFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+     opacity: 1;
+  }
+}
+
+@keyframes CFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

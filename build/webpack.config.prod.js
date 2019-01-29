@@ -13,7 +13,7 @@ const webpackBaseConfig = require("./webpack.config.base.js");
 const VueLoaderPlugin = require("vue-loader/lib/plugin"); // Vue-loader15.x后必须携带
 
 const modules = merge(webpackBaseConfig, {
-  mode: "production",
+  mode: "production", // 生产环境
   entry: {
     main: "./src/index.js"
   },
@@ -40,13 +40,11 @@ const modules = merge(webpackBaseConfig, {
   plugins: [
     // new BundleAnalyzerPlugin(),
     new VueLoaderPlugin(),
-    new webapck.DefinePlugin({
-      "process.env.NODE_ENV": '"production"'
-    }),
     new UglifyPlugin({
       parallel: true,
       sourceMap: true
     }),
+    // GZIP 压缩
     new CompressionPlugin({
       filename: "[path].gz[query]", //目标资源名称。[file] 会被替换成原资源。[path] 会被替换成原资源路径，[query] 替换成原查询字符串
       algorithm: "gzip", // gzip算法

@@ -1,47 +1,35 @@
 <template>
-  <transition name="c-alert-fade">
-    <div
-      class="c-alert"
-      :class="[typeClass, center ? 'is-center' : '']"
-      v-show="visible"
-    >
-      <i
-        class="c-alert--icon c-icon"
-        :class="[typeIcon, isBigIcon]"
-        v-if="showIcon"
-      ></i>
-      <div class="c-alert--content">
-        <span
-          class="c-alert--title"
-          :class="[isBoldTitle]"
-          v-if="title || $slots.title"
-        >
-          <slot name="title">{{ title }}</slot>
-        </span>
-        <slot>
-          <p class="c-alert-msg" v-if="msg">{{ msg }}</p>
-        </slot>
-        <i
-          class="c-alert-closebtn"
-          :class="{
-            'is-customed': closeText !== '',
-            'code-icon-close': closeText === ''
-          }"
-          v-if="closable"
-          @click="close()"
-          >{{ closeText }}</i
-        >
+  <transition name="fade">
+    <div :class="wrapClasses" v-show="visible">
+      <div :class="iconClasses" v-if="showIcon">
+        <slot name="icon"><c-icon :name="typeIcon"/></slot>
       </div>
+      <div class="c-alert-content">
+        <span :class="titleClasses"><slot></slot></span>
+        <p :class="messageClasses"><slot name="desc"></slot></p>
+      </div>
+      <template>
+        <c-icon
+          name="close"
+          :class="closeClasses"
+          v-if="closable && closeText === ''"
+          @click="close"
+        />
+        <i :class="closeClasses" v-else @click="close">{{ closeText }}</i>
+      </template>
     </div>
   </transition>
 </template>
 
 <script>
+import CIcon from "../../icon";
 const TYPE_CLASS_MAP = {
-  success: "c-icon-success",
-  error: "c-icon-error",
-  warning: "c-icon-warning"
+  success: "success",
+  error: "error",
+  warning: "warning",
+  info: "info"
 };
+const prefixClass = "c-alert";
 export default {
   name: "CAlert",
   props: {
@@ -49,21 +37,13 @@ export default {
       type: String,
       default: "info"
     },
-    title: {
-      type: String,
-      default: ""
-    },
-    msg: {
-      type: String,
-      default: ""
-    },
     showIcon: {
       type: Boolean,
-      default: true
+      default: false
     },
     closable: {
       type: Boolean,
-      default: true
+      default: false
     },
     closeText: {
       type: String,
@@ -73,28 +53,55 @@ export default {
   },
   data() {
     return {
-      visible: true
+      prefixClass,
+      visible: true,
+      hasDesc: false
     };
   },
   computed: {
+    wrapClasses() {
+      return [
+        `${prefixClass}`,
+        `${prefixClass}-${this.type}`,
+        {
+          [`${prefixClass}-with-center`]: this.center,
+          [`${prefixClass}-with-desc`]: this.hasDesc,
+          [`${prefixClass}-with-icon`]: this.showIcon
+        }
+      ];
+    },
+    titleClasses() {
+      return [`${prefixClass}-title`];
+    },
+    messageClasses() {
+      return `${prefixClass}-msg`;
+    },
+    iconClasses() {
+      return `${prefixClass}-icon`;
+    },
+    closeClasses() {
+      return [
+        `${prefixClass}-closeBtn`,
+        {
+          "is-custom": this.closeText !== ""
+        }
+      ];
+    },
     typeIcon() {
-      return TYPE_CLASS_MAP[this.type] || "code-icon-info";
-    },
-    typeClass() {
-      return `c-alert--${this.type}`;
-    },
-    isBoldTitle() {
-      return this.msg || this.$slots.default ? "is-bold" : "";
-    },
-    isBigIcon() {
-      return this.msg || this.$slots.default ? "is-big" : "";
+      return TYPE_CLASS_MAP[this.type];
     }
   },
   methods: {
-    close() {
+    close(e) {
       this.visible = false;
-      // this.$emit("close");
+      this.$emit("on-close", e);
     }
+  },
+  mounted() {
+    this.hasDesc = this.$slots.desc !== undefined;
+  },
+  components: {
+    CIcon
   }
 };
 </script>

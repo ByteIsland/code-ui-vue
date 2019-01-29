@@ -1,76 +1,92 @@
 /*
 * alert
 */
-@import './common/variable.scss';
-.c-alert {
+
+$Alert: "c-alert";
+
+.#{$Alert} {
 	display: flex;
 	align-items: center;
 	width: 100%;
-	padding: 10px 16px;
+	padding: 6px 12px;
 	border-radius: 5px;
 	position: relative;
 	opacity: 1;
+  border: 1px solid transparent;
 	box-sizing: border-box;
 	overflow: hidden;
-	transition: opacity .35s ease-in-out;
 	&.is-center{
 		justify-content: center;
 		text-align: center;
 	}
-	&.c-alert-fade-leave-to{
-		opacity: 0;
+	.#{$Alert}-icon {
+    font-size: $font-size-large;
 	}
-	&.c-alert--success {
-		color: $color-success;
-		background: $color-success-bg;
-		border: 1px solid $color-success;
-	}
-	&.c-alert--error {
-		color: $color-danger;
-		background: $color-danger-bg;
-		border: 1px solid $color-danger;
-	}
-	&.c-alert--warning {
-		color: $color-warning;
-		background: $color-warning-bg;
-		border: 1px solid $color-warning;
-	}
-	&.c-alert--info {
-		color: $color-info;
-		background: $color-info-bg;
-		border: 1px solid $color-info;
-	}
-	.c-alert--icon {
-		font-size: $font-size-large;
-		width: 16px;
-		margin-top: 2px;
-		&.is-big {
-			font-size: 32px;
-			width: 32px;
-		}
-	}
-	.c-alert--content {
+	.#{$Alert}-content {
 		padding: 0 10px;
-		.c-alert--title {
-			font-size: $font-size-medium;
-			&.is-bold{
-				font-weight: bold;
-			}
-		}
-		.c-alert-msg {
-			font-size: $font-size-small;
-			margin-top: 5px;
-		}
-		.c-alert-closebtn {
-			font-size: $font-size-small;
-			font-style: normal;
-			position: absolute;
-			right: 16px;
-			top: 16px;
-			cursor: pointer;
-			&.is-customed{
-				top: 13px;
-			}
-		}
 	}
+  .#{$Alert}-title {
+    font-size: $font-size-medium;
+  }
+  .#{$Alert}-msg {
+    display: none;
+    font-size: $font-size-small;
+    margin-top: 5px;
+  }
+  .#{$Alert}-closeBtn {
+    font-size: $font-size-small;
+    font-style: normal;
+    position: absolute;
+    right: 16px;
+    top: 10px;
+    cursor: pointer;
+    &.is-custom{
+      top: 8px;
+    }
+  }
 }
+
+/* 色彩框 */
+.#{$Alert}-success {
+  color: $color-success;
+  background: $color-success-bg;
+  border-color: $color-success;
+}
+.#{$Alert}-error {
+  color: $color-danger;
+  background: $color-danger-bg;
+  border-color: $color-danger;
+}
+.#{$Alert}-warning {
+  color: $color-warning;
+  background: $color-warning-bg;
+  border-color: $color-warning;
+}
+.#{$Alert}-info {
+  color: $color-primary;
+  background: $color-primary-bg;
+  border-color: $color-primary;
+}
+
+/* 带描述 */
+.#{$Alert}-with-desc {
+  padding: 16px 25px;
+  .#{$Alert}-msg {
+    display: block;
+    color: $text-primary;
+  }
+}
+
+/* 带图标 */
+.#{$Alert}-with-icon {
+  .#{$Alert}-icon {
+    margin-top: 2px;
+  }
+  &.#{$Alert}-with-desc {
+    .#{$Alert}-icon i{
+      width: 32px;
+      font-size: 32px;
+    }
+  }
+}
+

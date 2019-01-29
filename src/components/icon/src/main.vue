@@ -21,9 +21,9 @@ export default {
     // 字体大小
     size: {
       validate(value) {
-        return CheckProps(value, ["lg", "2x", "3x", "4x", "5x"]);
+        return CheckProps(value, ["lg", "2x", "3x", "4x", "5x", "inherit"]);
       },
-      default: "lg"
+      default: "inherit"
     },
     // 色彩
     color: {

@@ -1,12 +1,12 @@
 {
   "name": "code-ui-vue",
-  "version": "0.1.14-beta",
+  "version": "0.1.15-beta",
   "author": "Saber",
   "title": "Code-UI",
   "description": "A fun for VueJS UI Library",
   "main": "dist/codeui.min.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development  --progress --config build/webpack.config.dev.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --config build/webpack.config.dev.js",
     "build:style": "gulp --gulpfile build/gulp-style.js",
     "build:prod": "webpack --config build/webpack.config.prod.js",
     "build:doc": "webpack --config build/webpack.config.doc.js",
@@ -67,6 +67,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
     "cheerio": "^1.0.0-rc.2",
+    "clean-webpack-plugin": "^1.0.1",
     "compression-webpack-plugin": "^2.0.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.0.1",

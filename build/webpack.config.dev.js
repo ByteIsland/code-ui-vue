@@ -48,7 +48,9 @@ const modules = merge(webpackBaseConfig, {
     quiet: true, // 开启后控制台不在输出打包信息
     watchOptions: {
       // 与监视文件相关的控制选项
-      poll: true
+      poll: 1000,
+      aggregateTimeout: 300, // 重新构建前增加延迟
+      ignored: /node_modules/ // 拦截node_modules
     }
   },
 
@@ -67,8 +69,7 @@ const modules = merge(webpackBaseConfig, {
       template: path.join(__dirname, "../examples/index.html"),
       favicon: path.join(__dirname, "../assets/favicon@32.ico")
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(), // 模块热替换
     new FriendlyErrorsPlugin({
       // 每次编译成功后会打印这些设置的信息
       compilationSuccessInfo: {

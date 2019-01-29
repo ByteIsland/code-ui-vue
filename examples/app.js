@@ -15,7 +15,10 @@ Vue.config.debug = true;
 
 const router = new VueRouter({
   mode: "history",
-  routes: Routers
+  routes: Routers,
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  }
 });
 
 // 全局拦截
