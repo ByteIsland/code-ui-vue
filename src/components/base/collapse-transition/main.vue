@@ -13,6 +13,7 @@
 </template>
 
 <script>
+// 折叠菜单动画 一般用于Menu中
 export default {
   name: "CollapseTransition",
   data() {
